@@ -1,5 +1,5 @@
 //import './ProjectList.css';
-import items from '../projectMock.json';
+import items from '../../api/mock/projectMock.json';
 
 
 
