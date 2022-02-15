@@ -6,6 +6,7 @@ import ProjectList from './components/project/Project';
 import ProjectDetail from './components/project/ProjectDetail';
 import Order from './components/Order';
 import EmptyPage from './components/EmptyPage';
+import Discover from './components/project/Discover';
 
 //테스트주석
 //테스트주석 브런치 최신화
@@ -17,7 +18,7 @@ return (
     <Routes>
         <Route path='/' element={ <h1>메인페이지</h1>} />
 
-        <Route path='/discover' element={<ProjectList/>} />
+        <Route path='/discover' element={<Discover/>} />
         <Route path='/projectdetail/:prodNo' element={<ProjectDetail/>} />
         <Route path='/order/:prodNo/:rewardNo' element={<Order/>} />
         <Route path='*' element={<EmptyPage/>}/>

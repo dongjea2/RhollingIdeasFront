@@ -1,17 +1,21 @@
-//import './ProjectList.css';
-import items from '../../api/mock/projectMock.json';
-
+import './Project.css';
+import leftDayImg from '../../images/mainpage/time.PNG'
+import { Link } from 'react-router-dom';
 
 
 function Project({ item }) {
   const {  id ,imgUrl, category,maker, title,
-            brief,sumPrice ,ahchiveRate, remainingDate } = item;
+            brief,sumPrice ,ahciveRate, remainingDate } = item;
 
+  console.log(id);
+  console.log(title);
 
   return (
-    <div className="item">
-         <img className="item-image" src={imgUrl} alt={title}/> 
-        <button className="like"></button>
+    <>
+        <Link to={'/projectdetail/'+Number(id)}>
+          <img className="item-image" src={imgUrl} alt={title}/> 
+        </Link>
+        {/*<button className="like"></button>*/}
         <button className="not-like"></button>
 
         <div className="info">
@@ -26,23 +30,25 @@ function Project({ item }) {
 
             <div className="priceAndPercent">
                       <span className="price">{sumPrice}원</span>
-                      <span className="percent">{ahchiveRate}%</span>
-                      <span className="leftDay"> <img src="/rhollEE/images/mainpage/time.PNG"/> {remainingDate} </span>
+                      <span className="percent">{ahciveRate}%</span>
+                      <span className="leftDay"> <img src={leftDayImg}/> {remainingDate} </span>
             </div>
-        </div>
-    </div>
-
+         </div>
+    </>
   );
 }
 
-export default function ProjectList() {
+export default function ProjectList({items}) {
   return (
-    <ul className="FoodList">
+    <div className="item-rapper">
+      <div className="item-inrap1">
+
       {items.map((item) => (
-        <li key={item.id}>
+      <div className="item" key={item.id}>
           <Project item={item} />
-        </li>
+      </div>
       ))}
-    </ul>
+      </div>
+      </div>
   );
 }
