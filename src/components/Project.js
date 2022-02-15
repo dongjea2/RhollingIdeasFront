@@ -4,7 +4,8 @@ import items from '../projectMock.json';
 
 
 function Project({ item }) {
-  const {  id ,imgUrl, category,maker, title, brief,sumPrice ,ahchiveRate, remainingDate } = item;
+  const {  id ,imgUrl, category,maker, title,
+            brief,sumPrice ,ahchiveRate, remainingDate } = item;
 
 
   return (
