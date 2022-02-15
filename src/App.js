@@ -1,25 +1,21 @@
 import React, {useState, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Routes,Route} from "react-router-dom"
+import ProjectList from './components/Project';
+
 function App () {
-const [message, setMessage] = useState("");
-useEffect(() => {
-fetch('/demo/api/hello')
-.then(response => response.text())
-.then(message => {
-setMessage(message);
-});
-},[])
+
 return (
-<div className="App">
-<header className="App-header">
-<img src={logo} className="App-logo" alt="logo"/>
-<h1 className="App-title">{message}</h1>
-</header>
-<p className="App-intro">
-To get started, edit <code>src/App.js</code> and save to reload.
-</p>
-</div>
+<BrowserRouter>
+    <Routes>
+        <Route exact path='/' element={ <h1>메인페이지</h1>} />
+
+        <Route path='/discover' element={<ProjectList/>} />
+
+
+    </Routes>
+</BrowserRouter>
 )
 }
 export default App;
