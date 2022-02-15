@@ -1,0 +1,73 @@
+:root{
+    /* Color*/
+    /* Size */
+    --side-pandding: 12px;
+    /* Font Size */
+    --font-title:20px;
+}
+
+.item{
+    /* 플렉스 00 추가해야 nowarp해도 flex애들끼리 꽉 안붙음 */
+    flex: 0 0 auto;
+    display: inline-block;
+    flex-basis: 250px;
+    flex-grow: 1;
+    margin-bottom: 50px;
+    padding-right: 14px;
+    width: 200px;
+    transition: all 0.5s; 
+}
+
+
+/* 펀딩 리스트 (부모) */
+.fundingList{
+    margin: 0 auto;
+    margin-top: 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1400px;
+}
+
+
+
+
+/* --------------------Rapper------------------------ */
+.fundingList .itemRapper{
+    display: flex;
+    flex-direction: column;
+}
+
+/* intem-rpper 부모--------------------------------------------------------- */
+.fundingList .itemRapper .itemInrap{
+    display: flex;
+    flex-wrap: wrap;
+	
+}
+
+
+/* 게시판 제목 */
+.fundingList .listTitle{
+    width: 93%;
+    font-size: 18px;
+    line-height: 29px;
+    letter-spacing: -0.025em;
+    margin: 0px 0px 10px;
+    font-weight: bold;
+    display: -webkit-box;
+    overflow: hidden;
+    max-height: 58px;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    
+}
+
+
+.fundingList .listLength .fundcount{
+    color: rgb(255, 87, 87);
+    font-size: 15px;
+    padding-right: 0px;
+    padding-left: 14px;
+}
