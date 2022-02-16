@@ -1,0 +1,31 @@
+.slickImg{
+    width: 400px;
+}
+
+.slickDiv{
+    display: flex !important;
+    flex-direction: row ;
+
+}
+
+.textArea{
+    display: flex;
+    flex-direction: column;
+    margin-left: 60px;
+    font-size: 40px;
+}
+
+.Slider {
+    margin-top: 20px;
+
+}
+
+.titles {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.adBrief {
+    font-size: 35px;
+    margin-left: 10px;
+}
