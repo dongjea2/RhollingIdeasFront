@@ -7,7 +7,7 @@ import EmptyPage from './components/EmptyPage';
 import MainPage from './components/mainpage/MainPage';
 import DiscoverPage from './components/project/DiscoverPage';
 import Header from './components/header/Header';
-import Post from './components/project/Post';
+import OrderList from './components/profile/OrderList.js';
 
 //테스트주석
 //테스트주석 브런치 최신화
@@ -23,6 +23,7 @@ return (
         <Route path='/projectdetail/:prodNo/*' element={<ProjectDetail/>} />  
         <Route path='/order/:prodNo/:rewardNo' element={<Order/>} />
         <Route path='*' element={<EmptyPage/>}/>
+        <Route path='/orderlist' element={<OrderList/>} />
     </Routes>
 </BrowserRouter>
 )

@@ -1,0 +1,137 @@
+@charset "UTF-8";
+.order-list{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 14px 24px 24px;
+}
+.order-cnt-search{
+    line-height: 44px;
+    display: flex;
+    width: 100%;
+}
+.order-cnt{
+    width: 57%;
+    display: flex;
+}
+.order-cnt>span{
+	color: rgb(255, 87, 87);
+}
+.order-search{
+    width: 43%;
+    margin: 0;
+    display: flex;
+    border: 1px solid rgb(230, 230, 230);
+    padding: 0px 0px 0px 12px;
+    max-height: 44px;
+    min-width: 100px;
+    align-items: center;
+    border-radius: 4px;
+    text-align: center;
+}
+.order-search>div{
+    position: absolute;
+    display: inline-flex;
+    width: 20px;
+    height: 20px;
+    align-items: center;
+}
+.order-search>div>img{
+    display: flex;
+    min-width: 32px;
+    transform: scale(0.5);  
+}
+.order-search>input{
+    display: flex;
+    font-size: 14px;
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 11px 0px;
+    box-sizing: border-box;
+    height: 100%;
+    outline: none;
+    margin-left: 35px;
+}
+
+.noorder-content{
+	margin: 0 auto;
+}
+
+.order-content{
+	width: 100%;
+	padding-top: 48px;
+}
+.order{
+	margin-bottom: 40px;
+}
+.payment-cont{
+	margin-bottom: 10px;
+}
+.paymentresult{
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 27px;
+    letter-spacing: -0.02em;
+    color: rgb(61, 61, 61);
+    margin-left: 16px;
+}
+.each-order-content{
+    border: 1px solid rgb(230, 230, 230);
+    display: flex;
+    padding: 20px;
+}
+.order-img{
+	margin-right: 20px;
+	width: 154px;
+    height: 116px;
+}
+.order-img>a>img{
+	width: 154px;
+    height: 116px;
+}
+
+.date-payno{
+	font-size: 12px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+    color: rgb(109, 109, 109);
+}
+.longtitle{
+    line-height: 27px;
+    font-weight: bold;
+}
+.deliverselect{
+	font-size: 14px;
+    line-height: 24px;
+    color: rgb(109, 109, 109);
+}
+.reward-item{
+    line-height: 18px;
+    letter-spacing: -0.005em;
+    color: rgb(61, 61, 61);
+}
+.reward-item>div{
+	font-size: 12px;
+	margin-top: 8px;
+}
+.reward-item>ul{
+	padding-left: 16px;
+	list-style-type: disc;
+}
+.reward-item>ul>li{
+	font-size: 11px;
+	margin: 0 4px;
+	list-style-type: disc;
+}
+.deliverdate{
+	margin-top: 8px;
+	font-size: 11px;
+    line-height: 18px;
+    letter-spacing: -0.005em;
+    color: rgb(255, 87, 87);
+}
+.totalprice{
+	font-size: 12px;
+	color: rgb(61, 61, 61);
+	line-height: 1.7em;
+}
