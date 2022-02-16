@@ -1,0 +1,214 @@
+/* --------------------Rapper------------------------ */
+.fundingList {
+    display: flex;
+    flex-direction: column;
+}
+
+.itemRapper{
+    display: flex;
+    flex-direction: column;
+}
+
+/* 여기에 wrap */
+.fundingList  {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1500px;
+}
+
+.itemRapper {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1500px;
+}
+
+.itemInrap1{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1500px;
+}
+.fundingList , .itemRapper .itemInrap2{
+    display: flex;
+    margin-top: 250px;
+}
+
+
+/* --------------------------------------------- */
+
+
+.item{
+    flex-basis: 250px;
+    flex-grow: 1;
+    margin-bottom: 100px;
+    padding-left: 14px;
+    padding-right: 14px;
+    margin-bottom: 180px;
+    max-width: 360px;
+}
+
+/* 아이템 이미지 */
+.item  .itemImage{
+    /* 최소 :321.797 x 241.336 */
+    /* 최대 :631.500 x 473.625 */
+    margin: 0px;
+    width: 100%;
+    height: auto;
+    padding: 0px;
+    overflow-x: hidden;
+    border-radius: 4px;
+    background: #f6f5f5;
+    min-width: 321.797px;
+    min-height: 241.336px;
+    max-width: 631.500px;
+    max-height: 473.652px;
+}
+
+
+button,
+button:focus{
+    border:  none;
+    cursor: pointer;
+    outline: none;
+}
+button.like {
+    width: 30px;
+    height: 30px;
+    background: url("../../images/mainpage/heart2.png") center center / 100% no-repeat;
+}
+
+button.notLike{
+    width: 30px;
+    height: 30px;
+    background: url("../../images/mainpage/heart.png") center center / 100% no-repeat; 
+
+}
+
+.info{
+    height: 100px;
+}
+.title{
+    height: 50px;
+    width: 93%;
+    font-size: 20px;
+    line-height: 29px;
+    letter-spacing: -0.025em;
+    margin: 0px 0px 10px;
+    font-weight: bold;
+    display: -webkit-box;
+    overflow: hidden;
+    max-height: 58px;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.catelink{
+    display: flex;
+}
+.catelink a{
+    text-decoration-line: none;
+     color: inherit;
+}
+.info .category{
+    /* 여기마진 */
+    margin: 0;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: -0.015em;
+    color: rgb(158, 158, 158);
+    padding: 0px 3px 10px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    height: 100%;
+}
+.info .company{
+    margin: 0;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: -0.015em;
+    color: rgb(158, 158, 158);
+    padding: 0px 5px 0px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    height: 100%;
+}
+.info .iteminfo{
+font-family: 'SF Pro Text', 'Helvetica Neue', 'Segoe UI', Arial, 'NotoSansKR', sans-serif;
+    font-size: 14px;
+    margin: 0 ;
+    line-height: 24px;
+    margin-top: 5px;
+    margin-bottom: 12px;
+    letter-spacing: -0.015em;
+    font-weight: 400;
+    background: #FFF;
+    color: #3d3d3d;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    height: 48px;
+    max-height: 48px;
+    word-break: keep-all;
+}
+.priceAndPercent{
+    border-top: 2px solid gray ;
+    display: flex;
+    width: 100%;
+    min-width: 321.797px;
+    min-height: 241.336px;
+    max-width: 631.500px;
+    max-height: 473.652px;
+}
+.info .price{
+font-size: 18px;
+    line-height: 27px;
+    margin: 0 ;
+    margin-top: 5px;
+    letter-spacing: -0.02em;
+    color: rgb(61, 61, 61);
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-height: 100%;
+    height: 100%;
+}
+.info .percent{
+    font-family: 'SF Pro Text', 'Helvetica Neue', 'Segoe UI', Arial, 'NotoSansKR', sans-serif;
+    font-size: 14px;
+    margin: 10px ;
+    line-height: 24px;
+    letter-spacing: -0.015em;
+    font-weight: 400;
+    background: #FFF;
+    color: rgb(255, 87, 87);
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    height: 100%;
+}
+.info .leftDay{
+    font-family: 'SF Pro Text', 'Helvetica Neue', 'Segoe UI', Arial, 'NotoSansKR', sans-serif;
+    font-size: 14px;
+    margin: 0 ;
+    margin-top: 10px;
+    line-height: 24px;
+    letter-spacing: -0.015em;
+    font-weight: 400;
+    background: #FFF;
+    margin-left: auto;
+    color: rgb(158, 158, 158);
+    display: flex;
+    min-height: 100%;
+    height: 100%;
+}
+.priceAndPercent img{
+    margin-top: 3px;
+    height: 20px;
+    width: 20px;
+    min-width: 20px;
+}
