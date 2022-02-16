@@ -6,6 +6,7 @@ export default function MainPage(){
 
     return(
         <>
+        <Advertise/>
         <AttentionProjects items={items}/>
         </>
         
