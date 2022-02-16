@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/01-steamed-rice.png",
+    "category": "테스트카테",
+    "maker":"이동재",
+    "title": "임시 제목",
+    "brief":"임시 설명입니다.",
+    "sumPrice":"100,000",
+    "ahciveRate": "53",
+    "remainingDate":"13일 남음"
+  },
+{
+    "id": 2,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/01-steamed-rice.png",
+    "category": "테스트카테2",
+    "maker":"이동재",
+    "title": "임시 제목",
+    "brief":"임시 설명입니다.",
+    "sumPrice":"100,000",
+    "ahciveRate": "53",
+    "remainingDate":"13일 남음"
+  },
+{
+    "id": 3,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/01-steamed-rice.png",
+    "category": "테스트카테3",
+    "maker":"이동재",
+    "title": "임시 제목",
+    "brief":"임시 설명입니다.",
+    "sumPrice":"100,000",
+    "ahciveRate": "53",
+    "remainingDate":"13일 남음"
+  },
+  {
+    "id": 4,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/01-steamed-rice.png",
+    "category": "테스트카테3",
+    "maker":"이동재",
+    "title": "임시 제목",
+    "brief":"임시 설명입니다.",
+    "sumPrice":"100,000",
+    "ahciveRate": "53",
+    "remainingDate":"13일 남음"
+  },
+  {
+    "id": 5,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/01-steamed-rice.png",
+    "category": "테스트카테3",
+    "maker":"이동재",
+    "title": "임시 제목",
+    "brief":"임시 설명입니다.",
+    "sumPrice":"100,000",
+    "ahciveRate": "53",
+    "remainingDate":"13일 남음"
+  },
+  {
+    "id": 6,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/01-steamed-rice.png",
+    "category": "테스트카테3",
+    "maker":"이동재",
+    "title": "임시 제목",
+    "brief":"임시 설명입니다.",
+    "sumPrice":"100,000",
+    "ahciveRate": "53",
+    "remainingDate":"13일 남음"
+  },
+  {
+    "id": 7,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/01-steamed-rice.png",
+    "category": "테스트카테3",
+    "maker":"이동재",
+    "title": "임시 제목",
+    "brief":"임시 설명입니다.",
+    "sumPrice":"100,000",
+    "ahciveRate": "53",
+    "remainingDate":"13일 남음"
+  },
+  {
+    "id": 8,
+    "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/01-steamed-rice.png",
+    "category": "테스트카테3",
+    "maker":"이동재",
+    "title": "임시 제목",
+    "brief":"임시 설명입니다.",
+    "sumPrice":"100,000",
+    "ahciveRate": "53",
+    "remainingDate":"13일 남음"
+  }
+]
