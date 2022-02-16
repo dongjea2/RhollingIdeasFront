@@ -6,6 +6,8 @@ import Order from './components/Order';
 import EmptyPage from './components/EmptyPage';
 import MainPage from './components/mainpage/MainPage';
 import DiscoverPage from './components/project/DiscoverPage';
+import Signup from './components/login/Singup';
+import Login from './components/login/Login';
 import Header from './components/header/Header';
 import OrderList from './components/profile/OrderList.js';
 
@@ -24,6 +26,8 @@ return (
         <Route path='/order/:prodNo/:rewardNo' element={<Order/>} />
         <Route path='*' element={<EmptyPage/>}/>
         <Route path='/orderlist' element={<OrderList/>} />
+        <Route path='/signup' element={<Signup/>}/>
+        <Route path='/login' element={<Login />}/>
     </Routes>
 </BrowserRouter>
 )
