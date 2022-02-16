@@ -1,0 +1,112 @@
+[
+    {
+        "id": 1,
+        "category": "전체",
+        "url": "/"
+    },
+    {
+        "id": 2,
+        "category": "보드게임 · TRPG",
+        "url": "/"
+    },
+    {
+        "id": 3,
+        "category": "디지털 게임",
+        "url": "/"
+    },
+    {
+        "id": 4,
+        "category": "웹툰 · 만화",
+        "url": "/"
+    },
+    {
+        "id": 5,
+        "category": "웹툰 리소스",
+        "url": "/"
+    },
+    {
+        "id": 6,
+        "category": "디자인 문구",
+        "url": "/"
+    },
+    {
+        "id": 7,
+        "category": "캐릭터 · 굿즈",
+        "url": "/"
+    },
+    {
+        "id": 8,
+        "category": "홈 · 리빙",
+        "url": "/"
+    },
+    {
+        "id": 9,
+        "category": "테크 · 가전",
+        "url": "/"
+    },
+    {
+        "id": 10,
+        "category": "반려동물",
+        "url": "/"
+    },
+    {
+        "id": 11,
+        "category": "푸드",
+        "url": "/"
+    },
+    {
+        "id": 12,
+        "category": "향수 · 뷰티",
+        "url": "/"
+    },
+    {
+        "id": 13,
+        "category": "의류",
+        "url": "/"
+    },
+    {
+        "id": 14,
+        "category": "잡화",
+        "url": "/"
+    },
+    {
+        "id": 15,
+        "category": "주얼리",
+        "url": "/"
+    },
+    {
+        "id": 16,
+        "category": "출판",
+        "url": "/"
+    },
+    {
+        "id": 17,
+        "category": "디자인",
+        "url": "/"
+    },
+    {
+        "id": 18,
+        "category": "예술",
+        "url": "/"
+    },
+    {
+        "id": 19,
+        "category": "사진",
+        "url": "/"
+    },
+    {
+        "id": 20,
+        "category": "음악",
+        "url": "/"
+    },
+    {
+        "id": 21,
+        "category": "영화 · 비디오",
+        "url": "/"
+    },
+    {
+        "id": 22,
+        "category": "공연",
+        "url": "/"
+    }
+]
