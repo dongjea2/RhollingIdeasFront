@@ -48,19 +48,19 @@
 }
 
 /* --------------------Rapper------------------------ */
-.fundingList .item-rapper{
+.fundingList .itemRapper{
     display: flex;
     flex-direction: column;
 }
 
 /* 여기에 wrap */
-.fundingList .item-rapper .item-inrap1{
+.fundingList .itemRapper .itemInrap1{
     display: flex;
     flex-wrap: wrap;
     max-width: 1500px;
 }
 
-.fundingList .item-rapper .item-inrap2{
+.fundingList .itemRapper .itemInrap2{
     display: flex;
     margin-top: 250px;
 }

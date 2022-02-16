@@ -1,3 +1,41 @@
+/* --------------------Rapper------------------------ */
+.fundingList {
+    display: flex;
+    flex-direction: column;
+}
+
+.itemRapper{
+    display: flex;
+    flex-direction: column;
+}
+
+/* 여기에 wrap */
+.fundingList  {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1500px;
+}
+
+.itemRapper {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1500px;
+}
+
+.itemInrap1{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1500px;
+}
+.fundingList , .itemRapper .itemInrap2{
+    display: flex;
+    margin-top: 250px;
+}
+
+
+/* --------------------------------------------- */
+
+
 .item{
     flex-basis: 250px;
     flex-grow: 1;
@@ -9,7 +47,7 @@
 }
 
 /* 아이템 이미지 */
-.item .item-image{
+.item  .itemImage{
     /* 최소 :321.797 x 241.336 */
     /* 최대 :631.500 x 473.625 */
     margin: 0px;
@@ -25,6 +63,7 @@
     max-height: 473.652px;
 }
 
+
 button,
 button:focus{
     border:  none;
@@ -37,7 +76,7 @@ button.like {
     background: url("../../images/mainpage/heart2.png") center center / 100% no-repeat;
 }
 
-button.not-like{
+button.notLike{
     width: 30px;
     height: 30px;
     background: url("../../images/mainpage/heart.png") center center / 100% no-repeat; 
