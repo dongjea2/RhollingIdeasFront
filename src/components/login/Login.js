@@ -20,8 +20,8 @@ export default function Login() {
                 'Content-Type' : 'application/json'
             },
             body : JSON.stringify({
-                id : idRef,
-                pwd : pwdRef
+                id : id,
+                pwd : pwd
             })
         })
         .then(data => data.json())

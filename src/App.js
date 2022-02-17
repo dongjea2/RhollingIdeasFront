@@ -11,6 +11,10 @@ import Login from './components/login/Login';
 import Header from './components/header/Header';
 import OrderList from './components/profile/OrderList.js';
 import OrderDetail from './components/profile/OrderDetail';
+import ProfileSet from './components/settings/ProfileSet';
+import AccountSet from './components/settings/AccountSet';
+import PaymentSet from './components/settings/PaymentSet';
+import AddressSet from './components/settings/AddressSet';
 
 //테스트주석
 //테스트주석 브런치 최신화
@@ -30,6 +34,10 @@ return (
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/login' element={<Login />}/>
         <Route path='/orderdetail/:paymentNo' element={<OrderDetail />} />
+        <Route path='/profile/profileset' element={<ProfileSet/>} />
+        <Route path='/profile/accountset' element={<AccountSet/>} />
+        <Route path='/profile/paymentset' element={<PaymentSet/>} />
+        <Route path='/profile/addressset' element={<AddressSet/>} />
     </Routes>
 </BrowserRouter>
 )
