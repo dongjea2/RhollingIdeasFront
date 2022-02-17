@@ -5,6 +5,17 @@ import { useRef } from 'react';
 
 export default function Login() {
 
+    let userId = 'id1';
+    const fakeSubmit = (e)=>{
+        e.preventDefault();
+        window.localStorage.setItem('userId', userId);
+    }
+
+    function fakeLogout() {
+        window.localStorage.removeItem('userId');
+    }
+
+
     const idRef = useRef(null);
     const pwdRef = useRef(null);
 
@@ -35,7 +46,8 @@ export default function Login() {
             <img src={rholling}/>
         </Link>
         </div>
-
+        <button onClick={fakeSubmit}>가짜 로그인 버튼</button>
+        <button onClick={fakeLogout}>가짜 로그아웃 버튼</button>
         {/* 로그인 */}
         <div className="login_box">
             <div className="login_box2">

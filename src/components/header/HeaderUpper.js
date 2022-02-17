@@ -52,7 +52,7 @@ export default function HeaderUpper() {
                             <Link to="/jsp/profile/messageresult.jsp">메시지</Link>
                             <hr />
                             <Link to="/jsp/profile/createdresult.jsp">내가 만든 프로젝트</Link>
-                            <Link to="/jsp/settings/profileset.jsp">설정</Link>
+                            <Link to='/profile/profileset'>설정</Link>
                             <hr />
                             <Link to="/logout">로그아웃</Link>
                         </div>
