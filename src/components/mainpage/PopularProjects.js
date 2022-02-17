@@ -4,9 +4,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from './PopularProjects.module.css'
 import ProjectMini from '../project/ProjectMini';
+import items from '../../api/mock/projectMock.json';
 
 
-export default function PopularProjects({items}) {
+export default function PopularProjects() {
 
     const settings = {
       dots: true,

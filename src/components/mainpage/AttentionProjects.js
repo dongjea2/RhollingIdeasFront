@@ -1,8 +1,9 @@
 import styles from './AttentionProjects.module.css';
 import ProjectMini from '../project/ProjectMini';
+import items from '../../api/mock/projectMock.json';
 
 
-export default function AttentionProjects({items}) {
+export default function AttentionProjects() {
   return (
 <div className={styles.fundingList}>
     <span className={styles.listTitle}>주목할만한 프로젝트</span>
