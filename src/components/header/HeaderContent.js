@@ -11,7 +11,9 @@ export default function HeaderContent() {
                         카테고리
                         <ul className="category">
                             {categorys.map((category) => (
-                                <li key={category.id}><Link to={category.url}>{category.category}</Link></li>
+                                <li key={category.id}>
+                                    <div>
+                                    <Link to={category.url}>{category.category}</Link></div></li>
                             ))}
                         </ul>
                     </li>

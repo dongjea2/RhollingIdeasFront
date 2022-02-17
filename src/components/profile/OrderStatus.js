@@ -17,7 +17,7 @@ export default function OrderStatus({ list }){
             <div className="each-order-content" key={order.id}>
                 <div className="date-payno">{status[0].date_pay_no} | 후원번호 {order.id} </div>
                 <div className="longtitle">
-                    <Link to="/orderdetail?paymentNo=">
+                    <Link to={"/orderdetail/" + Number(order.id)}>
                         {order.title}
                     </Link>
                 </div>

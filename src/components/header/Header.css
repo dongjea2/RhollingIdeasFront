@@ -12,7 +12,7 @@ a{
 .header-container{
   height: 116px;
   margin-top: 10px;
-  box-shadow: rgb(0 0 0 / 8%) 0px 6px 7px;
+  /* box-shadow: rgb(0 0 0 / 8%) 0px 6px 7px; */
   /* height: auto; */
 }
 
@@ -182,15 +182,15 @@ a{
 ul.category{
   position: absolute;
   z-index: 1;
-  opacity: 0.7;
+  /* opacity: 0.7; */
   display: flex;
-  background-color: dimgrey;
+  background-color: white;
   max-width: 1080px;
   visibility: hidden;
   /* y축설정 */
   transform:translateY(-50%);
   overflow-x: auto;
-  top: 58px;
+  top: 56px;
   left: 0;
   padding: 0 0 0 20px;
   height: 60px;
@@ -198,14 +198,20 @@ ul.category{
 ul.category > li{
   padding: 0 3px;
   /* width: 60px; */
-  margin-right: 10px;
+  /* margin-right: 10px; */
   text-align: center;
   height: 100%;
-  /* border: 1px solid rgb(223, 223, 223); */
+  border-right: 2px dashed rgb(223, 223, 223);
+}
+ul.category > li:first-child{
+  border-left: 2px dashed rgb(223, 223, 223);
+}
+ul.category > li > div {
+  margin: 9px 5px;
 }
 ul.category > li > a{
   width: 100%;
-  color: rgba(255,255,255,0.6);
+  /* color: rgba(255,255,255,0.6); */
   text-decoration: none;
   font-size: 13px;
   word-break: keep-all;
@@ -264,10 +270,10 @@ ul.category > li > a{
 
 /* 메뉴 손가락올릴떄 */
 .cate:hover{
-  color: rgb(254, 95, 76);
+  color: tomato;
   transition:color 0.2s;
 }
 .category > li:hover{
-  background-color: tomato;
+  background-color: rgb(250, 108, 83);
   transition:color 0.3s;
 }

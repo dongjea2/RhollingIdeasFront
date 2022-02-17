@@ -10,6 +10,7 @@ import Signup from './components/login/Singup';
 import Login from './components/login/Login';
 import Header from './components/header/Header';
 import OrderList from './components/profile/OrderList.js';
+import OrderDetail from './components/profile/OrderDetail';
 
 //테스트주석
 //테스트주석 브런치 최신화
@@ -28,6 +29,7 @@ return (
         <Route path='/orderlist' element={<OrderList/>} />
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/login' element={<Login />}/>
+        <Route path='/orderdetail/:paymentNo' element={<OrderDetail />} />
     </Routes>
 </BrowserRouter>
 )

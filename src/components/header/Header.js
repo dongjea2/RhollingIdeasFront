@@ -4,7 +4,7 @@ import HeaderContent from "./HeaderContent.js";
 
 export default function Header() {
     return (
-        <div>
+        <div className="header-container">
             <HeaderUpper />
             <HeaderContent />
         </div>
