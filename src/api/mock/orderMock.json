@@ -1,0 +1,27 @@
+{
+    "rewardNo": 8,
+    "rewardPrice": 35000,
+    "rewardName": "리본베어<조이>SET",
+    "deliverDate": 7,
+    "rewardNum": 30,
+    "itemName": "리본베어(조이)",
+    "deliverSelect": 1,
+
+    "project": {
+        "id": 1,
+        "imgUrl": "https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/react-02/foods/01-steamed-rice.png",
+        "category": "테스트카테",
+        "maker": "이동재" ,
+        "title": "임시 제목",
+        "brief": "임시 설명입니다.",
+        "sumPrice": "100,000",
+        "ahciveRate": "53",
+        "remainingDate": "13일 남음"
+    },
+
+    "userInfo"  : {
+            "userPhoneNum": "010-2088-6739",
+            "userId": "kosta@gmail.com",
+            "userName": "이동재"
+    }
+}
