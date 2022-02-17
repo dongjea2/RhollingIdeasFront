@@ -9,6 +9,9 @@ a{
   color: black;
   white-space: nowrap;
 }
+.header {
+  all: initial;
+}
 .header-container{
   height: 116px;
   margin-top: 10px;

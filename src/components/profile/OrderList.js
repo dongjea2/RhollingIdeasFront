@@ -47,7 +47,7 @@ export default function OrderList() {
 
     const orderlength = failList.length + ongoingList.length + fundingSuccessList.length + orderSuccessList.length;
     return(
-        <>
+        <section>
         <div className="interest-header">
             <div className="interest-h1"><h1>후원현황</h1></div>
             </div>
@@ -78,7 +78,6 @@ export default function OrderList() {
             {orderSuccessList.length !== 0 && <OrderStatus list={orderSuccessList}/>}
         </div>
         }
-
-        </>
+        </section>
     )
 }

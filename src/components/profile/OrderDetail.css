@@ -1,0 +1,109 @@
+@charset "UTF-8";
+/* 상단 프로젝트 정보 */
+.project-container{
+    border-bottom: 1px solid rgb(230, 230, 230);
+    display: flex;
+    padding: 32px 0;
+    position: relative;
+    margin-bottom: 32px;
+}
+.project-img{
+	margin-right: 24px;
+	width: 152px;
+    height: 114px;
+}
+.project-img>a>img{
+	width: 152px;
+    height: 114px;
+}
+.project-text{
+	font-size: 14px;
+    line-height: 30px;
+    letter-spacing: -0.015em;
+    color: #3d3d3d;
+}
+.cate-maker{
+	font-size: 12px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+    color: rgb(109, 109, 109);
+    margin-top: 15px;
+}
+.longtitle{
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: bold;
+}
+.sumprice{
+	font-weight: bold;
+}
+.rate{
+    color: rgb(255, 87, 87);
+}
+.message{
+	border: 1px solid rgb(230, 230, 230);
+	height: 50px;
+	border-radius: 4px;
+    cursor: pointer;
+    margin-top: 0px;
+    position: absolute;
+    width: 187px;
+    right: 0;
+    top: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 후원 정보 */
+.orderinfo-container{
+	padding-bottom: 88px;
+}
+.orderinfo-title{
+	font-size: 16px;
+    line-height: 27px;
+    letter-spacing: -0.020em;
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+.orderinfo-title>p{
+	margin: 0;
+    padding: 0;
+}
+.orderinfo{
+	border: 1px solid rgb(230, 230, 230);
+	border-radius: 4px;
+	margin-bottom: 40px;
+}
+.orderinfo>table{
+	width: 100%;
+    margin: 16px 0px;
+    text-align: left;
+}
+th{
+	width: 132px;
+    vertical-align: top;
+    padding: 4px 0px 4px 16px;
+}
+.item{
+	padding-left: 16px;
+	list-style-type: disc;
+}
+.item>li{
+    margin: 0 4px;
+    list-style-type: disc;
+}
+
+.orderlistpage{
+	color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: normal;
+    border: 1px solid rgb(61, 61, 61);
+    background: rgb(61, 61, 61);
+    width: 189px;
+    height: 52px;
+    border-radius: 4px;
+    margin: auto;
+    display: block;
+    cursor: pointer;
+}
