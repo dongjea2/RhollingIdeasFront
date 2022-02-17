@@ -1,6 +1,4 @@
-@charset "UTF-8";
-
-.signup-page * {
+.login-page * {
   width: 100%;
   margin: auto;
   max-width: 1100px;
@@ -12,23 +10,26 @@
   margin: auto;
   width: 200px;
 }
-.signup_box {
+.login_box {
   width: 60%;
-  margin: auto;
-  padding: 0;
 }
-.signup_box2 {
+.login_box2 {
   width: 90%;
 }
-.signup_box2 > input {
+.sns_login > button {
   height: 35px;
   margin: 5px;
   border: 1px solid;
   border-radius: 4px;
 }
-.signup_box2 > button {
+.email_login * {
   height: 35px;
   margin: 5px;
   border: 1px solid;
   border-radius: 4px;
+}
+.login_text {
+  height: 35px;
+  margin: 5px;
+  font-size: 7px;
 }

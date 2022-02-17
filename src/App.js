@@ -12,10 +12,11 @@ import Header from './components/header/Header';
 import OrderList from './components/profile/OrderList.js';
 import OrderDetail from './components/profile/OrderDetail';
 import InterestProjectList from './components/profile/InterestProjectList';
+import ProfileSet from './components/settings/ProfileSet';
+import AccountSet from './components/settings/AccountSet';
+import PaymentSet from './components/settings/PaymentSet';
+import AddressSet from './components/settings/AddressSet';
 
-//테스트주석
-//테스트주석 브런치 최신화
-//테스트주석
 function App () {
 
 return (
@@ -32,6 +33,10 @@ return (
         <Route path='/login' element={<Login />}/>
         <Route path='/orderdetail/:paymentNo' element={<OrderDetail />} />
         <Route path='/interestlist' element={<InterestProjectList />} />
+        <Route path='/profile/profileset' element={<ProfileSet/>} />
+        <Route path='/profile/accountset' element={<AccountSet/>} />
+        <Route path='/profile/paymentset' element={<PaymentSet/>} />
+        <Route path='/profile/addressset' element={<AddressSet/>} />
     </Routes>
 </BrowserRouter>
 )
