@@ -7,9 +7,9 @@ import './Advertise.css'
 
 import items from '../../api/mock/projectMock.json';
 
-export default class Advertise extends Component {
+export default function Advertise() {
 
-  render() {
+
     const settings = {
       dots: true,
       infinite: true,
@@ -29,7 +29,7 @@ export default class Advertise extends Component {
         </Slider>
       </div>
     );
-  }
+
 }
 
 
