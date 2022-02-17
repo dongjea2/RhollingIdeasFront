@@ -1,9 +1,9 @@
-import AttentionProjects from './AttentionProjects';
-import PopularProjects from './PopularProjects';
-import NewProjects from './NewProjects';
-import EndcomeProjects from './EndcomeProjects';
-import Advertise from './Advertise';
-import MiddleAdvertise from './MiddleAdvertise';
+import AttentionProjects from './mainpageComponet/attention/AttentionProjects';
+import PopularProjects from './mainpageComponet/popular/PopularProjects';
+import NewProjects from './mainpageComponet/newrelease/NewProjects';
+import EndcomeProjects from './mainpageComponet/endcome/EndcomeProjects';
+import Advertise from './mainpageComponet/advertise/Advertise';
+import MiddleAdvertise from './mainpageComponet/advertise/MiddleAdvertise';
 
 
 export default function MainPage(){

@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import styles from './EndcomeProjects.module.css'
-import ProjectMini from '../project/ProjectMini';
-import items from '../../api/mock/projectMock.json';
+import styles from './PopularProjects.module.css'
+import ProjectMini from '../../../project/ProjectMini';
+import items from '../../../../api/mock/projectMock.json';
 
 
-export default function EndcomeProjects() {
+export default function PopularProjects() {
 
     const settings = {
       dots: true,
@@ -24,7 +24,8 @@ export default function EndcomeProjects() {
 
     return(
 <div className={styles.fundingList}>
-<span className={styles.listTitle}>마감임박! 마지막 기회</span>
+<span className={styles.listTitle}>주목할만한 프로젝트</span>
+<span class={styles.listDate}>2021년 12월 15일 기준</span>
 
 <div className={styles.itemRapper}>
     <Slider {...settings}>

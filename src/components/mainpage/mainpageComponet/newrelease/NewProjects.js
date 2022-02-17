@@ -1,6 +1,6 @@
-import styles from './AttentionProjects.module.css';
-import ProjectMini from '../project/ProjectMini';
-import items from '../../api/mock/projectMock.json';
+import styles from './NewProjects.module.css';
+import ProjectMini from '../../../project/ProjectMini';
+import items from '../../../../api/mock/projectMock.json';
 
 
 export default function AttentionProjects() {
