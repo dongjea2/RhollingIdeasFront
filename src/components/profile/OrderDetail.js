@@ -55,7 +55,7 @@ export default function OrderDetail(){
         <div className="orderinfo-container">
         {contents.map(content =>
         <div key={content.id}>
-            <div className="orderinfo-title"><p>후원 정보</p></div>
+            <div className="orderinfo-title"><p>{content.info}</p></div>
             <div className="orderinfo">
                 <table>
                     <thead>

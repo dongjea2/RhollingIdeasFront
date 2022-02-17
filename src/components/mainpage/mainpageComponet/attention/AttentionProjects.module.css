@@ -39,7 +39,7 @@
 }
 
 /* intem-rpper 부모--------------------------------------------------------- */
-.fundingList .itemRapper .itemInrap{
+.itemInrap{
     display: flex;
     flex-wrap: wrap;
 	
