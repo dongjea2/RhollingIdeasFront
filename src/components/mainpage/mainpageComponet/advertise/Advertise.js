@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import './Advertise.css'
 
 
-import items from '../../api/mock/projectMock.json';
+import items from '../../../../api/mock/projectMock.json';
 
 export default function Advertise() {
 
