@@ -3,7 +3,7 @@ import './Header.css';
 import HeaderContent from "./HeaderContent.js";
 
 export default function Header() {
-    if (window.location.pathname === '/signup') return null;
+    if (window.location.pathname === '/signup' || window.location.pathname === '/login') return null;
 
     return (
         <div className="header">

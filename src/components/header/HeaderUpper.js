@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 export default function HeaderUpper() {
     const status = false; //로그인된 상태?
     console.log({status});
+    let userId = window.localStorage.getItem('userId');
     return(
         <div className="header-upper">
             <Link to={'/'} id="logo">
@@ -12,9 +13,9 @@ export default function HeaderUpper() {
                 <ul>
                     <li><Link to="/"><span className="user-li">프로젝트 올리기</span></Link></li>
                     {
-                        status === true ?
+                        userId === "" ?
                     <li className="login-container">
-                        <Link to="/jsp/login/login.jsp">
+                        <Link to="login">
                             <span className="user-li login">
                                 <img src={require('../../images/mainpage/user_default.png')} alt="user_default" />
                                 <span>로그인/회원가입</span>
@@ -39,7 +40,7 @@ export default function HeaderUpper() {
                     <li className="login-dropdown">
                         <span className="user-li login">
                             <img src={require('../../images/mainpage/user_default.png')} alt="user_img"/>
-                            <span>로그인유저이름</span>
+                            <span>{userId}</span>
                         </span>
                         <div className="dropdown-content" id="myDropdown">
                             <Link to="/profile">프로필</Link>
