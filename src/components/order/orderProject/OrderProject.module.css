@@ -12,3 +12,7 @@
     flex-direction: column;
     margin-left: 20px;
 }
+
+.itemImage{
+    width: 240px;
+}
