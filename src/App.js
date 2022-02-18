@@ -19,6 +19,8 @@ import InterestProjectList from './components/profile/interest/InterestProjectLi
 import PreLaunchedProjectList from './components/profile/interest/PreLaunchedProjectList';
 import FollowingList from './components/profile/follow/FollowingList';
 import FollowerList from './components/profile/follow/FollowerList';
+import ProjectWrite from './components/project/ProjectWrite';
+import OrderPage from './components/order/OrderPage';
 
 function App () {
 
@@ -28,8 +30,11 @@ return (
     <Routes>
         <Route path='/' element={<MainPage/>} />
         <Route path='/discover' element={<DiscoverPage/>} />
-        <Route path='/projectdetail/:prodNo/*' element={<ProjectDetail/>} />  
+        <Route path='/projectdetail/:prodNo/*' element={<ProjectDetail/>} /> 
+        <Route path='/projectwrite' element={<ProjectWrite/>}/> 
         <Route path='/order/:prodNo/:rewardNo' element={<Order/>} />
+        <Route path='/projectdetail/:prodNo/*' element={<ProjectDetail/>} />  
+        <Route path='/order/:rewardNo' element={<OrderPage/>} />
         <Route path='*' element={<EmptyPage/>}/>
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/login' element={<Login />}/>

@@ -1,0 +1,55 @@
+.orderRap{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 200px;
+}
+
+.itemLeftRight{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-grow: 1;
+    border-top: 1px solid grey;
+}
+
+.Left{
+    width: 500px;
+    padding-right: 300px;
+}
+
+.Right{
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+
+}
+
+.finalPayment{
+    margin-top: 50px;
+}
+.paymentButton{
+    margin-top: 30px;
+    width: 300px;
+    height: 50px;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    white-space: nowrap;
+    border-radius: 4px;
+    margin: 0px;
+    border: 0px;
+    outline: none;
+    font-weight: normal;
+    box-sizing: border-box;
+    background-color: rgb(255, 87, 87);
+    color: rgb(255, 255, 255);
+}
+
+.paymentButton:hover{
+    background-color: rgb(23, 87, 87);
+}
