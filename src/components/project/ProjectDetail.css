@@ -1,0 +1,64 @@
+.container>div.head{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 42px;
+}
+.title{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px;
+}
+.longtitle{
+    font-size: 33px;
+    font-weight: bold;
+}
+.category{
+	font-size:0.9rem;
+  font-weight: 600;
+  padding: 0.6rem;
+  color: rgb(177, 177, 177);
+  background-color: rgb(250, 250, 250);
+  border: 1px solid rgb(239, 239, 239);
+  border-radius: 2px;
+}
+.img{
+  width: 700px;
+  margin-right: 70px;
+}
+.item-image{
+	width: 100%;
+}
+.info{
+ display: flex;
+ flex-direction: column;
+}
+.ingbox{
+    border: 1px solid darkgrey;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 5px;
+    padding: 5px;
+}
+.bot{
+  display: flex;
+}
+.content{
+	width: 600px;
+    padding: 80px;
+}
+.reward{
+	margin: 0px auto;
+}
+.reward button{
+	width: 100%;
+	border-radius: 5px;
+    border: 1px solid gray;
+    background-color: rgba(0,0,0,0);
+    color: gray;
+    padding: 30px;
+
+}
+
