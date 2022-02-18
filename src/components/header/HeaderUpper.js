@@ -11,7 +11,7 @@ export default function HeaderUpper() {
             </Link>
             <nav className="user-menu">
                 <ul>
-                    <li><Link to="/"><span className="user-li">프로젝트 올리기</span></Link></li>
+                    <li><Link to="/projectwrite"><span className="user-li">프로젝트 올리기</span></Link></li>
                     {
                         userId === "" ?
                     <li className="login-container">

@@ -1,10 +1,11 @@
 import React,{Component, useEffect, useRef, useState} from "react";
+import Modal from "../common/Modal";
 
 export default function ProjectWrite(){
     const [category, setCategory]= useState([]);
 
     useEffect(()=>{
-        fetch("https://jsonplaceholder.typicode.com/todos")
+        fetch("")
         .then(res=>{
             return res.json();
         })
@@ -13,8 +14,6 @@ export default function ProjectWrite(){
         });
     }, []);
 
-
-    const projectnoRef = useRef(null);
     const usernoRef = useRef(null);
     const categoryRef = useRef(null);
     const longtitleRef = useRef(null);
@@ -58,11 +57,16 @@ export default function ProjectWrite(){
     })
     }
 
+    const [showModal, setShowModal] = useState(false);
+    const openMadal = ()=>{
+        setShowModal((prev)=>!prev);
+    };
+
     return(
         <form onSubmit={onSubmit}>
             <select>
                 <option>
-                category  
+                    {category.category}  
                 </option>
             </select>
             <div className="input">
@@ -77,6 +81,11 @@ export default function ProjectWrite(){
             <input type="text" placeholder="shorttitle" />
             <input type="text" placeholder="projectcontent"/>
             <div>projecturl</div>
+
+            <div>선물 추가부분
+                <button onClick={openMadal}></button>
+            </div>
+            
             </div>
         </form>
     );
