@@ -8,11 +8,8 @@ export default function OrderProject({project}){
         		<div className={styles.itemParent}>
           <img className={styles.itemImage} src={imgUrl} alt={title}/> 
 				<div className={styles.itemInfo}>
-                <span className={styles.category}> {category} </span>
-                <span className={styles.category}>|</span>
-                <span className={styles.company}> {maker} </span>
 
-
+					{category} | {maker} 
 					<h1>{title}</h1>
 					{sumPrice}원
 					{ahciveRate}%

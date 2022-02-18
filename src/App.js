@@ -16,6 +16,8 @@ import ProfileSet from './components/settings/ProfileSet';
 import AccountSet from './components/settings/AccountSet';
 import PaymentSet from './components/settings/PaymentSet';
 import AddressSet from './components/settings/AddressSet';
+import ProjectWrite from './components/project/ProjectWrite';
+import OrderPage from './components/order/OrderPage';
 
 function App () {
 
@@ -25,8 +27,11 @@ return (
     <Routes>
         <Route path='/' element={<MainPage/>} />
         <Route path='/discover' element={<DiscoverPage/>} />
-        <Route path='/projectdetail/:prodNo/*' element={<ProjectDetail/>} />  
+        <Route path='/projectdetail/:prodNo/*' element={<ProjectDetail/>} /> 
+        <Route path='/projectwrite' element={<ProjectWrite/>}/> 
         <Route path='/order/:prodNo/:rewardNo' element={<Order/>} />
+        <Route path='/projectdetail/:prodNo/*' element={<ProjectDetail/>} />  
+        <Route path='/order/:rewardNo' element={<OrderPage/>} />
         <Route path='*' element={<EmptyPage/>}/>
         <Route path='/orderlist' element={<OrderList/>} />
         <Route path='/signup' element={<Signup/>}/>
