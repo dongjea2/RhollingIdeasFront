@@ -35,6 +35,10 @@
 .selected-span{
 	border-bottom: 4px solid black;
 }
+.not-selected-a:hover{
+    color: black;
+    font-weight: bold;
+}
 .selected-a{
 	font-weight: bold;
 }

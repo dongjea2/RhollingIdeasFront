@@ -57,7 +57,7 @@ export default function OrderList() {
                 <span>{orderlength}</span>건의 후원 내역이 있습니다.
                 </div>
                 <div className="order-search">
-                <div><img src={require('../../images/mainpage/search2.png')} alt="search" /></div>
+                <div><img src={require('../../../images/mainpage/search2.png')} alt="search" /></div>
                 <input type="search" placeholder="프로젝트, 선물, 창작자를 검색하세요" className="search-input" defaultValue="" autoComplete="off" onChange={(e) => {setSearchTerm(e.target.value);}} />
                 </div>
             </div>
@@ -67,7 +67,7 @@ export default function OrderList() {
         <div className="noorder-content">
             <br/><br/>
             <div className="no-content">
-              <img src={require('../../images/profile/empty present.png')} alt="empty_present" />
+              <img src={require('../../../images/profile/empty present.png')} alt="empty_present" />
               <div>후원한 프로젝트가 없습니다.</div>
             </div>
         </div> :

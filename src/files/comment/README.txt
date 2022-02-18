@@ -1,0 +1,1 @@
+커뮤니티 댓글 comment_content 폴더

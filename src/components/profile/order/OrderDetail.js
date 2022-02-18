@@ -32,7 +32,7 @@ export default function OrderDetail(){
         <div className="project-container">
             <div className="project-img">
                 <a href={"/projectdetail/" + paymentNo}>
-                    <img src={require('../../images/mainpage/1.jpeg')} alt="projectImg" />
+                    <img src={require('../../../images/mainpage/1.jpeg')} alt="projectImg" />
                 </a>
             </div>
             <div className="project-text">
@@ -47,9 +47,9 @@ export default function OrderDetail(){
                     <span className="rate">달성률%</span>
                     <span className="payresult">· 결제결과</span>
                 </div>
-                <a href={"/"} className="message">
+                <Link to={"/"} className="message">
                     창작자에게 문의
-                </a>
+                </Link>
             </div>
         </div>
         <div className="orderinfo-container">

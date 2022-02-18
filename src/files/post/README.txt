@@ -1,0 +1,1 @@
+커뮤니티 글 post_content 폴더

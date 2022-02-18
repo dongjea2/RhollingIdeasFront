@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import styles from '../mainpage/mainpageComponet/attention/AttentionProjects.module.css';
+import styles from '../../mainpage/mainpageComponet/attention/AttentionProjects.module.css';
 import './InterestProejctList.css'
-import items from '../../api/mock/projectMock.json';
-import ProjectMini from "../project/ProjectMini";
+import items from '../../../api/mock/projectMock.json';
+import ProjectMini from "../../project/ProjectMini";
 
 export default function InterestProjectList(){
     return(
@@ -14,7 +14,7 @@ export default function InterestProjectList(){
                         <Link to="/interestlist"  replace={true} class="selected-a" style={{color: "black"}}>좋아한 000</Link>
                     </span>
                     <span>
-                        <Link to="/prelaunchedlist"  replace={true}>알림신청 000</Link>
+                        <Link to="/prelaunchedlist"  replace={true} className="not-selected-a">알림신청 000</Link>
                     </span>
                 </div>
             </div>
@@ -23,7 +23,7 @@ export default function InterestProjectList(){
                 {
                     items.length === 0 ?
                 <div class="no-content">
-                    <img src={require('../../images/profile/empty heart.png')} alt="no_like_project" />
+                    <img src={require('../../../images/profile/empty heart.png')} alt="no_like_project" />
                     <div>좋아한 프로젝트가 없습니다.</div>
                 </div> :
                 
