@@ -193,10 +193,10 @@ ul.category{
   /* y축설정 */
   transform:translateY(-50%);
   overflow-x: auto;
-  top: 56px;
+  top: 55px;
   left: 0;
   padding: 0 0 0 20px;
-  height: 60px;
+  height: 62px;
 }
 ul.category > li{
   padding: 0 3px;
