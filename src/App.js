@@ -9,13 +9,16 @@ import DiscoverPage from './components/project/DiscoverPage';
 import Signup from './components/login/Singup';
 import Login from './components/login/Login';
 import Header from './components/header/Header';
-import OrderList from './components/profile/OrderList.js';
-import OrderDetail from './components/profile/OrderDetail';
-import InterestProjectList from './components/profile/InterestProjectList';
+import OrderList from './components/profile/order/OrderList.js';
+import OrderDetail from './components/profile/order/OrderDetail';
 import ProfileSet from './components/settings/ProfileSet';
 import AccountSet from './components/settings/AccountSet';
 import PaymentSet from './components/settings/PaymentSet';
 import AddressSet from './components/settings/AddressSet';
+import InterestProjectList from './components/profile/interest/InterestProjectList';
+import PreLaunchedProjectList from './components/profile/interest/PreLaunchedProjectList';
+import FollowingList from './components/profile/follow/FollowingList';
+import FollowerList from './components/profile/follow/FollowerList';
 
 function App () {
 
@@ -28,15 +31,20 @@ return (
         <Route path='/projectdetail/:prodNo/*' element={<ProjectDetail/>} />  
         <Route path='/order/:prodNo/:rewardNo' element={<Order/>} />
         <Route path='*' element={<EmptyPage/>}/>
-        <Route path='/orderlist' element={<OrderList/>} />
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/login' element={<Login />}/>
-        <Route path='/orderdetail/:paymentNo' element={<OrderDetail />} />
-        <Route path='/interestlist' element={<InterestProjectList />} />
         <Route path='/profile/profileset' element={<ProfileSet/>} />
         <Route path='/profile/accountset' element={<AccountSet/>} />
         <Route path='/profile/paymentset' element={<PaymentSet/>} />
         <Route path='/profile/addressset' element={<AddressSet/>} />
+
+        {/* 프로필 메뉴 링크 */}
+        <Route path='/orderlist' element={<OrderList/>} />
+        <Route path='/orderdetail/:paymentNo' element={<OrderDetail />} />
+        <Route path='/interestlist' element={<InterestProjectList />} />
+        <Route path='/prelaunchedlist' element={<PreLaunchedProjectList />} />
+        <Route path='/following' element={<FollowingList />} />
+        <Route path='/following/followers' element={<FollowerList />} />
     </Routes>
 </BrowserRouter>
 )

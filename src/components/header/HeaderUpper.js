@@ -13,7 +13,7 @@ export default function HeaderUpper() {
                 <ul>
                     <li><Link to="/"><span className="user-li">프로젝트 올리기</span></Link></li>
                     {
-                        userId === "" ?
+                        userId === null ?
                     <li className="login-container">
                         <Link to="login">
                             <span className="user-li login">
@@ -47,7 +47,7 @@ export default function HeaderUpper() {
                             <hr />
                             <Link to="/orderlist">후원현황</Link>
                             <Link to="/interestlist">관심 프로젝트</Link>
-                            <Link to="/follow">팔로우</Link>
+                            <Link to="/following">팔로우</Link>
                             <hr />
                             <Link to="/jsp/profile/alarmresult.jsp">알림</Link>
                             <Link to="/jsp/profile/messageresult.jsp">메시지</Link>
