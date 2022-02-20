@@ -101,10 +101,10 @@ function OrderButton(){
         closable={false}
         maskClosable={false}
         >
-            감사합니다!
+            감사합니다 :)
             <ButtomWrapper>
-            <Link to='/'><CancleButton>홈으로 가기</CancleButton> </Link>
-            <Link to='/orderlist'><BuyButton>내 후원 현황</BuyButton> </Link>
+            <Link to='/'><CancleButton>홈으로</CancleButton> </Link>
+            <Link to='/orderlist'><BuyButton>후원 현황</BuyButton> </Link>
             </ButtomWrapper>
         </OrderModal>
       }
