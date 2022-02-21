@@ -15,6 +15,9 @@ export default function Login() {
         window.localStorage.removeItem('userId');
     }
 
+    let loginedId = window.localStorage.getItem('userId');
+    console.log(loginedId);
+
 
     const idRef = useRef(null);
     const pwdRef = useRef(null);
@@ -25,14 +28,15 @@ export default function Login() {
         let id = idRef.current.value;
         let pwd = pwdRef.current.value;
         console.log(id + " " + pwd);
-        fetch('url넣어야됨', {
+
+        fetch('/login', {
             method : 'POST',
             headers : {
                 'Content-Type' : 'application/json'
             },
             body : JSON.stringify({
-                id : id,
-                pwd : pwd
+                userId : id,
+                userPwd : pwd
             })
         })
         .then(data => data.json())
@@ -56,6 +60,7 @@ export default function Login() {
                         <button>페이스북 아이디로 로그인</button>
                         <button>네이버 아이디로 로그인</button>
                         <button>카카오톡 아이디로 로그인</button>
+
                 </div>
                 <hr/>
                 <form className= "email_login">
