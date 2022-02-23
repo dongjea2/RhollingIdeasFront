@@ -8,7 +8,10 @@ export default function Post() {
     const { prodNo } = useParams(); 
 
     const [post, setPost] = useState('');
-    
+
+    const [pl,setPl] = useState('');
+
+
     const usernoRef = useRef(null);
     const postconRef = useRef(null);
     
@@ -31,8 +34,11 @@ export default function Post() {
           },
         }).then((res) => {
           console.log(res);
+          setPl(pl + 1);
         }).catch(err => console.log(err));
+        
       }
+      
 
       let userid = '1'
       //window.localStorage.getItem('userid');
@@ -43,7 +49,7 @@ export default function Post() {
         axios.get("/projectdetail/post/" + Number(prodNo))
         .then(res => setInfo(res.data))
         .catch(err => console.log(err));
-       }, [info]);
+       }, [pl]);
 
         return ( 
         <>
