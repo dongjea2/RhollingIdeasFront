@@ -6,6 +6,7 @@ import Advertise from './mainpageComponet/advertise/Advertise';
 import MiddleAdvertise from './mainpageComponet/advertise/MiddleAdvertise';
 
 
+
 export default function MainPage(){
 
     return(

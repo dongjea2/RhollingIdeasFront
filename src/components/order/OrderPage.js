@@ -4,7 +4,7 @@ import OrderProject from './orderProject/OrderProject';
 import UserInfo from './userInfo/UserInfo';
 import Loading from '../Loading';
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import OrderModal from './orderModal/OrderModal';
 import styled from 'styled-components';
 import axios from 'axios';
@@ -12,11 +12,12 @@ import axios from 'axios';
 
 export default function OrderPage(){
     const [item ,setItem] =useState('');
+    const { rewardNo } = useParams();
 
 
 
     useEffect(() => {
-            axios.get('/reward/4')
+            axios.get('/reward/'+rewardNo)
             .then(res => setItem(res.data))
             .catch(err => console.log(err));
     },[]);
@@ -34,21 +35,18 @@ export default function OrderPage(){
 
     return(
         <>
+        { item && item.project.maker.userName}
         <div className="orderRap">
-            {  item.rewardNo}
-            { item && item.project.projectNo}
             <OrderProject project={item && item.project} />
-            {/* 
             <div className={styles.itemLeftRight}>
                 <div className={styles.Left}>
-                    <Reward item={ item}/>
-                    <UserInfo userInfo={item && item.userInfo}/>
+                    <Reward item={item}/>
+                    <UserInfo project={item && item.project}/>
                 </div>
                 <div className={styles.Right}>
                     <OrderButton item={item}/>
                 </div>
             </div>
-            */}
         </div>
         </>
     );

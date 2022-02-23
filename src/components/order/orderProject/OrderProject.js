@@ -9,7 +9,8 @@ export default function OrderProject({project}){
 		  		src={require(`../../../${project && project.projectImage}`)}
 				alt={project.longTitle}/> 
 				<div className={styles.itemInfo}>
-
+					{project && project.category.categoryName}| 
+					{project && project.maker.userName}
 					<h1>{project.title}</h1>
 					{project && project.projectChange.sumPrice}원
 					{project && project.achiveRate}%
