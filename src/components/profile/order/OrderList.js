@@ -5,18 +5,24 @@ import OrderStatus from './OrderStatus';
 
 // 후원(주문)현황 컴포넌트
 export default function OrderList() {
-    const [infos, setInfo] = useState([]);
+    const [orders, setOrder] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
 
-    // 가상데이터
+    //가상데이터
+    // useEffect(() => {
+    //     axios.get('https://jsonplaceholder.typicode.com/todos')
+    //     .then(res => setInfo(res.data))
+    //     .catch(err => console.log(err));
+    // }, []);
+
     useEffect(() => {
-        axios.get('https://jsonplaceholder.typicode.com/todos')
-        .then(res => setInfo(res.data))
+        axios.get("/orderlist")
+        .then(res => setOrder(res.data))
         .catch(err => console.log(err));
     }, []);
 
     // 검색내역으로 필터된 목록
-    const filteredList = infos.filter((order) => {
+    const filteredList = orders.filter((order) => {
                                 if(searchTerm === ""){
                                     return order;
                                 }else if(order.title.toLowerCase().includes(searchTerm.toLowerCase())){
@@ -27,22 +33,22 @@ export default function OrderList() {
     
     // 펀딩 실패 리스트
     const failList = filteredList.filter(function (order){
-        return order.userId === 1;
+        return order.orderResult === "펀딩실패";
     });
 
     // 진행중 리스트
     const ongoingList = filteredList.filter(function (order){
-        return order.userId === 2;
+        return order.orderResult === "진행중";
     });
     
     // 펀딩 성공 리스트
     const fundingSuccessList = filteredList.filter(function (order){
-        return order.userId === 3;
+        return order.orderResult === "펀딩성공";
     });
 
     // 주문 성공 리스트
     const orderSuccessList = filteredList.filter(function (order){
-        return order.userId === 4;
+        return order.orderResult === "결제완료";
     });
 
     const orderlength = failList.length + ongoingList.length + fundingSuccessList.length + orderSuccessList.length;
@@ -63,7 +69,7 @@ export default function OrderList() {
             </div>
         </div>
         {
-            infos.length === 0 ?
+            orders.length === 0 ?
         <div className="noorder-content">
             <br/><br/>
             <div className="no-content">

@@ -6,7 +6,7 @@ import './OrderDetail.css';
 import { Link } from "react-router-dom";
 
 export default function OrderDetail(){
-    const { paymentNo } = useParams();
+    const { orderNo } = useParams();
 
     const [infos, setInfo] = useState([]);
     // 가상데이터
@@ -17,7 +17,7 @@ export default function OrderDetail(){
     }, []);
 
     const order_data = infos.filter((order) => {
-        return order.id === paymentNo;
+        return order.id === orderNo;
     });
 
     // function orderListView(e){
@@ -31,14 +31,14 @@ export default function OrderDetail(){
         <section>
         <div className="project-container">
             <div className="project-img">
-                <a href={"/projectdetail/" + paymentNo}>
+                <a href={"/projectdetail/" + orderNo}>
                     <img src={require('../../../images/mainpage/1.jpeg')} alt="projectImg" />
                 </a>
             </div>
             <div className="project-text">
                 <div className="cate-maker">카테고리이름 | 메이커이름</div>
                 <div className="longtitle">
-                    <a href={"/projectdetail/" + paymentNo}>
+                    <a href={"/projectdetail/" + orderNo}>
                         긴제목
                     </a>
                 </div>
