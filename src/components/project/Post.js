@@ -5,24 +5,39 @@ import Comments from './Comment';
 
 
 export default function Post() {    
-    const { prodNo } = useParams();
-   
-    const postInfo = {
-        userNo:'',
-        postNo:'',
-        postCon:'',
-        postDate:''
-    } 
+    const { prodNo } = useParams(); 
 
     const [post, setPost] = useState(postInfo);
     
-    const handleChange = e => {
-        this.setState({
-          [e.target.name]: e.target.value
-        });
-      };
+    const usernoRef = useRef(null);
+    const postnoRef = useRef(null);
+    const postconRef = useRef(null);
+    const postdateRef = useRef(null);
     
-    const submitClick = () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        let user = usernoRef.current.value;
+        let post = postnoRef.current.value;
+        let postcon = postconRef.current.value;
+        let post = postdateRef.current.value;
+
+            fetch(`url 넣어야 됨`, {
+                method : 'POST',
+                headers : {
+                    'Content-Type' : 'application/json'
+                },
+                body : JSON.stringify({
+                    name : name,
+                    id : id,
+                    pwd : pwd
+                })
+            })
+          }
+
+
+
+    const submitClick = async (e) => {
         console.log(post);
         this.setState({
             userNo:'',
@@ -31,7 +46,7 @@ export default function Post() {
             postDate:''
         });
       };
-      
+
       let userid = window.localStorage.getItem('userid');
 
       const [info, setInfo] = useState([]);
@@ -40,7 +55,7 @@ export default function Post() {
         axios.get("/projectdetail/post/1")
         .then(res => setInfo(res.data))
         .catch(err => console.log(err));
-    }, []);
+       }, []);
 
         return ( 
         <>
