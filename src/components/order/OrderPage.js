@@ -1,28 +1,50 @@
 import styles from './OrderPage.module.css';
-import item from '../../api/mock/orderMock.json'
 import Reward from './reward/Reward';
 import OrderProject from './orderProject/OrderProject';
 import UserInfo from './userInfo/UserInfo';
 import Loading from '../Loading';
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import OrderModal from './orderModal/OrderModal';
 import styled from 'styled-components';
+import axios from 'axios';
 
 
 export default function OrderPage(){
+    const [item ,setItem] =useState('');
+    const { rewardNo } = useParams();
+
+
+
+    useEffect(() => {
+            axios.get('/reward/'+rewardNo)
+            .then(res => setItem(res.data))
+            .catch(err => console.log(err));
+    },[]);
+
+
+
+    const project = {
+        projectNo:1,
+        projectName:"2"
+    }
+    console.log(item.project);
+    console.log(project);
+
+
 
     return(
         <>
+        { item && item.project.maker.userName}
         <div className="orderRap">
-            <OrderProject project={item.project}/>
+            <OrderProject project={item && item.project} />
             <div className={styles.itemLeftRight}>
                 <div className={styles.Left}>
                     <Reward item={item}/>
-                    <UserInfo userInfo={item.userInfo}/>
+                    <UserInfo project={item && item.project}/>
                 </div>
                 <div className={styles.Right}>
-                    <OrderButton />
+                    <OrderButton item={item}/>
                 </div>
             </div>
         </div>
@@ -32,7 +54,7 @@ export default function OrderPage(){
 
 
 
-function OrderButton(){
+function OrderButton({item}){
     const [lodingFinish , setLodingFinish] = useState(true)
     const [buttonDisable, setButtonDisable] = useState(false)
     const [orderModalOn ,setorderModalOn] =useState(false)
@@ -90,7 +112,9 @@ function OrderButton(){
             <ModalPrice> 최종 금액 :{item.rewardPrice}원 </ModalPrice>
               <ButtomWrapper>
                 <CancleButton onClick={closeModal}>취소</CancleButton>
+                
                 <BuyButton onClick={buy} disabled={buyStart}> {buyStart ?  <Loading/> : '네'}</BuyButton>
+
               </ButtomWrapper>
           </OrderModal>
       }
