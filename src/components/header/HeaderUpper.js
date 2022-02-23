@@ -15,12 +15,12 @@ export default function HeaderUpper() {
                     {
                         userId === null ?
                     <li className="login-container">
-                        <Link to="login">
+                        <a href="login">
                             <span className="user-li login">
                                 <img src={require('../../images/mainpage/user_default.png')} alt="user_default" />
                                 <span>로그인/회원가입</span>
                             </span>
-                        </Link>
+                        </a>
                     </li> :
                     <>
                     <li className="user-logo">
