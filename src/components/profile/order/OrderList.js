@@ -8,9 +8,13 @@ export default function OrderList() {
     const [infos, setInfo] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
 
+
+    axios.get('http://localhost:9998/reward/3')
+    .then((Response)=>{console.log(Response.data)})
+    .catch((Error)=>{console.log(Error)})
     // 가상데이터
     useEffect(() => {
-        axios.get('https://jsonplaceholder.typicode.com/todos')
+        axios.get('http://localhost:9998/reward/3')
         .then(res => setInfo(res.data))
         .catch(err => console.log(err));
     }, []);
