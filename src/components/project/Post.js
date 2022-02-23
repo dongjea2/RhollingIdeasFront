@@ -9,7 +9,7 @@ export default function Post() {
 
     const [post, setPost] = useState('');
 
-    const [pl,setPl] = useState('');
+    const [plag,setPlag] = useState('');
 
 
     const usernoRef = useRef(null);
@@ -34,7 +34,7 @@ export default function Post() {
           },
         }).then((res) => {
           console.log(res);
-          setPl(pl + 1);
+          setPlag(plag + 1);
         }).catch(err => console.log(err));
         
       }
@@ -49,7 +49,7 @@ export default function Post() {
         axios.get("/projectdetail/post/" + Number(prodNo))
         .then(res => setInfo(res.data))
         .catch(err => console.log(err));
-       }, [pl]);
+       }, [plag]);
 
         return ( 
         <>

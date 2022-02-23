@@ -21,6 +21,7 @@ import FollowingList from './components/profile/follow/FollowingList';
 import FollowerList from './components/profile/follow/FollowerList';
 import ProjectWrite from './components/project/ProjectWrite';
 import OrderPage from './components/order/OrderPage';
+import RewardList from './components/project/RewardList';
 
 function App () {
 
@@ -32,6 +33,8 @@ return (
         <Route path='/discover' element={<DiscoverPage/>} />
         <Route path='/projectdetail/:prodNo/*' element={<ProjectDetail/>} /> 
         <Route path='/projectwrite' element={<ProjectWrite/>}/> 
+        <Route path='/proejctdetail/reward/*' element={<RewardList/>}/>
+
         <Route path='/order/:prodNo/:rewardNo' element={<Order/>} />
         <Route path='/projectdetail/:prodNo/*' element={<ProjectDetail/>} />  
         <Route path='/order/:rewardNo' element={<OrderPage/>} />
