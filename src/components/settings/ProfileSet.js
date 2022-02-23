@@ -5,8 +5,7 @@ import { useState } from "react";
 
 export default function ProfileSet() {
     {/* 로그인 확인하고 사용자 정보 가져오기 추가 */}
-    let loginedId = window.localStorage.getItem('userId');
-    console.log(loginedId);
+
     const [image, setImage] = useState();
     const [name, setName] = useState();
     const [url, setUrl] = useState();

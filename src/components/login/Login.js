@@ -46,9 +46,9 @@ export default function Login() {
     <div className='login-page'>
         {/* 상단 로고(클릭시 메인페이지 이동) */}
         <div className="logo">
-        <Link to="/">
+        <a href="/">
             <img src={rholling}/>
-        </Link>
+        </a>
         </div>
         <button onClick={fakeSubmit}>가짜 로그인 버튼</button>
         <button onClick={fakeLogout}>가짜 로그아웃 버튼</button>

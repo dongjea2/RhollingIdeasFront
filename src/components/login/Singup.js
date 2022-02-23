@@ -1,9 +1,12 @@
 import  rholling  from '../../images/mainpage/rholling.PNG';
 import { Link } from 'react-router-dom';
 import './Signup.css';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 export default function Signup() {
+
+    const [emailCheck, setEmailCheck] = useState('');
+    const [pwdCheck, setPwdCheck] = useState('');
 
     const nameRef = useRef(null);
     const idRef = useRef(null);
@@ -21,20 +24,32 @@ export default function Signup() {
         let pwd = pwdRef.current.value;
         let pwd2 = pwd2Ref.current.value;
 
+        console.log(name + " " + id + " " + pwd);
+
+        if(id !== id2) {
+            setEmailCheck('이메일 주소가 일치하지 않습니다');
+        } else {
+            setEmailCheck('');
+        }
+        if(pwd !== pwd2) {
+            setPwdCheck('비밀번호가 일치하지 않습니다');
+        } else {
+            setPwdCheck('');
+        }
+
         if(id === id2 && pwd === pwd2){
-            fetch(`url 넣어야 됨`, {
+            fetch('/signup', {
                 method : 'POST',
                 headers : {
                     'Content-Type' : 'application/json'
                 },
                 body : JSON.stringify({
-                    name : name,
-                    id : id,
-                    pwd : pwd
+                    userName : name,
+                    userId : id,
+                    userPwd : pwd
                 })
             })
-        } else {
-            console.log('이메일 또는 비밀번호가 일치하지 않습니다');
+            .then(data => data.JSON())
         }
     }
 
@@ -42,9 +57,9 @@ export default function Signup() {
         <div className='signup-page'>
             {/* 상단 로고(클릭시 메인페이지 이동) */}
             <div className="logo">
-            <Link to="/">
+            <a href="/">
                 <img src={rholling}/>
-            </Link>
+            </a>
             </div>
 
             {/* 회원가입 inputbox */}
@@ -56,9 +71,11 @@ export default function Signup() {
                     이메일 주소<br/>
                     <input type="text" ref={idRef} placeholder="이메일 주소를 입력해주세요" required />
                     <input type="text" ref={id2Ref} placeholder="이메일 주소를 확인합니다" required />
+                    <div className='signup-check'>{ emailCheck }</div>
                     비밀번호<br/>
                     <input type="password" ref={pwdRef} placeholder="비밀번호를 입력해주세요" required />
                     <input type="password" ref={pwd2Ref} placeholder="비밀번호를 확인합니다" required />
+                    <div className='signup-check'>{ pwdCheck }</div>
                     <button id="signup_button" onClick={handleSubmit}>가입하기</button>
                 </form>
                 <hr/>

@@ -32,3 +32,7 @@
   border: 1px solid;
   border-radius: 4px;
 }
+.signup-check {
+  font-size: 50%;
+  color: red;
+}
