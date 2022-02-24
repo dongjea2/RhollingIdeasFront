@@ -11,7 +11,6 @@ import Login from './components/login/Login';
 import Header from './components/header/Header';
 import OrderList from './components/profile/order/OrderList.js';
 import OrderDetail from './components/profile/order/OrderDetail';
-import ProfileSet from './components/settings/ProfileSet';
 import AccountSet from './components/settings/AccountSet';
 import PaymentSet from './components/settings/PaymentSet';
 import AddressSet from './components/settings/AddressSet';
@@ -41,7 +40,6 @@ return (
         <Route path='*' element={<EmptyPage/>}/>
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/login' element={<Login />}/>
-        <Route path='/profile/profileset' element={<ProfileSet/>} />
         <Route path='/profile/accountset' element={<AccountSet/>} />
         <Route path='/profile/paymentset' element={<PaymentSet/>} />
         <Route path='/profile/addressset' element={<AddressSet/>} />
