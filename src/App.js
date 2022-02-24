@@ -45,6 +45,7 @@ return (
 
         {/* 프로필 메뉴 링크 */}
         <Route path='/orderlist' element={<OrderList/>} />
+        <Route path='/orderlist/:paymentNo' element={<OrderDetail/>} />
         <Route path='/orderdetail/:paymentNo' element={<OrderDetail />} />
         <Route path='/interestlist' element={<InterestProjectList />} />
         <Route path='/prelaunchedlist' element={<PreLaunchedProjectList />} />

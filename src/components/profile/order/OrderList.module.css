@@ -1,22 +1,35 @@
 @charset "UTF-8";
-.order-list{
+.interestHeader{
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+.interestH1{
+    padding: 38px 24px 32px;
+}
+.interestH1 h1{
+	font-size: 36px;
+    line-height: 54px;
+    letter-spacing: -0.035em;
+    font-weight: 200;
+    margin: 0;
+}
+.orderList{
     display: flex;
     flex-wrap: wrap;
     padding: 14px 24px 24px;
 }
-.order-cnt-search{
+.orderCntSearch{
     line-height: 44px;
     display: flex;
     width: 100%;
 }
-.order-cnt{
+.orderCnt{
     width: 57%;
     display: flex;
 }
-.order-cnt>span{
+.orderCnt>span{
 	color: rgb(255, 87, 87);
 }
-.order-search{
+.orderSearch{
     width: 43%;
     margin: 0;
     display: flex;
@@ -28,19 +41,19 @@
     border-radius: 4px;
     text-align: center;
 }
-.order-search>div{
+.orderSearch>div{
     position: absolute;
     display: inline-flex;
     width: 20px;
     height: 20px;
     align-items: center;
 }
-.order-search>div>img{
+.orderSearch>div>img{
     display: flex;
     min-width: 32px;
     transform: scale(0.5);  
 }
-.order-search>input{
+.orderSearch>input{
     display: flex;
     font-size: 14px;
     width: 100%;
@@ -53,21 +66,27 @@
     margin-left: 35px;
 }
 
-.noorder-content{
+.noOrderContent{
 	margin: 0 auto;
 }
-
-.order-content{
+.noContent{
+    padding: 128px 0px 151px;
+    text-align: center;
+}
+.noContent>img{
+	width: 75px;
+}
+.orderContent{
 	width: 100%;
 	padding-top: 48px;
 }
 .order{
 	margin-bottom: 40px;
 }
-.payment-cont{
+.paymentCont{
 	margin-bottom: 10px;
 }
-.paymentresult{
+.paymentResult{
     font-weight: bold;
     font-size: 16px;
     line-height: 27px;
@@ -75,62 +94,62 @@
     color: rgb(61, 61, 61);
     margin-left: 16px;
 }
-.each-order-content{
+.eachOrderContent{
     border: 1px solid rgb(230, 230, 230);
     display: flex;
     padding: 20px;
 }
-.order-img{
+.orderImg{
 	margin-right: 20px;
 	width: 154px;
     height: 116px;
 }
-.order-img>a>img{
+.orderImg>a>img{
 	width: 154px;
     height: 116px;
 }
 
-.date-payno{
+.datePayno{
 	font-size: 12px;
     line-height: 19px;
     letter-spacing: -0.01em;
     color: rgb(109, 109, 109);
 }
-.longtitle{
-    line-height: 27px;
+.longTitle{
+    line-height: 24px;
     font-weight: bold;
 }
-.deliverselect{
+.deliverSelect{
 	font-size: 14px;
     line-height: 24px;
     color: rgb(109, 109, 109);
 }
-.reward-item{
+.rewardItem{
     line-height: 18px;
     letter-spacing: -0.005em;
     color: rgb(61, 61, 61);
 }
-.reward-item>div{
+.rewardItem>div{
 	font-size: 12px;
 	margin-top: 8px;
 }
-.reward-item>ul{
+.rewardItem>ul{
 	padding-left: 16px;
 	list-style-type: disc;
 }
-.reward-item>ul>li{
+.rewardItem>ul>li{
 	font-size: 11px;
 	margin: 0 4px;
 	list-style-type: disc;
 }
-.deliverdate{
+.deliverDate{
 	margin-top: 8px;
 	font-size: 11px;
     line-height: 18px;
     letter-spacing: -0.005em;
     color: rgb(255, 87, 87);
 }
-.totalprice{
+.totalPrice{
 	font-size: 12px;
 	color: rgb(61, 61, 61);
 	line-height: 1.7em;

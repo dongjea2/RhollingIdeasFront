@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import './OrderList.css';
+import styles from './OrderList.module.css';
 import OrderStatus from './OrderStatus';
 
 // 후원(주문)현황 컴포넌트
@@ -54,15 +54,15 @@ export default function OrderList() {
     const orderlength = failList.length + ongoingList.length + fundingSuccessList.length + orderSuccessList.length;
     return(
         <section>
-        <div className="interest-header">
-            <div className="interest-h1"><h1>후원현황</h1></div>
+        <div className={styles.orderHeader}>
+            <div className={styles.interestH1}><h1>후원현황</h1></div>
             </div>
-            <div className="order-list">
-            <div className="order-cnt-search">
-                <div className="order-cnt">
+            <div className={styles.orderList}>
+            <div className={styles.orderCntSearch}>
+                <div className={styles.orderCnt}>
                 <span>{orderlength}</span>건의 후원 내역이 있습니다.
                 </div>
-                <div className="order-search">
+                <div className={styles.orderSearch}>
                 <div><img src={require('../../../images/mainpage/search2.png')} alt="search" /></div>
                 <input type="search" placeholder="프로젝트, 선물, 창작자를 검색하세요" className="search-input" defaultValue="" autoComplete="off" onChange={(e) => {setSearchTerm(e.target.value);}} />
                 </div>
@@ -70,14 +70,14 @@ export default function OrderList() {
         </div>
         {
             orders.length === 0 ?
-        <div className="noorder-content">
+        <div className={styles.noOrderContent}>
             <br/><br/>
-            <div className="no-content">
+            <div className={styles.noContent}>
               <img src={require('../../../images/profile/empty present.png')} alt="empty_present" />
               <div>후원한 프로젝트가 없습니다.</div>
             </div>
         </div> :
-        <div className="order-content">
+        <div className={styles.orderContent}>
             {failList.length !== 0 && <OrderStatus list={failList} />}
             {ongoingList.length !== 0 && <OrderStatus list={ongoingList}/>}
             {fundingSuccessList.length !== 0 && <OrderStatus list={fundingSuccessList}/>}
