@@ -11,7 +11,6 @@ import Login from './components/login/Login';
 import Header from './components/header/Header';
 import OrderList from './components/profile/order/OrderList.js';
 import OrderDetail from './components/profile/order/OrderDetail';
-import ProfileSet from './components/settings/ProfileSet';
 import AccountSet from './components/settings/AccountSet';
 import PaymentSet from './components/settings/PaymentSet';
 import AddressSet from './components/settings/AddressSet';
@@ -21,6 +20,7 @@ import FollowingList from './components/profile/follow/FollowingList';
 import FollowerList from './components/profile/follow/FollowerList';
 import ProjectWrite from './components/project/ProjectWrite';
 import OrderPage from './components/order/OrderPage';
+import RewardList from './components/project/RewardList';
 
 function App () {
 
@@ -32,13 +32,14 @@ return (
         <Route path='/discover' element={<DiscoverPage/>} />
         <Route path='/projectdetail/:prodNo/*' element={<ProjectDetail/>} /> 
         <Route path='/projectwrite' element={<ProjectWrite/>}/> 
+        <Route path='/rewardlist/:prodNo' element={<RewardList/>}/>
+
         <Route path='/order/:prodNo/:rewardNo' element={<Order/>} />
         <Route path='/projectdetail/:prodNo/*' element={<ProjectDetail/>} />  
         <Route path='/order/:rewardNo' element={<OrderPage/>} />
         <Route path='*' element={<EmptyPage/>}/>
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/login' element={<Login />}/>
-        <Route path='/profile/profileset' element={<ProfileSet/>} />
         <Route path='/profile/accountset' element={<AccountSet/>} />
         <Route path='/profile/paymentset' element={<PaymentSet/>} />
         <Route path='/profile/addressset' element={<AddressSet/>} />

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link, Route, Routes, useParams } from "react-router-dom";
 import Content from './Content';
 import Post from './Post';
+import Rewardlist from './RewardList'
+
 import './ProjectDetail.css'
 
 
@@ -84,6 +86,7 @@ export default function ProjectDetail() {
             </div>
 
             <div className="reward">
+              <Rewardlist></Rewardlist>
               <Link to="/order/1"> <div>선물부분</div></Link>
             </div>
 
