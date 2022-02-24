@@ -4,11 +4,9 @@ import { Link } from "react-router-dom";
 
 export default function OrderDetail(){
     const location =useLocation();
-    const test = location.state;
     const order = location.state.order;
-    console.log(test);
+    const project = order.reward.project;
     console.log(order);
-    console.log(order.orderNo);
 
     function leftPad(value){ 
         if (value >= 10) { 
@@ -28,20 +26,20 @@ export default function OrderDetail(){
         <div className="project-container">
             <div className="project-img">
                 <a href={"/projectdetail/" + order.orderNo}>
-                    <img src={require('../../../images/mainpage/1.jpeg')} alt="projectImg" />
+                    <img src={require(`../../../${project.projectImage}`)} alt="projectImg" />
                 </a>
             </div>
             <div className="project-text">
-                <div className="cate-maker">카테고리이름 | 메이커이름</div>
+                <div className="cate-maker">{project.category.categoryName} | {project.maker.userName}</div>
                 <div className="longtitle">
                     <a href={"/projectdetail/" + order.orderNo}>
-                        긴제목
+                        {project.longTitle}
                     </a>
                 </div>
                 <div>
-                    <span className="sumprice">000원</span>
-                    <span className="rate">달성률%</span>
-                    <span className="payresult">· 결제결과</span>
+                    <span className="sumprice">{project.projectChange.sumPrice.toLocaleString('ko-KR')}원 </span>
+                    <span className="rate"> {project.achiveRate}%</span>
+                    <span className="payresult">· {order.orderResult}</span>
                 </div>
                 <Link to={"/"} className="message">
                     창작자에게 문의
@@ -85,7 +83,7 @@ export default function OrderDetail(){
                     </tr>
                     <tr>
                         <th>후원 금액</th>
-                        <td>{order.totalPrice}</td>
+                        <td>{order.totalPrice.toLocaleString('ko-KR')}</td>
                     </tr>
                     <tr>
                         <th>전달 상태</th>
@@ -110,7 +108,7 @@ export default function OrderDetail(){
                     </tr>
                     <tr>
                         <th>결제 금액</th>
-                        <td>{order.totalPrice}</td>
+                        <td>{order.totalPrice.toLocaleString('ko-KR')}</td>
                     </tr>
                     <tr>
                         <th>결제 상태</th>
@@ -127,15 +125,15 @@ export default function OrderDetail(){
                 <thead>
                     <tr>
                         <th>받는 사람</th>
-                        <td></td>
+                        <td>{order.address.receiverName}</td>
                     </tr>
                     <tr>
                         <th>연락처</th>
-                        <td></td>
+                        <td>{order.address.receiverPhone.substring(0, 3)}-{order.address.receiverPhone.substring(3, 7)}-{order.address.receiverPhone.substring(7)}</td>
                     </tr>
                     <tr>
                         <th>주소</th>
-                        <td></td>
+                        <td>({order.address.receiverZipcode}) {order.address.receiverAddress} {order.address.receiverAddressDetailed}</td>
                     </tr>
                     <tr>
                         <th>운송장 번호</th>

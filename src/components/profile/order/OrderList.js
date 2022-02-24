@@ -25,7 +25,9 @@ export default function OrderList() {
     const filteredList = orders.filter((order) => {
                                 if(searchTerm === ""){
                                     return order;
-                                }else if(order.title.toLowerCase().includes(searchTerm.toLowerCase())){
+                                }else if(order.reward.project.longTitle.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                                        order.reward.project.maker.userName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                        order.reward.rewardName.toLowerCase().includes(searchTerm.toLowerCase())){
                                     return order;
                                 }else{
                                     return null;
@@ -56,15 +58,15 @@ export default function OrderList() {
         <section>
         <div className={styles.orderHeader}>
             <div className={styles.interestH1}><h1>후원현황</h1></div>
-            </div>
+        </div>
             <div className={styles.orderList}>
             <div className={styles.orderCntSearch}>
                 <div className={styles.orderCnt}>
-                <span>{orderlength}</span>건의 후원 내역이 있습니다.
+                    <span>{orderlength}</span>건의 후원 내역이 있습니다.
                 </div>
                 <div className={styles.orderSearch}>
-                <div><img src={require('../../../images/mainpage/search2.png')} alt="search" /></div>
-                <input type="search" placeholder="프로젝트, 선물, 창작자를 검색하세요" className="search-input" defaultValue="" autoComplete="off" onChange={(e) => {setSearchTerm(e.target.value);}} />
+                    <div><img src={require('../../../images/mainpage/search2.png')} alt="search" /></div>
+                    <input type="search" placeholder="프로젝트, 선물, 창작자를 검색하세요" className="search-input" defaultValue="" autoComplete="off" onChange={(e) => {setSearchTerm(e.target.value)}} />
                 </div>
             </div>
         </div>

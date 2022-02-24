@@ -4,6 +4,7 @@
 }
 .interestH1{
     padding: 38px 24px 32px;
+    border-bottom: 1px solid rgb(230, 230, 230);
 }
 .interestH1 h1{
 	font-size: 36px;
@@ -119,10 +120,11 @@
     line-height: 24px;
     font-weight: bold;
 }
-.deliverSelect{
+.rewardName{
 	font-size: 14px;
     line-height: 24px;
     color: rgb(109, 109, 109);
+    margin-top: 3px;
 }
 .rewardItem{
     line-height: 18px;
@@ -141,6 +143,7 @@
 	font-size: 11px;
 	margin: 0 4px;
 	list-style-type: disc;
+    color: rgb(109, 109, 109);
 }
 .deliverDate{
 	margin-top: 8px;
