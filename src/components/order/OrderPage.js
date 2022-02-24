@@ -72,9 +72,30 @@ function OrderButton({item}){
     const buy = () =>{
         setBuyStart(true);
         setModalVisible(false);
-        setTimeout(() => {
-            setFinishModdalVisible(true);
-            }, 1000);
+
+        console.log(item.project.projectNo)
+        //request for buying
+        fetch('/order', {
+            method : 'POST',
+            headers : {
+                'Content-Type' : 'application/json'
+            },
+            body : JSON.stringify({
+                extraPrice : item.rewardPrice,
+            	totalPrice : item.rewardPrice,
+                project : { projectNo : item.project.projectNo},
+                reward : { rewardNo : item.rewardNo},
+
+                //유저 번호 직접 읽어올것
+                orderUser : { userNo : 1  },
+                //주소랑 카드 (1이면 안됨 ) 수정
+                address : { addressNo : 1},
+                card : { cardNo : 1}
+            })
+        })
+        .then(data => data.JSON())
+        
+        //setTimeout(() => { setFinishModdalVisible(true); }, 1000);
     }
         //setTimeout(() => { navigate('/orderlist')}, 1000);
 
@@ -85,9 +106,6 @@ function OrderButton({item}){
         setButtonDisable(true);
         setorderModalOn(true);
         setTimeout(() => { setModalVisible(true) }, 500);
-        
-
-
     }
 
 
@@ -125,7 +143,7 @@ function OrderButton({item}){
         closable={false}
         maskClosable={false}
         >
-            감사합니다 :)
+            후원 완료!
             <ButtomWrapper>
             <Link to='/'><CancleButton>홈으로</CancleButton> </Link>
             <Link to='/orderlist'><BuyButton>후원 현황</BuyButton> </Link>
