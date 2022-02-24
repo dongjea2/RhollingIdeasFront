@@ -33,7 +33,7 @@ return (
         <Route path='/discover' element={<DiscoverPage/>} />
         <Route path='/projectdetail/:prodNo/*' element={<ProjectDetail/>} /> 
         <Route path='/projectwrite' element={<ProjectWrite/>}/> 
-        <Route path='/proejctdetail/reward/*' element={<RewardList/>}/>
+        <Route path='/rewardlist/:prodNo' element={<RewardList/>}/>
 
         <Route path='/order/:prodNo/:rewardNo' element={<Order/>} />
         <Route path='/projectdetail/:prodNo/*' element={<ProjectDetail/>} />  
