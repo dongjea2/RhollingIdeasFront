@@ -39,6 +39,24 @@
     font-weight: bold;
 }
 
+.follow-user-name>a:hover {
+    border-bottom: 2px solid black;
+}
+
+.follow-user-intro{
+    font-size: 14px;
+    line-height: 22px;
+    max-height: 40px;
+    overflow: hidden;
+    margin-top: 4px;
+    display: -webkit-box;
+    flex-wrap: wrap;
+    color: rgb(61, 61, 61);
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
 .follow-button-content {
     display: flex;
     justify-content: center;
@@ -46,6 +64,20 @@
     padding: 0 40px;
 }
 .follow-button {
+    border: 1px solid rgb(255, 87, 87);
+    border-radius: 4px;
+    margin-top: 0px;
+    width: 104px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 87, 87);
+}
+.follow-button>span {
+    color: rgb(255, 255, 255);
+}
+.following-button {
     border: 1px solid rgb(61, 61, 61);
     border-radius: 4px;
     margin-top: 0px;
@@ -56,8 +88,15 @@
     justify-content: center;
     background-color: white;
 }
-.follow-button>img{
+.follow-button:hover {
+    background-color: rgb(207, 71, 71);
+}
+.following-button:hover {
+    background-color: rgb(231, 231, 231);
+}
+.following-button>img{
     width: 14px;
+    margin-right: 5px;
 }
 .follow-button>span{
     font-size: 14px;
