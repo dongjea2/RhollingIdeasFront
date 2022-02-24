@@ -22,3 +22,9 @@ button {
 .profile-img-viewer {
   width: 50px;
 }
+.card {
+  border: solid 1px black;
+}
+.address {
+  border: solid 1px black;
+}

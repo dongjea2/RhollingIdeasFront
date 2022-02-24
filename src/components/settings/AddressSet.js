@@ -1,41 +1,64 @@
 import SettingsHeader from "./SettingsHeader";
-import './SettingsDefault.css';
+import "./SettingsDefault.css";
+import { useState, useEffect } from "react";
+
+function Address({ addr }) {
+  const { addressNo, name, zipcode, address, addressDetail, phone, isDefault } =
+    addr;
+
+  return (
+    <div className="address">
+      <div>이름: {addr.name}</div>
+      <div>우편번호: {addr.zipcode}</div>
+      <div>주소: {addr.address}</div>
+      <div>상세주소: {addr.addressDetail}</div>
+      <div>전화번호: {addr.phone}</div>
+    </div>
+  );
+}
+
+function AddressList({ addrs }) {
+  return (
+    <ul>
+      {addrs.map((addr) => (
+        <li key={addr.addressNo}>
+          <Address addr={addr} />
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+async function getAddress(requestBody) {
+  const resAddress = await fetch("/profile/address", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(requestBody),
+  });
+  const resBody = await resAddress.json();
+  return resBody;
+}
 
 export default function AddressSet() {
-    return (
-    <div className="setting-default">
-    <SettingsHeader />
-    <section class="settings-box">
-		<div class="settings_subtitle">배송지 추가</div>
-		<div class="address_box">
-            <input />
-            <span class="address_value_name">이름</span> <input /><br/>
-            <span class="address_value_name">우편번호</span> <input /><br/>
-            <span class="address_value_name">주소</span> <input /><br/>
-            <span class="address_value_name">상세주소</span> <input /><br/>
-            <span class="address_value_name">전화번호</span> <input /><br/>
-            기본배송지로 등록 <input />
-            <button>추가</button>
-		</div>
-		<hr/>
-		<div class="settings_subtitle">등록된 배송지</div>
-	
-		<div class="address_box">
-            <span class="address_value_name">이름</span> <input /><br/>
-            <span class="address_value_name">우편번호</span> <input /><br/>
-            <span class="address_value_name">주소</span> <input /><br/>
-            <span class="address_value_name">상세주소</span> <input /><br/>
-            <span class="address_value_name">전화번호</span> <input /><br/>
-            <span id="default_value">기본배송지여부</span> <br/>
-            <input />
-            <button>수정</button>
+  const [addrs, setAddrs] = useState([]);
 
-            <input />
-            <button>기본배송지로 변경</button>
-            <input type="text" class="invisible" name="addressNo" value="<%=addressNo%>"/>
-            <button>삭제</button>
-		</div>   
-    </section>
+  useEffect(() => {
+    //userNo 수정 필요
+    const addrs = getAddress({ userNo: 1 });
+    addrs.then((res) => {
+      setAddrs(res);
+    });
+  }, []);
+
+  return (
+    <div className="setting-default">
+      <SettingsHeader />
+      <section className="settings-box">
+        <div className="settings_subtitle">등록된 배송지</div>
+        <AddressList addrs={addrs} />
+      </section>
     </div>
-    )
+  );
 }
