@@ -49,7 +49,6 @@ export default function Signup() {
                     userPwd : pwd
                 })
             })
-            .then(data => data.JSON())
         }
     }
 
