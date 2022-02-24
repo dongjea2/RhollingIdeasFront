@@ -3,9 +3,6 @@ import "./SettingsDefault.css";
 import { useState, useEffect } from "react";
 
 function Address({ addr }) {
-  const { addressNo, name, zipcode, address, addressDetail, phone, isDefault } =
-    addr;
-
   return (
     <div className="address">
       <div>이름: {addr.name}</div>

@@ -3,8 +3,6 @@ import "./SettingsDefault.css";
 import { useState, useEffect } from "react";
 
 function Card({ card }) {
-  const { cardNum, validDate, ownerBirth, isDefault } = card;
-
   return (
     <div className="card">
       <div>카드번호: {card.cardNum}</div>

@@ -13,11 +13,9 @@
   font-weight: bold;
   font-size: 16px;
 }
-button {
-  display: inline-block;
-  margin-left: 0;
-  margin-right: 0;
+.update-button {
   color: rgb(39, 163, 255);
+  width: 30px;
 }
 .profile-img-viewer {
   width: 50px;
@@ -27,4 +25,8 @@ button {
 }
 .address {
   border: solid 1px black;
+}
+.withdrawal {
+  color: red;
+  width: 30px;
 }
