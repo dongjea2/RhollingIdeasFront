@@ -1,37 +1,69 @@
 import { Link } from "react-router-dom";
-import styles from '../../mainpage/mainpageComponet/attention/AttentionProjects.module.css';
-import './InterestProejctList.css'
-import items from '../../../api/mock/projectMock.json';
-import ProjectMini from "../../project/ProjectMini";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import styles from './InterestProejctList.module.css';
 
 export default function InterestProjectList(){
+    const [inters, setInterests] = useState([]);
+    const [pres, setPres] = useState([]);
+    useEffect(() => {
+        axios.get("/interestlist")
+        .then(res => setInterests(res.data))
+        .catch(err => console.log(err));
+    }, []);
+    useEffect(() => {
+        axios.get("/prelaunchedlist")
+        .then(res => setPres(res.data))
+        .catch(err => console.log(err));
+    }, []);
+    console.log(inters);
     return(
         <section>
-            <div className="interest-header">
-                <div className="interest-h1"><h1>관심 프로젝트</h1></div>
-                <div className="interest-select">
-                    <span className="selected-span">
-                        <Link to="/interestlist"  replace={true} class="selected-a" style={{color: "black"}}>좋아한 000</Link>
+            <div className={styles.interestHeader}>
+                <div className={styles.interestH1}><h1>관심 프로젝트</h1></div>
+                <div className={styles.interestSelect}>
+                    <span className={styles.selectedSpan}>
+                        <Link to="/interestlist" replace={true} className={styles.selectedA} style={{color: "black"}}>좋아한 {inters.length}</Link>
                     </span>
                     <span>
-                        <Link to="/prelaunchedlist"  replace={true} className="not-selected-a">알림신청 000</Link>
+                        <Link to="/prelaunchedlist" className={styles.notSelectedA} state={{pres: pres, intersLength: inters.length}} >알림신청 {pres.length}</Link>
                     </span>
                 </div>
             </div>
-            <div className="select-content">
+            <div className={styles.selectContent}>
                 <br/><br/>
                 {
-                    items.length === 0 ?
-                <div class="no-content">
+                    inters.length === 0 ?
+                <div className={styles.noContent}>
                     <img src={require('../../../images/profile/empty heart.png')} alt="no_like_project" />
                     <div>좋아한 프로젝트가 없습니다.</div>
                 </div> :
                 
-                <div className={styles.itemInrap}>
-                {items.map((item) => (
-                    <div className={styles.item} key={item.id}>
-                        
-                        <ProjectMini item={item}/>
+                <div className={styles.itemContent}>
+                {inters.map((inter) => (
+                    <div className={styles.item} key={inter.likeProject.projectNo}>
+                        <Link to={'/projectdetail/'+Number(inter.likeProject.projectNo)}>
+                        <img className={styles.itemImage} src={require(`../../../${inter.likeProject.projectImage}`)} alt={inter.likeProject.projectNo}/>
+                        </Link>
+
+                        {/*<button className={styles.like}></button>*/}
+                        <button className={styles.notLike}></button>
+
+                        <div className={styles.info} style={{marginTop:'-25px'}}>
+
+                            <div className={styles.catelink}>
+                                <span className={styles.category}> {inter.likeProject.category.categoryName} | {inter.likeProject.maker.userName} </span>
+                            </div>
+
+                            <Link to={'/projectdetail/'+Number(inter.likeProject.projectNo)}>
+                            <span className={styles.title}>{inter.likeProject.longTitle}</span> 
+                            </Link>
+                            <span className={styles.brief}>{inter.likeProject.projectBrief}</span>
+                            <div className={styles.priceAndPercent}>
+                                <span className={styles.percent}>{inter.likeProject.achiveRate}%</span>
+                                <span className={styles.sumPrice}>{inter.likeProject.projectChange.sumPrice.toLocaleString('ko-KR')}원</span>
+                            </div>
+                        </div>
                     </div>
                 ))}
                 </div>
