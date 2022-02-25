@@ -20,6 +20,15 @@ export default function ProjectWrite(){
     const projecturlRef = useRef(null);
 
 
+
+    const rewardPriceRef = useRef(null);
+	const rewardNameRef = useRef(null);
+	const deliverDateRef = useRef(null);
+	const rewardNumRef = useRef(null);
+	const itemNameRef = useRef(null);
+	const deliverSelectRef = useRef(null);
+
+
     function onSubmit(e){
         e.preventDefault();
         
@@ -39,13 +48,22 @@ export default function ProjectWrite(){
             projecturl: projecturlRef.current.value}
     }
 
+    // let rewarddata = { 
+    //      rewardPrice: rewardPriceRef.current.value,
+    //      rewardName: rewardNameRef.current.value,
+    //      deliverDate: deliverDateRef.current.value,
+    //      rewardNum: rewardNumRef.current.value,
+    //      itemName: itemNameRef.current.value,
+    //      deliverSelect: deliverSelectRef.current.value
+    // }
+
     const [showModal, setShowModal] = useState(false);
     const openMadal = ()=>{
         setShowModal((prev)=>!prev);
     };
 
 
-    const [modalVisible, setModalVisible] = useState(true);
+    const [modalVisible, setModalVisible] = useState(false);
     
     const closeModal = () => {
         setModalVisible(false) 
@@ -57,6 +75,7 @@ export default function ProjectWrite(){
       useEffect(() => {
         axios.get("/category")
         .then(res => setInfo(res.data))
+        //여기서 모달창에 입력한 reward뿌려야함
         .catch(err => console.log(err));
        }, [plag]);
 
@@ -65,6 +84,26 @@ export default function ProjectWrite(){
        const onChange = (e) =>{
            setText(e.target.value);
        };
+
+
+
+       
+       const handleSubmit = async (e) => {
+        e.preventDefault();
+        
+        let data = {
+            //reward, category, project 다 보내야함
+        }
+
+        axios.post("/write",  JSON.stringify(data), {
+          headers: {
+            "Content-Type": `application/json`,
+          },
+        }).then((res) => {
+          console.log(res);
+          setPlag(plag + 1);
+        }).catch(err => console.log(err));
+      }
 
     return(
         <form onSubmit={onSubmit}>
@@ -76,8 +115,8 @@ export default function ProjectWrite(){
                 )}
             </select>
             <div className="input">
-            <div>projectNo</div>
-            <div>userNo</div>
+            <div style={{display:'none'}}>projectNo</div>
+            <div style={{display:'none'}}>userNo</div>
             
             <input type="text" ref={longtitleRef} placeholder="longtitle"/>
             <input type="text" ref={projectbriefRef} placeholder="projectbrief"/>
@@ -86,7 +125,8 @@ export default function ProjectWrite(){
             <input type="number" ref={targetpriceRef} placeholder="targetprice"/>
             <input type="text" ref={shorttitleRef} placeholder="shorttitle" />
             <input type="text" ref={projectcontentRef} placeholder="projectcontent"/>
-            <div>projecturl</div>
+            <input type="text" ref={projecturlRef} placeholder="projecturl"/>
+            
 
             <div>선물 추가부분
                 <button onClick={openMadal}></button>
@@ -97,16 +137,16 @@ export default function ProjectWrite(){
                 closable={true}
                 maskClosable={false}
                 onClose={closeModal}>
-                    <input type="text" placeholder="선물이름"/>
-                    <input type="text" placeholder="선물금액"/>
-                    <input type="text" placeholder="선물한정수량"/>
-                    <input type="text" placeholder="아이템 이름"/>
-                    <input type="number" placeholder="예상전달일"/>
-                    <button>확인</button>
+                    <input type="text" ref={rewardNameRef} placeholder="선물이름"/>
+                    <input type="text" ref={rewardPriceRef} placeholder="선물금액"/>
+                    <input type="text" ref={rewardNumRef} placeholder="선물한정수량"/>
+                    <input type="text" ref={itemNameRef} placeholder="아이템 이름"/>
+                    <input type="number" ref={deliverSelectRef} placeholder="예상전달일"/>
+                    <button >확인</button>
                 </OrderModal>
                 }
             </div>
-            
+            <button onClick={handleSubmit}>프로젝트 작성</button>
             </div>
         </form>      
         
