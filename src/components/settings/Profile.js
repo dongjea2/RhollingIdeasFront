@@ -4,6 +4,8 @@ import { useState, useRef } from "react";
 function InnerTag({ status, data, name }) {
   const inputRef = useRef(data);
 
+  console.log(data);
+
   //Json데이터 key 세팅
   const userNo = 1;
   let keyOfInputValue = "";
@@ -27,6 +29,7 @@ function InnerTag({ status, data, name }) {
       keyOfInputValue = "userPwd";
       break;
     default:
+      console.log("이건가");
       break;
   }
 
@@ -50,9 +53,9 @@ function InnerTag({ status, data, name }) {
 
   //Prpfile컴포넌트에 들어갈 html 선택
   if (status === "변경") {
-    // if (name === "프로필 사진") {
-    //   return <img src={require(`../../${data}.PNG`).default} alt={data} />;
-    // }
+    if (name === "프로필 사진") {
+      return <img src={require(`../../${data}`)} alt={data} />;
+    }
     return <div>{data}</div>;
   } else if (name === "프로필 사진") {
     return (
