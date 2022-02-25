@@ -21,6 +21,7 @@ import FollowerList from './components/profile/follow/FollowerList';
 import ProjectWrite from './components/project/ProjectWrite';
 import OrderPage from './components/order/OrderPage';
 import RewardList from './components/project/RewardList';
+import Profile from './components/profile/Profile';
 
 function App () {
 
@@ -51,6 +52,7 @@ return (
         <Route path='/prelaunchedlist' element={<PreLaunchedProjectList />} />
         <Route path='/following' element={<FollowingList />} />
         <Route path='/following/followers' element={<FollowerList />} />
+        <Route path='/profile/:userUrl' element={<Profile/>} />
     </Routes>
 </BrowserRouter>
 )

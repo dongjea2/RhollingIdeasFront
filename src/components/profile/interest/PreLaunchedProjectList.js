@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import styles from './InterestProejctList.module.css';
+import styles from '../Profile.module.css';
 
 export default function PreLaunchedProjectList(){
     const location = useLocation();
@@ -14,7 +14,7 @@ export default function PreLaunchedProjectList(){
                         <Link to="/interestlist" replace={true} className={styles.notSelectedA}>좋아한 {intersLength}</Link>
                     </span>
                     <span className={styles.selectedSpan}>
-                        <Link to="/prelaunchedlist" state={{pres: pres, intersLength: intersLength}} replace={true} class={styles.selectedA} style={{color: "black"}}>알림신청 {pres.length}</Link>
+                        <Link to="/prelaunchedlist" state={{pres: pres, intersLength: intersLength}} replace={true} className={styles.selectedA} style={{color: "black"}}>알림신청 {pres.length}</Link>
                     </span>
                 </div>
             </div>

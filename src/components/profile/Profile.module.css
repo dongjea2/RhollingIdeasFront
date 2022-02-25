@@ -122,7 +122,7 @@ button:focus{
 button.like {
  width: 30px;
  height: 30px;
- background: url("../../../images/mainpage/heart2.png") center center / 100% no-repeat;
+ background: url("../../images/mainpage/heart2.png") center center / 100% no-repeat;
  top: -248px;
  position: relative;
  left: 295px;
@@ -131,7 +131,7 @@ button.like {
 button.notLike{
  width: 30px;
  height: 30px;
- background: url("../../../images/mainpage/heart.png") center center / 100% no-repeat;
+ background: url("../../images/mainpage/heart.png") center center / 100% no-repeat;
  top: -248px;
  position: relative;
  left: 295px;
@@ -250,5 +250,21 @@ font-family: 'SF Pro Text', 'Helvetica Neue', 'Segoe UI', Arial, 'NotoSansKR', s
     height: 36px;
     color: rgb(28, 28, 28);
     font-weight: 700;
+}
+.profileImg{
+    width: 56px;
+    height: 56px;
+    vertical-align: middle;
+    border-radius: 70%;
+    overflow: hidden;
+    object-fit: cover;
+    border: 1px solid rgb(223, 223, 223);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.profileImg>img{
+    width: 46px;
+    height: 46px;
 }
 

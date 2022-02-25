@@ -62,7 +62,7 @@ export default function Post() {
              <div key={post.postNo}>
                 <div style={{display:'none'}}>게시글번호{post.prodNo}json데이터 테스트입니다
                 </div>
-                <div>유저이름:{post.maker.userNo}</div>
+                <div>유저이름:{post.maker.userName}</div>
                 <div>게시글내용:{post.postContent}</div>
                 </div >
               )}

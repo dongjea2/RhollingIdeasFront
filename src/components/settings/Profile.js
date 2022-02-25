@@ -28,9 +28,6 @@ function InnerTag({ status, data, name }) {
     case "비밀번호":
       keyOfInputValue = "userPwd";
       break;
-    default:
-      console.log("이건가");
-      break;
   }
 
   //Update 요청 핸들러

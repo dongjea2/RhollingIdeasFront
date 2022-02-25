@@ -16,6 +16,7 @@
     padding-right: 14px;
     width: 200px;
     transition: all 0.5s; 
+    max-width: 270px;
 }
 
 

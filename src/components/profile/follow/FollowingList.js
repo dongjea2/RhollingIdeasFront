@@ -17,6 +17,7 @@ export default function FollowingList(){
         .then(res => setfollower(res.data))
         .catch(err => console.log(err));
     }, [cnt]);
+    console.log(following)
 
     const followClick = (follow) => {
         console.log(follow);
