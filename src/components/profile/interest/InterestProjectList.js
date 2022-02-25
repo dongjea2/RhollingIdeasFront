@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import styles from './InterestProejctList.module.css';
+import styles from '../Profile.module.css';
 
 export default function InterestProjectList(){
     const [inters, setInterests] = useState([]);

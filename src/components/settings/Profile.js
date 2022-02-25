@@ -50,10 +50,10 @@ function InnerTag({ status, data, name }) {
 
   //Prpfile컴포넌트에 들어갈 html 선택
   if (status === "변경") {
-    // if (name === "프로필 사진") {
-    //   return <img src={require(`../../${data}.PNG`).default} alt={data} />;
-    // }
-    return <div>{data}</div>;
+    if (name === "프로필 사진") {
+      return <img src={require(`../../${data}`)} alt={data} />;
+    }
+    // return <div>{data}</div>;
   } else if (name === "프로필 사진") {
     return (
       <form>

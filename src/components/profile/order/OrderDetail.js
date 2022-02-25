@@ -17,7 +17,7 @@ export default function OrderDetail(){
     function toStringByFormatting(source, delimiter = '. ') { 
         const year = source.getFullYear(); 
         const month = leftPad(source.getMonth() + 1); 
-        const day = leftPad(source.getDate() -1); 
+        const day = leftPad(source.getDate()); 
         return [year, month, day].join(delimiter); 
     }
 
