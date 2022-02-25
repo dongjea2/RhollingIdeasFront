@@ -53,7 +53,10 @@ export default function AddressSet() {
     <div className="setting-default">
       <SettingsHeader />
       <section className="settings-box">
-        <div className="settings_subtitle">등록된 배송지</div>
+        <div className="settings_subtitle">
+          등록된 배송지
+          <button className="add-btn">+추가</button>
+        </div>
         <AddressList addrs={addrs} />
       </section>
     </div>

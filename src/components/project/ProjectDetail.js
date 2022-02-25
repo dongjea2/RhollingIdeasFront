@@ -97,8 +97,16 @@ export default function ProjectDetail() {
     
 
             <div className="reward">
-              {/* <Rewardlist></Rewardlist> */}
-              <Link to="/order/1"> <div>선물부분</div></Link>
+            {info && info.reward.map((reward)=>
+             <div className='rewardlist' key={reward.rewardNo}>
+             <Link to={`/order/${reward.rewardNo}`}>
+                <div style={{display:'none'}}>선물번호{reward.rewardNo}</div>
+                <div>선물금액:{reward.rewardPrice}</div>
+                <div>선물이름:{reward.rewardName}</div>
+                <div>선물재고:{reward.rewardNum}</div>
+            </Link>
+            </div>
+            )}
             </div>
 
 

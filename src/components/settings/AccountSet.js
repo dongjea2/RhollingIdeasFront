@@ -5,7 +5,7 @@ import axios from "axios";
 import Profile from "./Profile";
 
 export default function AccountSet() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState("");
 
   // 기능 미구현
   function handleWithdrawal(e) {
@@ -16,7 +16,7 @@ export default function AccountSet() {
   //유저번호로 계정정보 조회. 토큰으로 로그인시 변경
   useEffect(() => {
     axios({
-      method: "post",
+      method: "POST",
       url: "/profile/account",
       data: {
         userNo: 1, //수정필요
@@ -30,7 +30,7 @@ export default function AccountSet() {
     <div className="settings-default">
       <SettingsHeader />
       <section className="settings-box">
-        <Profile name={"프로필 사진"} data={data.image} />
+        <Profile name={"프로필 사진"} data={data && data.image} />
         <Profile name={"이름"} data={data.name} />
         <Profile name={"소개"} data={data.intro} />
         <Profile name={"이메일"} data={data.email} />

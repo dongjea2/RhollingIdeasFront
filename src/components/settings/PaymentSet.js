@@ -51,7 +51,10 @@ export default function PaymentSet() {
     <div className="setting-default">
       <SettingsHeader />
       <section className="settings-box">
-        <div className="settings_subtitle">등록된 결제수단</div>
+        <div className="settings_subtitle">
+          등록된 결제수단
+          <button className="add-btn">+추가</button>
+        </div>
         <CardList cards={cards} />
       </section>
     </div>
