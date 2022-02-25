@@ -25,7 +25,7 @@ export default function PopularProjects() {
     return(
 <div className={styles.fundingList}>
 <span className={styles.listTitle}>주목할만한 프로젝트</span>
-<span class={styles.listDate}>2021년 12월 15일 기준</span>
+<span className={styles.listDate}>2021년 12월 15일 기준</span>
 
 <div className={styles.itemRapper}>
     <Slider {...settings}>
