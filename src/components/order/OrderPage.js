@@ -73,7 +73,6 @@ function OrderButton({item}){
         setBuyStart(true);
         setModalVisible(false);
 
-        console.log(item.project.projectNo)
         //request for buying
         fetch('/order', {
             method : 'POST',
@@ -86,18 +85,19 @@ function OrderButton({item}){
                 project : { projectNo : item.project.projectNo},
                 reward : { rewardNo : item.rewardNo},
 
-                //유저 번호 직접 읽어올것
+                //지훈님 코드 기다리기
+                //유저 번호 직접 읽어올것(로컬저장소)
                 orderUser : { userNo : 1  },
                 //주소랑 카드 (1이면 안됨 ) 수정
                 address : { addressNo : 1},
                 card : { cardNo : 1}
             })
         })
-        .then(data => data.JSON())
-        
-        //setTimeout(() => { setFinishModdalVisible(true); }, 1000);
-    }
+        .then( data => data.JSON(),
+            setTimeout(() => { setFinishModdalVisible(true); }, 1000)
+        )
         //setTimeout(() => { navigate('/orderlist')}, 1000);
+    }
 
     function handleClick(e) {
 
@@ -111,45 +111,44 @@ function OrderButton({item}){
 
     return(
         <>
-				<div className={styles.itemRight}>
-				<form>
-                <button className={styles.paymentButton} disabled={buttonDisable} onClick={handleClick}> 
-                    {lodingFinish ?  '후원하기!': <Loading/>}
-                </button>
-				</form>
-				</div>
+            <div className={styles.itemRight}>
+                <form>
+                    <button className={styles.paymentButton} 
+                            disabled={buttonDisable} 
+                            onClick={handleClick}> 
+                        {lodingFinish ?  '후원하기!': <Loading/>}
+                    </button>
+                </form>
+            </div>
+
                 
 
-      {
-        modalVisible && <OrderModal
-          visible={modalVisible}
-          closable={true}
-          maskClosable={false}
-          onClose={closeModal}>
-              후원 할까요? 
-            <ModalPrice> 최종 금액 :{item.rewardPrice}원 </ModalPrice>
-              <ButtomWrapper>
-                <CancleButton onClick={closeModal}>취소</CancleButton>
-                
-                <BuyButton onClick={buy} disabled={buyStart}> {buyStart ?  <Loading/> : '네'}</BuyButton>
+        {/*결제 모달*/}
+        {
+            modalVisible && 
+            <OrderModal visible={modalVisible} closable={true} maskClosable={false} onClose={closeModal}>
+                후원 할까요? 
+                <ModalPrice> 최종 금액 :{item.rewardPrice}원 </ModalPrice>
+                <ButtomWrapper>
+                    <CancleButton onClick={closeModal}>취소</CancleButton>
+                    
+                    <BuyButton onClick={buy} disabled={buyStart}> {buyStart ?  <Loading/> : '네'}</BuyButton>
 
-              </ButtomWrapper>
-          </OrderModal>
-      }
+                </ButtomWrapper>
+            </OrderModal>
+        }
 
-    {
-        finishModdalVisible && <OrderModal
-        visible={finishModdalVisible}
-        closable={false}
-        maskClosable={false}
-        >
-            후원 완료!
-            <ButtomWrapper>
-            <Link to='/'><CancleButton>홈으로</CancleButton> </Link>
-            <Link to='/orderlist'><BuyButton>후원 현황</BuyButton> </Link>
-            </ButtomWrapper>
-        </OrderModal>
-      }
+        {/*결과 모달*/}
+        {
+            finishModdalVisible && 
+            <OrderModal visible={finishModdalVisible} closable={false} maskClosable={false} >
+                후원 완료!
+                <ButtomWrapper>
+                <Link to='/'><CancleButton>홈으로</CancleButton> </Link>
+                <Link to='/orderlist'><BuyButton>후원 현황</BuyButton> </Link>
+                </ButtomWrapper>
+            </OrderModal>
+        }
         </>
     );
 }
@@ -163,9 +162,9 @@ const ButtomWrapper= styled.div`
 `
 
 const BuyButton= styled.button`
-    font-size: 28px;
+    font-size: 23px;
     margin-top: 30px;
-    min-width: 100px;
+    min-width: 120px;
     width: auto;
     height: 50px;
     display: inline-flex;
@@ -190,9 +189,9 @@ const BuyButton= styled.button`
 `
 
 const CancleButton= styled.button`
-    font-size: 28px;
+    font-size: 23px;
     margin-top: 30px;
-    min-width: 100px;
+    min-width: 120px;
     width: auto;
     height: 50px;
     display: inline-flex;

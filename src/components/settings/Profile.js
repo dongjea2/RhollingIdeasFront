@@ -4,6 +4,8 @@ import { useState, useRef } from "react";
 function InnerTag({ status, data, name }) {
   const inputRef = useRef(data);
 
+  console.log(data);
+
   //Json데이터 key 세팅
   const userNo = 1;
   let keyOfInputValue = "";
@@ -25,8 +27,6 @@ function InnerTag({ status, data, name }) {
       break;
     case "비밀번호":
       keyOfInputValue = "userPwd";
-      break;
-    default:
       break;
   }
 
@@ -53,7 +53,7 @@ function InnerTag({ status, data, name }) {
     if (name === "프로필 사진") {
       return <img src={require(`../../${data}`)} alt={data} />;
     }
-    // return <div>{data}</div>;
+    return <div>{data}</div>;
   } else if (name === "프로필 사진") {
     return (
       <form>
