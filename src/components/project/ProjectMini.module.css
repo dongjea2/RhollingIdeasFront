@@ -38,12 +38,20 @@ button:focus{
 }
 
 button.like {
+ position: relative;
+top: -198px;
+ left: 225px;
+
  width: 30px;
  height: 30px;
     background: url("../../images/mainpage/heart2.png") center center / 100% no-repeat;
 }
 
 button.notLike{
+ position: relative;
+top: -198px;
+ left: 225px;
+
  width: 30px;
  height: 30px;
     background: url("../../images/mainpage/heart.png") center center / 100% no-repeat;
@@ -52,6 +60,8 @@ button.notLike{
 
  .info{
     height: 100px;
+    margin-top: -25px;
+
 }
 
  .info .category{
@@ -129,6 +139,7 @@ font-family: 'SF Pro Text', 'Helvetica Neue', 'Segoe UI', Arial, 'NotoSansKR', s
 
 
  .title{
+    white-space: normal;
     height: 50px;
     width: 93%;
     font-size: 14px;
