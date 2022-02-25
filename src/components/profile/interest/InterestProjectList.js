@@ -31,7 +31,7 @@ export default function InterestProjectList(){
                 </div>
             </div>
             <div className={styles.selectContent}>
-                <br/><br/>
+                
                 {
                     inters.length === 0 ?
                 <div className={styles.noContent}>
