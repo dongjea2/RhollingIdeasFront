@@ -22,8 +22,9 @@
     align-items: center;
 }
 .follow-user-img > img {
-    width: 46px;
-    height: 46px;
+    height: 100%;
+    /* width: 46px;
+    height: 46px; */
 }
 .follow-item-content {
     display: flex;

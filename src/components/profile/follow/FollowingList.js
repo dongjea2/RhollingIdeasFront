@@ -66,7 +66,7 @@ export default function FollowingList(){
                                     <div className="follow-item-content">
                                         <div className="follow-item-descption">
                                             <div className="follow-user-name">
-                                                <Link to="/">{user.follow.userName}</Link>
+                                                <Link to={"/profile/" + user.follow.userUrl}>{user.follow.userName}</Link>
                                             </div>
                                             <div className="follow-user-intro">
                                                 {user.follow.userIntroduction}

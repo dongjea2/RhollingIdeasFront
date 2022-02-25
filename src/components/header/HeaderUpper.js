@@ -43,14 +43,14 @@ export default function HeaderUpper() {
                             <span>{userId}</span>
                         </span>
                         <div className="dropdown-content" id="myDropdown">
-                            <Link to="/profile">프로필</Link>
+                            <Link to="/profile/1">프로필</Link>
                             <hr />
                             <Link to="/orderlist">후원현황</Link>
                             <Link to="/interestlist">관심 프로젝트</Link>
                             <Link to="/following">팔로우</Link>
-                            <hr />
+                            {/* <hr />
                             <Link to="/jsp/profile/alarmresult.jsp">알림</Link>
-                            <Link to="/jsp/profile/messageresult.jsp">메시지</Link>
+                            <Link to="/jsp/profile/messageresult.jsp">메시지</Link> */}
                             <hr />
                             <Link to="/jsp/profile/createdresult.jsp">내가 만든 프로젝트</Link>
                             <Link to='/profile/accountset'>설정</Link>
