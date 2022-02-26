@@ -16,6 +16,7 @@ a{
   height: 116px;
   margin-top: 10px;
   /* box-shadow: rgb(0 0 0 / 8%) 0px 6px 7px; */
+  box-shadow: rgb(0 0 0 / 15%) 0px 10px 10px -10px;
   /* height: auto; */
 }
 
@@ -120,6 +121,7 @@ a{
   width: 100%;
   min-height: 56px;
   z-index: 999;
+  /* border-bottom: 1px solid rgb(230, 230, 230); */
 }
 .header-search{
   position: relative;

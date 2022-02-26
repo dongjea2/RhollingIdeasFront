@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, {Component, useEffect, useRef, useState} from 'react';
 import { useParams } from 'react-router-dom';
 import Comments from './Comment';
-
+import './Post.css'
 
 export default function Post() {    
     const { prodNo } = useParams(); 
@@ -59,7 +59,7 @@ export default function Post() {
             <div>
              프로젝트 {prodNo}의 커뮤니티
              {info.map((post)=>
-             <div key={post.postNo}>
+             <div className='postdetail' key={post.postNo}>
                 <div style={{display:'none'}}>게시글번호{post.prodNo}json데이터 테스트입니다
                 </div>
                 <div>유저이름:{post.maker.userName}</div>

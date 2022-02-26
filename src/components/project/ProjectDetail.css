@@ -46,13 +46,19 @@
   display: flex;
 }
 .content{
-	width: 600px;
-    padding: 80px;
+  width: 1032px;
+  padding: 80px;
+  display: flex;
+  margin: auto;
+}
+
+.postcon{
+  width: 980px;
 }
 .reward{
 	margin: 0px auto;
 }
-.reward button{
+.reward>div.rewardlist{
 	width: 100%;
 	border-radius: 5px;
     border: 1px solid gray;
