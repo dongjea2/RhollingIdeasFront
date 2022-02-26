@@ -5,7 +5,7 @@ import UserInfo from './userInfo/UserInfo';
 import Loading from '../Loading';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import OrderModal from './orderModal/OrderModal';
+import SimpleModal from '../modal/SimpleModal';
 import styled from 'styled-components';
 import axios from 'axios';
 
@@ -126,7 +126,7 @@ function OrderButton({item}){
         {/*결제 모달*/}
         {
             modalVisible && 
-            <OrderModal visible={modalVisible} closable={true} maskClosable={false} onClose={closeModal}>
+            <SimpleModal visible={modalVisible} closable={true} maskClosable={false} onClose={closeModal}>
                 후원 할까요? 
                 <ModalPrice> 최종 금액 :{item.rewardPrice}원 </ModalPrice>
                 <ButtomWrapper>
@@ -135,19 +135,19 @@ function OrderButton({item}){
                     <BuyButton onClick={buy} disabled={buyStart}> {buyStart ?  <Loading/> : '네'}</BuyButton>
 
                 </ButtomWrapper>
-            </OrderModal>
+            </SimpleModal>
         }
 
         {/*결과 모달*/}
         {
             finishModdalVisible && 
-            <OrderModal visible={finishModdalVisible} closable={false} maskClosable={false} >
+            <SimpleModal visible={finishModdalVisible} closable={false} maskClosable={false} >
                 후원 완료!
                 <ButtomWrapper>
                 <Link to='/'><CancleButton>홈으로</CancleButton> </Link>
                 <Link to='/orderlist'><BuyButton>후원 현황</BuyButton> </Link>
                 </ButtomWrapper>
-            </OrderModal>
+            </SimpleModal>
         }
         </>
     );

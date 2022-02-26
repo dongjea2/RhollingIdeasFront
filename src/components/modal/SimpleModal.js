@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-function OrderModal({
+function SimpleModal({
   className,
   onClose,
   maskClosable,
@@ -39,7 +39,7 @@ function OrderModal({
   )
 }
 
-OrderModal.propTypes = {
+SimpleModal.propTypes = {
   visible: PropTypes.bool,
 }
 
@@ -92,4 +92,4 @@ const ModalCancleButton = styled.button`
 	width: 100px;
 `
 
-export default OrderModal
+export default SimpleModal

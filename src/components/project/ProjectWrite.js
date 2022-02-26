@@ -1,6 +1,6 @@
 import axios from "axios";
 import React,{Component, useEffect, useRef, useState} from "react";
-import OrderModal from "../order/orderModal/OrderModal";
+import SimpleModal from "../modal/SimpleModal";
 
 export default function ProjectWrite(){
     const [category, setCategory]= useState([]);
@@ -132,7 +132,7 @@ export default function ProjectWrite(){
                 <button onClick={openMadal}></button>
 
                 {
-                modalVisible && <OrderModal
+                modalVisible && <SimpleModal
                 visible={modalVisible}
                 closable={true}
                 maskClosable={false}
@@ -143,7 +143,7 @@ export default function ProjectWrite(){
                     <input type="text" ref={itemNameRef} placeholder="아이템 이름"/>
                     <input type="number" ref={deliverSelectRef} placeholder="예상전달일"/>
                     <button >확인</button>
-                </OrderModal>
+                </SimpleModal>
                 }
             </div>
             <button onClick={handleSubmit}>프로젝트 작성</button>
