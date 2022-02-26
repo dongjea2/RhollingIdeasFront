@@ -26,10 +26,10 @@ export default function MainPage(){
         <>
         <Advertise/>
         <AttentionProjects projectList={list && list.attention}/>
-        {/* <MiddleAdvertise/>
-        <PopularProjects />
-        <EndcomeProjects />
-        <NewProjects /> */}
+        <MiddleAdvertise/>
+        <PopularProjects  projectList={list && list.attention}/>
+         <EndcomeProjects projectList={list && list.attention}/>
+        <NewProjects projectList={list && list.attention}/>  
         </>
         
     );

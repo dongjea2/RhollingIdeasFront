@@ -2,8 +2,6 @@ import { Link } from 'react-router-dom';
 import styles from './ProjectMini.module.css';
 
 export default function ProjectMini({ project }) {
-  console.log("프로젝트 미니 속");
-  console.log(project);
 
   return (
     <>
@@ -12,7 +10,7 @@ export default function ProjectMini({ project }) {
     </Link>
 
     {project && project.loginedUserProjectInterest === true ? 
-      <button className={styles.like}></button> : <button className={styles.notLike}></button>
+      <button className={styles.like}/> : <button className={styles.notLike}/>
     }
 
     <div className={styles.info}>

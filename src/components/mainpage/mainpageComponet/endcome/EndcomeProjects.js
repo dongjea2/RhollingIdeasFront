@@ -4,10 +4,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from './EndcomeProjects.module.css'
 import ProjectMini from '../../../project/ProjectMini';
-import items from '../../../../api/mock/projectMock.json';
 
 
-export default function EndcomeProjects() {
+export default function EndcomeProjects({projectList}) {
 
     const settings = {
       dots: true,
@@ -29,9 +28,9 @@ export default function EndcomeProjects() {
 <div className={styles.itemRapper}>
     <Slider {...settings}>
 
-    {items.map((item) => (
-    <div className={styles.item} key={item.id}>
-        <ProjectMini item={item}/>
+    {projectList && projectList.map((project) => (
+    <div className={styles.item} key={project.projectNo}>
+        <ProjectMini project={project}/>
     </div>
     ))}
 

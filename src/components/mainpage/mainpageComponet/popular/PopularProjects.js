@@ -1,13 +1,15 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from './PopularProjects.module.css'
 import ProjectMini from '../../../project/ProjectMini';
-import items from '../../../../api/mock/projectMock.json';
+import moment from "momnet";
 
 
-export default function PopularProjects() {
+export default function PopularProjects({projectList}) {
+  const [time , setTime] =useState('');
+
 
     const settings = {
       dots: true,
@@ -21,18 +23,20 @@ export default function PopularProjects() {
     //   prevArrow: <SamplePrevArrow />
     };
 
-
+    useEffect(()=> {
+      setTime(moment().format('YYYY년M월DD일 기준'));
+    }, []);
     return(
 <div className={styles.fundingList}>
-<span className={styles.listTitle}>주목할만한 프로젝트</span>
-<span className={styles.listDate}>2021년 12월 15일 기준</span>
+<span className={styles.listTitle}>인기 프로젝트</span>
+<span className={styles.listDate}>{time}</span>
 
 <div className={styles.itemRapper}>
     <Slider {...settings}>
 
-    {items.map((item) => (
-    <div className={styles.item} key={item.id}>
-        <ProjectMini item={item}/>
+    {projectList && projectList.map((project) => (
+    <div className={styles.item} key={project.projectNo}>
+        <ProjectMini project={project}/>
     </div>
     ))}
 
