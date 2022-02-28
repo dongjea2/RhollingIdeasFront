@@ -4,16 +4,13 @@ import { Link} from "react-router-dom";
 import '../interest/InterestProejctList.css';
 
 export default function FollowerList(){
-    const [following, setfollowing] = useState([]);
-    const [followers, setfollower] = useState([]);
+    const [list, setList] = useState([]);
     const [cnt, setCnt] = useState(0);
+    let userNo = window.sessionStorage.getItem("userNo");
 
     useEffect(() => {
-        axios.get("/following")
-        .then(res => setfollowing(res.data))
-        .catch(err => console.log(err));
         axios.get("/followers")
-        .then(res => setfollower(res.data))
+        .then(res => setList(res.data))
         .catch(err => console.log(err));
     }, [cnt]);
 
@@ -21,7 +18,7 @@ export default function FollowerList(){
         console.log(follow);
         axios.post('/editfollow',
             {
-                userNo: {userNo:1},
+                userNo: {userNo:userNo},
                 follow: {userNo:follow}
             }
         ).then(function (response) {
@@ -39,41 +36,51 @@ export default function FollowerList(){
                 <div className="interest-h1"><h1>팔로우</h1></div>
                 <div className="interest-select">
                     <span>
-                        <Link to="/following" className="not-selected-a">팔로잉 {following.length}</Link>
+                        <Link to="/following" className="not-selected-a">팔로잉 {list.followingCnt}</Link>
                     </span>
                     <span className="selected-span">
-                        <Link to="/following/followers" className="selected-a" style={{color: "black"}} >팔로워 {followers.length}</Link>
+                        <Link to="/following/followers" className="selected-a" style={{color: "black"}} >팔로워 {list.followers && list.followers.length}</Link>
                     </span>
                 </div>
             </div>
             <div className="follow-content">
                 <br/><br/>
                 {
-                    followers.length === 0 ? 
+                    list.followers && list.followers.length === 0 ? 
                     <div className="no-content">
                         <img src={require('../../../images/profile/default.png')} alt="no_folloing"/>
                         <div>팔로워가 없습니다.</div>
                     </div> :
                     <div className="follow-list-wrapper">
                     <div className="follow-list">
-                        {followers.map((user) => 
-                            <div className="follow-item" key={user.userNo.userNo}>
+                        {list.followers && list.followers.map((user) => 
+                            <div className="follow-item" key={user.userNo}>
                                 <div className="follow-user-img">
-                                    <img src={require(`../../../${user.userNo.userImage}`)} alt="user_img" />
+                                    <img src={require(`../../../${user.userImage}`)} alt="user_img" />
                                 </div>
                                 <div className="follow-item-content">
                                     <div className="follow-item-descption">
                                         <div className="follow-user-name">
-                                            <Link to="/">{user.userNo.userName}</Link>
+                                            <Link to="/">{user.userName}</Link>
                                         </div>
                                         <div className="follow-user-intro">
-                                            {user.userNo.userIntroduction}
+                                            {user.userIntroduction}
+                                        </div>
+                                        <div className="follow-status">
+                                            팔로워 {user.followerCnt} · 올린 프로젝트 {user.createdCnt}
                                         </div>
                                     </div>
                                     <div className="follow-button-content">
-                                        <button className="follow-button" onClick={(e)=>followClick(user.userNo.userNo, e)}>
+                                    {
+                                        user.followCheck === true ?
+                                        <button className="following-button" onClick={(e)=>followClick(user.userNo, e)}>
+                                            <img src={require("../../../images/profile/check1.png")} alt="followButtonCheckImg" />
+                                            <span>팔로잉</span>
+                                        </button> :
+                                        <button className="follow-button" onClick={(e)=>followClick(user.userNo, e)}>
                                             <span>+ 팔로우</span>
                                         </button>
+                                    }
                                     </div>
                                 </div>
                             </div>
