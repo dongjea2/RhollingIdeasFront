@@ -1,10 +1,7 @@
 import { Link } from "react-router-dom";
 
 export default function HeaderUpper() {
-  const status = false; //로그인된 상태?
-  console.log({ status });
-  let userId = window.sessionStorage.getItem("loginedId");
-  console.log(userId);
+  let userName = window.sessionStorage.getItem("userName");
   return (
     <div className="header-upper">
       <Link to={"/"} id="logo">
@@ -16,12 +13,8 @@ export default function HeaderUpper() {
       </Link>
       <nav className="user-menu">
         <ul>
-          <li>
-            <Link to="/projectwrite">
-              <span className="user-li">프로젝트 올리기</span>
-            </Link>
-          </li>
-          {userId === null ? (
+          
+          {userName === null ? (
             <li className="login-container">
               <a href="login">
                 <span className="user-li login">
@@ -35,6 +28,11 @@ export default function HeaderUpper() {
             </li>
           ) : (
             <>
+              <li>
+                <Link to="/projectwrite">
+                  <span className="user-li">프로젝트 올리기</span>
+                </Link>
+              </li>
               <li className="user-logo">
                 <Link to="/interestlist">
                   <span className="user-li">
@@ -61,7 +59,7 @@ export default function HeaderUpper() {
                     src={require("../../images/mainpage/user_default.png")}
                     alt="user_img"
                   />
-                  <span>{userId}</span>
+                  <span>{userName}</span>
                 </span>
                 <div className="dropdown-content" id="myDropdown">
                   <Link to="/profile/1">프로필</Link>
