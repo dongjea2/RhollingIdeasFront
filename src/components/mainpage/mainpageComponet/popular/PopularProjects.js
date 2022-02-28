@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from './PopularProjects.module.css'
 import ProjectMini from '../../../project/ProjectMini';
-import moment from "momnet";
+import moment from "moment";
 
 
 export default function PopularProjects({projectList}) {

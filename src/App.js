@@ -23,6 +23,8 @@ import OrderPage from "./components/order/OrderPage";
 import RewardList from "./components/project/RewardList";
 import Profile from "./components/profile/Profile";
 import Logout from "./components/login/Logout";
+import RequireAuth from "./components/RequireAuth";
+import CreatedList from "./components/profile/created/CreatedList";
 
 function App() {
   return (
@@ -31,8 +33,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/discover" element={<DiscoverPage />} />
-        <Route path="/projectdetail/:prodNo/*" element={<ProjectDetail />} />
-        <Route path="/projectwrite" element={<ProjectWrite />} />
+        <Route path="/projectwrite" element={<RequireAuth><ProjectWrite /></RequireAuth>} />
         <Route path="/rewardlist/:prodNo" element={<RewardList />} />
 
         <Route path="/order/:prodNo/:rewardNo" element={<Order />} />
@@ -42,18 +43,19 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
-        <Route path="/profile/accountset" element={<AccountSet />} />
-        <Route path="/profile/paymentset" element={<PaymentSet />} />
-        <Route path="/profile/addressset" element={<AddressSet />} />
+        <Route path="/profile/accountset" element={<RequireAuth><AccountSet /></RequireAuth>} />
+        <Route path="/profile/paymentset" element={<RequireAuth><PaymentSet /></RequireAuth>} />
+        <Route path="/profile/addressset" element={<RequireAuth><AddressSet /></RequireAuth>} />
 
         {/* 프로필 메뉴 링크 */}
-        <Route path="/orderlist" element={<OrderList />} />
-        <Route path="/orderlist/:paymentNo" element={<OrderDetail />} />
-        <Route path="/interestlist" element={<InterestProjectList />} />
-        <Route path="/prelaunchedlist" element={<PreLaunchedProjectList />} />
-        <Route path="/following" element={<FollowingList />} />
-        <Route path="/following/followers" element={<FollowerList />} />
-        <Route path="/profile/:userUrl" element={<Profile />} />
+        <Route path="/orderlist" element={<RequireAuth><OrderList /></RequireAuth>} />
+        <Route path="/orderlist/:paymentNo" element={<RequireAuth><OrderDetail /></RequireAuth>} />
+        <Route path="/interestlist" element={<RequireAuth><InterestProjectList /></RequireAuth>} />
+        <Route path="/prelaunchedlist" element={<RequireAuth><PreLaunchedProjectList /></RequireAuth>} />
+        <Route path="/following" element={<RequireAuth><FollowingList /></RequireAuth>} />
+        <Route path="/following/followers" element={<RequireAuth><FollowerList /></RequireAuth>} />
+        <Route path="/profile/:userUrl" element={<RequireAuth><Profile /></RequireAuth>} />
+        <Route path="/created" element={<RequireAuth><CreatedList /></RequireAuth>} />
       </Routes>
     </BrowserRouter>
   );
