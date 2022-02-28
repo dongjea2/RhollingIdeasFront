@@ -78,7 +78,7 @@ export default function HeaderUpper() {
                   </Link>
                   <Link to="/profile/accountset">설정</Link>
                   <hr />
-                  <Link to={"/"}>로그아웃</Link>
+                  <Link to="/logout">로그아웃</Link>
                 </div>
               </li>
             </>
