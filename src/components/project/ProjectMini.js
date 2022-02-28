@@ -31,7 +31,7 @@ export default function ProjectMini({ project }) {
         .then(setButtonDisable(true),
                 //하트버튼 1.5초 뒤에 눌리게 설정(서버 과부화 방지)
                 setTimeout(()=>{ setButtonDisable(false); setModalVisible(false); }, 1000))
-         .catch(err => console.log(err));
+         .catch(err => alert("로그인하세요"));
 
   }
 
@@ -46,7 +46,7 @@ export default function ProjectMini({ project }) {
         .then(setButtonDisable(true),
                 //하트버튼 1.5초 뒤에 눌리게 설정(서버 과부화 방지)
                 setTimeout(()=>{ setButtonDisable(false); setModalVisible(false); }, 1000))
-         .catch(err => console.log(err));
+         .catch(err => alert("로그인하세요"));
   }
 
   return (
