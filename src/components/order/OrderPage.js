@@ -1,124 +1,107 @@
 import styles from './OrderPage.module.css';
+import styled from 'styled-components';
 import Reward from './reward/Reward';
 import OrderProject from './orderProject/OrderProject';
 import UserInfo from './userInfo/UserInfo';
-import Loading from '../Loading';
 import { useEffect, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import SimpleModal from '../modal/SimpleModal';
-import styled from 'styled-components';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import UserAddress from './userInfo/UserAddress';
+import UserCard from './userInfo/UserCard';
+import SimpleModal from '../modal/SimpleModal'
+import { Link } from 'react-router-dom';
+import Loading from '../Loading';
 
+import {  getAddress } from "../settings/address/ShowAddress";
+import { getCards } from "../settings/payment/ShowPayment";
 
 export default function OrderPage(){
+    const [cards, setCards] = useState([]);
+    const [addrs, setAddrs] = useState([]);
     const [item ,setItem] =useState('');
     const { rewardNo } = useParams();
 
-
-
     useEffect(() => {
+            //1.
             axios.get('/reward/'+rewardNo)
             .then(res => setItem(res.data))
             .catch(err => console.log(err));
+            //2.
+            const addrs = getAddress({ userNo: window.sessionStorage.getItem("userNo") });
+            addrs.then((res) => { setAddrs(res)});
+            //3.
+            const cards = getCards({ userNo: window.sessionStorage.getItem("userNo") });
+            cards.then((res) => { setCards(res)});
     },[]);
 
-
-
-    const project = {
-        projectNo:1,
-        projectName:"2"
-    }
-    console.log(item.project);
-    console.log(project);
-
-
-
     return(
-        <>
-        { item && item.project.maker.userName}
-        <div className="orderRap">
-            <OrderProject project={item && item.project} />
-            <div className={styles.itemLeftRight}>
-                <div className={styles.Left}>
-                    <Reward item={item}/>
-                    <UserInfo project={item && item.project}/>
-                </div>
-                <div className={styles.Right}>
-                    <OrderButton item={item}/>
-                </div>
-            </div>
-        </div>
-        </>
+    <div className="orderRap">
+        <OrderProject project={item && item.project} />
+
+        <Both>
+            <Left>
+                <Reward item={item}/>
+                <UserInfo project={item && item.project}/>
+                <UserAddress/>
+                <UserCard/>
+            </Left>
+            <Right>
+                <OrderButton reward={item} card={cards[0]} address={addrs[0]}/>
+            </Right>
+        </Both>
+    </div>
     );
 }
 
 
 
-function OrderButton({item}){
+//===================================
+//functions
+
+function OrderButton({reward, card, address}){
     const [lodingFinish , setLodingFinish] = useState(true)
     const [buttonDisable, setButtonDisable] = useState(false)
     const [orderModalOn ,setorderModalOn] =useState(false)
     const [modalVisible, setModalVisible] = useState(false)
     const [finishModdalVisible, setFinishModdalVisible] = useState(false)
     const [buyStart, setBuyStart] = useState(false)
-    const navigate = useNavigate();
+    console.log(card);
+    console.log(address);
 
-    const closeModal = () => {
-         setModalVisible(false) 
-         setLodingFinish(true);
-        setButtonDisable(false);
-        }
-
-    const buy = () =>{
+    //결제 요청[Post]
+    const orderRequset = () => {
         setBuyStart(true);
         setModalVisible(false);
 
-        //request for buying
-        fetch('/order', {
-            method : 'POST',
-            headers : {
-                'Content-Type' : 'application/json'
-            },
-            body : JSON.stringify({
-                extraPrice : item.rewardPrice,
-            	totalPrice : item.rewardPrice,
-                project : { projectNo : item.project.projectNo},
-                reward : { rewardNo : item.rewardNo},
+        let heder= { headers: {"Content-Type": `application/json`} }
+        let data= {  
+            "extraPrice" : reward.rewardPrice,
+            "totalPrice" : reward.rewardPrice,
+            "project" : { "projectNo" : reward.project.projectNo},
+            "reward" : { "rewardNo" : reward.rewardNo},
+            "orderUser" : { "userNo" : window.sessionStorage.getItem("userNo")},
+            "address" : address,
+            "card" : card
+        }
 
-                //지훈님 코드 기다리기
-                //유저 번호 직접 읽어올것(로컬저장소)
-                orderUser : { userNo : 1  },
-                //주소랑 카드 (1이면 안됨 ) 수정
-                address : { addressNo : 1},
-                card : { cardNo : 1}
-            })
-        })
-        .then( data => data.JSON(),
-            setTimeout(() => { setFinishModdalVisible(true); }, 1000)
-        )
-        //setTimeout(() => { navigate('/orderlist')}, 1000);
+        axios.post('/order',JSON.stringify(data), heder)
+        .then(res=> setTimeout(() => { setFinishModdalVisible(true); }, 1000))
+        .catch(err => alert("결제 실패!"));
     }
 
-    function handleClick(e) {
-
-        e.preventDefault();
-        setLodingFinish(false);
-        setButtonDisable(true);
-        setorderModalOn(true);
-        setTimeout(() => { setModalVisible(true) }, 500);
-    }
-
+    const closeModal = () => {
+        setModalVisible(false) 
+        setLodingFinish(true);
+        setButtonDisable(false); }
 
     return(
         <>
             <div className={styles.itemRight}>
-                <form>
                     <button className={styles.paymentButton} 
                             disabled={buttonDisable} 
                             onClick={handleClick}> 
                         {lodingFinish ?  '후원하기!': <Loading/>}
                     </button>
-                </form>
             </div>
 
                 
@@ -128,11 +111,11 @@ function OrderButton({item}){
             modalVisible && 
             <SimpleModal visible={modalVisible} closable={true} maskClosable={false} onClose={closeModal}>
                 후원 할까요? 
-                <ModalPrice> 최종 금액 :{item.rewardPrice}원 </ModalPrice>
+                <ModalPrice> 최종 금액 :{reward.rewardPrice}원 </ModalPrice>
                 <ButtomWrapper>
                     <CancleButton onClick={closeModal}>취소</CancleButton>
                     
-                    <BuyButton onClick={buy} disabled={buyStart}> {buyStart ?  <Loading/> : '네'}</BuyButton>
+                    <BuyButton onClick={orderRequset} disabled={buyStart}> {buyStart ?  <Loading/> : '네'}</BuyButton>
 
                 </ButtomWrapper>
             </SimpleModal>
@@ -151,9 +134,41 @@ function OrderButton({item}){
         }
         </>
     );
+
+    function handleClick(e) {
+        e.preventDefault();
+        setLodingFinish(false);
+        setButtonDisable(true);
+        setorderModalOn(true);
+        setTimeout(() => { setModalVisible(true) }, 500);
+    }
 }
 
+//===============================
 //styled css
+
+//1.OrderPage
+
+const Left = styled.div`
+    width: 500px;
+    padding-right: 300px;
+`
+const Right = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+`
+
+const Both = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-grow: 1;
+    border-top: 1px solid grey;
+`
+
+
+//2.OrderButton
 
 const ButtomWrapper= styled.div`
     display: flex;
