@@ -1,22 +1,22 @@
 [
     {
         "id": 1,
-        "paymentresult": "펀딩실패",
+        "orderResult": "펀딩실패",
         "date_pay_no": "후원날짜"
     },
     {
         "id": 2,
-        "paymentresult": "진행중",
+        "orderResult": "진행중",
         "date_pay_no": "결제예정일"
     },
     {
         "id": 3,
-        "paymentresult": "펀딩성공",
+        "orderResult": "펀딩성공",
         "date_pay_no": "결제예정일"
     },
     {
         "id": 4,
-        "paymentresult": "결제완료",
+        "orderResult": "결제완료",
         "date_pay_no": "결제완료일"
     }
 ]

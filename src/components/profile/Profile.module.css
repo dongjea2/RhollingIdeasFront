@@ -1,30 +1,30 @@
 @charset "UTF-8";
-.interestHeader{
+.Header{
     border-bottom: 1px solid rgb(230, 230, 230);
 }
-.interestH1{
+.HeaderH1{
     padding: 38px 24px 32px;
 }
-.interestH1 h1{
+.HeaderH1 h1{
 	font-size: 36px;
     line-height: 54px;
     letter-spacing: -0.035em;
     font-weight: 200;
     margin: 0;
 }
-.interestSelect{
+.HeaderSelect{
     padding: 0 28px;
     font-size: 18px;
     height: 56px;
     line-height: 56px;
 }
-.interestSelect span{
+.HeaderSelect span{
     margin-right: 32px;
     vertical-align: middle;
     display: inline-block;
     height: 100%;
 }
-.interestSelect span a{
+.HeaderSelect span a{
     /* font-weight: bold;
     color: rgb(61, 61, 61); */
     color: rgb(158, 158, 158);
@@ -64,7 +64,7 @@
     padding-top: 7px;
 }
 
-.itemContent{
+.Content{
     display: flex;
     flex-wrap: wrap;
     padding: 24px 12px 0px 12px;
@@ -308,4 +308,7 @@ font-family: 'SF Pro Text', 'Helvetica Neue', 'Segoe UI', Arial, 'NotoSansKR', s
     letter-spacing: -0.02em;
     padding-bottom: 32px;
     width: 672px;
+}
+.statusButton {
+    display: flex;
 }

@@ -15,33 +15,33 @@ export default function Profile(){
     console.log(user);
     return(
         <section>
-            <div className={styles.interestHeader}>
+            <div className={styles.Header}>
                 <div className={styles.profileContainer}>
                     <div className={styles.profileImg}><img src={require(`../../${user && user.userImage}`)} alt='img'/></div>
                     <div className={styles.userName}>
-                        {user && user.userName}
+                        {user.userName}
                         <Link to={'/profile/accountset'}>
                             <img src={require('../../images/profile/setting.png')} alt="profileSetting" />
                         </Link>
                     </div>
                 </div>
-                <div className={styles.interestSelect}>
+                <div className={styles.HeaderSelect}>
                     <span className="selected-span">
                         <Link to="/profile/" className={styles.selectedA} style={{color: "black"}}>소개</Link>
                     </span>
                     {user.userId === userId &&
                     <span>
-                        <Link to="/" className={styles.notSelectedA}>후원한 프로젝트</Link>
+                        <Link to="/" className={styles.notSelectedA}>후원한 프로젝트 {user.orderProjectCnt}</Link>
                     </span>
                     }
                     <span>
-                        <Link to="/" className={styles.notSelectedA}>올린 프로젝트</Link>
+                        <Link to="/" className={styles.notSelectedA}>올린 프로젝트 {user.createdProjectCnt}</Link>
                     </span>
                     <span>
-                        <Link to="/" className={styles.notSelectedA}>팔로워</Link>
+                        <Link to="/" className={styles.notSelectedA}>팔로워 {user.followerCnt}</Link>
                     </span>
                     <span>
-                        <Link to="/" className={styles.notSelectedA}>팔로잉</Link>
+                        <Link to="/" className={styles.notSelectedA}>팔로잉 {user.followingCnt}</Link>
                     </span>
                 </div>
             </div>
