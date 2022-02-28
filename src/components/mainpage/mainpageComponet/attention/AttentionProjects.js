@@ -3,8 +3,6 @@ import ProjectMini from '../../../project/ProjectMini';
 
 
 export default function AttentionProjects({projectList}) {
-  console.log("주목할만한 ");
-  console.log(projectList);
   return (
 <div className={styles.fundingList}>
     <span className={styles.listTitle}>주목할만한 프로젝트</span>

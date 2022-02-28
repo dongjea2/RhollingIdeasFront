@@ -18,10 +18,6 @@ export default function MainPage(){
             .catch(err => console.log(err));
     },[]);
 
-    console.log(list);
-
-
-
     return(
         <>
         <Advertise/>
