@@ -15,9 +15,7 @@ a{
 .header-container{
   height: 116px;
   margin-top: 10px;
-  /* box-shadow: rgb(0 0 0 / 8%) 0px 6px 7px; */
   box-shadow: rgb(0 0 0 / 15%) 0px 10px 10px -10px;
-  /* height: auto; */
 }
 
 /* --header-upper-- */

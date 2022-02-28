@@ -1,0 +1,78 @@
+@charset "UTF-8";
+.created{
+	margin-bottom: 40px;
+    width: 100%;
+}
+.createdCont{
+    margin-bottom: 10px;
+}
+.createdResult{
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 27px;
+    letter-spacing: -0.02em;
+    color: rgb(61, 61, 61);
+    margin-left: 16px;
+}
+.eachProjectWrapper{
+    border: 1px solid rgb(230, 230, 230);
+    display: flex;
+    padding: 20px;
+}
+.projectImg {
+    margin-right: 20px;
+	width: 154px;
+    height: 116px;
+}
+.projectImg>a>img{
+    width: 154px;
+    height: 116px;
+}
+.projectContent{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.status{
+    padding: 2px 4px;
+    background: rgba(240, 240, 240, 0.5);
+    border-radius: 4px;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 20px;
+    display:inline-block;
+    margin-bottom: 11px;
+}
+.longTitle{
+    line-height: 24px;
+    font-weight: bold;
+}
+.shortTitle{
+    font-size: 14px;
+    line-height: 24px;
+    color: rgb(109, 109, 109);
+    margin-top: 3px;
+}
+.rejectReason{
+    background: rgba(240, 240, 240, 0.5);
+    font-size: 13px;
+}
+.deleteButtonCont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.deleteButtonCont>button{
+    border: 1px solid rgb(230, 230, 230);
+    border-radius: 4px;
+    margin-top: 0px;
+    width: 150px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+.deleteButtonCont>button>span{
+    font-weight: bold;
+}

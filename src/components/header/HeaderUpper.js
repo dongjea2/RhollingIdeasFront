@@ -73,7 +73,7 @@ export default function HeaderUpper() {
                             <Link to="/jsp/profile/alarmresult.jsp">알림</Link>
                             <Link to="/jsp/profile/messageresult.jsp">메시지</Link> */}
                   <hr />
-                  <Link to="/jsp/profile/createdresult.jsp">
+                  <Link to="/created">
                     내가 만든 프로젝트
                   </Link>
                   <Link to="/profile/accountset">설정</Link>
