@@ -71,12 +71,18 @@ button:focus{
     outline: none;
 }
 button.like {
+    position: relative;
+    top: -245px;
+    left: 301px;
     width: 30px;
     height: 30px;
     background: url("../../images/mainpage/heart2.png") center center / 100% no-repeat;
 }
 
 button.notLike{
+    position: relative;
+    top: -245px;
+    left: 301px;
     width: 30px;
     height: 30px;
     background: url("../../images/mainpage/heart.png") center center / 100% no-repeat; 
@@ -85,6 +91,7 @@ button.notLike{
 
 .info{
     height: 100px;
+    margin-top: -30px;
 }
 .title{
     height: 50px;

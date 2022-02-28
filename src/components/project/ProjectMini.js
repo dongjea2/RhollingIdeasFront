@@ -18,12 +18,13 @@ export default function ProjectMini({ project }) {
   const closeModal = () => { setModalVisible(false) }
 
 
+  //a.좋아요 해제
   const handleDeleteLike= () => {
     axios.delete('/interest', { 
       data :{
       "likeProject": { "projectNo" : project.projectNo},
       //임시로 만든 유저
-      "likeUser" :{ "userNo" : 1}
+      "likeUser" :{ "userNo" : window.sessionStorage.getItem("userNo")}
       }, })
         .then( res=>setIsLike(false))
         .then(res=>setModalVisible(true))
@@ -34,11 +35,12 @@ export default function ProjectMini({ project }) {
 
   }
 
+  //b.좋아요 등록
   const handleAddLike= () => {
     axios.post('/interest', {
       "likeProject": { "projectNo" : project.projectNo},
       //임시로 만든 유저번호
-      "likeUser" :{ "userNo" : 1} })
+      "likeUser" :{ "userNo" : window.sessionStorage.getItem("userNo")} })
         .then( res=>setIsLike(true))
         .then(res=>setModalVisible(true))
         .then(setButtonDisable(true),
