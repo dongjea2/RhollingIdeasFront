@@ -1,12 +1,12 @@
 @charset "UTF-8";
-.interestHeader{
+.orderHeader{
     border-bottom: 1px solid rgb(230, 230, 230);
 }
-.interestH1{
+.orderH1{
     padding: 38px 24px 32px;
-    border-bottom: 1px solid rgb(230, 230, 230);
+    /* border-bottom: 1px solid rgb(230, 230, 230); */
 }
-.interestH1 h1{
+.orderH1 h1{
 	font-size: 36px;
     line-height: 54px;
     letter-spacing: -0.035em;
@@ -84,10 +84,10 @@
 .order{
 	margin-bottom: 40px;
 }
-.paymentCont{
+.orderCont{
 	margin-bottom: 10px;
 }
-.paymentResult{
+.orderResult{
     font-weight: bold;
     font-size: 16px;
     line-height: 27px;

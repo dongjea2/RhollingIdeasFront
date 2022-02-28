@@ -19,9 +19,9 @@ export default function InterestProjectList(){
     console.log(inters);
     return(
         <section>
-            <div className={styles.interestHeader}>
-                <div className={styles.interestH1}><h1>관심 프로젝트</h1></div>
-                <div className={styles.interestSelect}>
+            <div className={styles.Header}>
+                <div className={styles.HeaderH1}><h1>관심 프로젝트</h1></div>
+                <div className={styles.HeaderSelect}>
                     <span className={styles.selectedSpan}>
                         <Link to="/interestlist" replace={true} className={styles.selectedA} style={{color: "black"}}>좋아한 {inters.length}</Link>
                     </span>
@@ -35,11 +35,11 @@ export default function InterestProjectList(){
                 {
                     inters.length === 0 ?
                 <div className={styles.noContent}>
-                    <img src={require('../../../images/profile/empty heart.png')} alt="no_like_project" />
+                    <img src={require('../../../images/profile/empty heart.png')} alt="empty like project" />
                     <div>좋아한 프로젝트가 없습니다.</div>
                 </div> :
                 
-                <div className={styles.itemContent}>
+                <div className={styles.Content}>
                 {inters.map((inter) => (
                     <div className={styles.item} key={inter.likeProject.projectNo}>
                         <Link to={'/projectdetail/'+Number(inter.likeProject.projectNo)}>

@@ -58,6 +58,15 @@
     -webkit-box-orient: vertical;
 }
 
+.follow-status{
+    margin-top: 8px;
+    display: inline-flex;
+    flex-direction: column;
+    font-size: 13px;
+    line-height: 27px;
+    color: rgb(109, 109, 109);
+}
+
 .follow-button-content {
     display: flex;
     justify-content: center;

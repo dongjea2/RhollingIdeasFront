@@ -8,13 +8,6 @@ export default function OrderList() {
     const [orders, setOrder] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
 
-    //가상데이터
-    // useEffect(() => {
-    //     axios.get('https://jsonplaceholder.typicode.com/todos')
-    //     .then(res => setInfo(res.data))
-    //     .catch(err => console.log(err));
-    // }, []);
-
     useEffect(() => {
         axios.get("/orderlist")
         .then(res => setOrder(res.data))
@@ -57,9 +50,9 @@ export default function OrderList() {
     return(
         <section>
         <div className={styles.orderHeader}>
-            <div className={styles.interestH1}><h1>후원현황</h1></div>
+            <div className={styles.orderH1}><h1>후원현황</h1></div>
         </div>
-            <div className={styles.orderList}>
+        <div className={styles.orderList}>
             <div className={styles.orderCntSearch}>
                 <div className={styles.orderCnt}>
                     <span>{orderlength}</span>건의 후원 내역이 있습니다.

@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "status": "임시저장",
+        "statusPrint": "작성 중"
+    },
+    {
+        "id": 2,
+        "status": "심사중",
+        "statusPrint": "심사 중"
+    },
+    {
+        "id": 3,
+        "status": "승인",
+        "statusPrint": "승인 됨"
+    },
+    {
+        "id": 4,
+        "status": "반려",
+        "statusPrint": "반려 됨"
+    },
+    {
+        "id": 5,
+        "status": "중지",
+        "statusPrint": "중지 됨"
+    }
+]

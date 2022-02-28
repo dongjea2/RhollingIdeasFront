@@ -7,9 +7,9 @@ export default function PreLaunchedProjectList(){
     const intersLength = location.state.intersLength;
     return(
         <section>
-            <div className={styles.interestHeader}>
-                <div className={styles.interestH1}><h1>관심 프로젝트</h1></div>
-                <div className={styles.interestSelect}>
+            <div className={styles.Header}>
+                <div className={styles.HeaderH1}><h1>관심 프로젝트</h1></div>
+                <div className={styles.HeaderSelect}>
                     <span>
                         <Link to="/interestlist" replace={true} className={styles.notSelectedA}>좋아한 {intersLength}</Link>
                     </span>
@@ -27,7 +27,7 @@ export default function PreLaunchedProjectList(){
                     <div>알림신청한 프로젝트가 없습니다.</div>
                 </div> :
                 
-                <div className={styles.itemContent}>
+                <div className={styles.Content}>
                 {pres.map((pre) => (
                     <div className={styles.item} key={pre.likeProject.projectNo}>
                         <Link to={'/projectdetail/'+Number(pre.likeProject.projectNo)}>

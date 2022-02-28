@@ -6,7 +6,7 @@ import styles from './OrderList.module.css';
 export default function OrderStatus({ list }){
     //주문 상태 출력 위한
     const status = contents.filter(function (content){
-        return content.paymentresult === list[0].orderResult;
+        return content.orderResult === list[0].orderResult;
     });
     //날짜포맷
     // function leftPad(value){ 
@@ -25,18 +25,18 @@ export default function OrderStatus({ list }){
     return(
         <>
         <div className={styles.order}>
-            <div className={styles.paymentCont}>
-                <span className={styles.paymentResult}>{status[0].paymentresult}</span>
+            <div className={styles.orderCont}>
+                <span className={styles.orderResult}>{status[0].orderResult}</span>
                 ({list.length})
             </div>
             {list.map(order => 
             <div className={styles.eachOrderContent} key={order.orderNo}>
                 <div className={styles.orderImg}>
                     <Link to={'/orderlist/' + Number(order.orderNo)} state={{order: order}} >
-                        <img src={require(`../../../${order.reward.project.projectImage}`)} alt="projectImg" />
+                        <img src={require(`../../../${order.reward.project.projectImage}`)} alt="project image" />
                     </Link>
                 </div>
-                <div className="order-text">
+                <div>
                     <div className={styles.datePayno}>{order.orderDate.substring(0, 10)} | 후원번호 {order.orderNo} </div>
                     <div className={styles.longTitle}>
                         <Link to={'/orderlist/' + Number(order.orderNo)} state={{order: order}}>
