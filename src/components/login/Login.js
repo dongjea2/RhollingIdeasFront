@@ -31,6 +31,7 @@ export default function Login() {
           window.sessionStorage.setItem("loginedId", res.loginedId);
           window.sessionStorage.setItem("userNo", res.userNo);
           window.sessionStorage.setItem("userUrl", res.userUrl);
+          window.sessionStorage.setItem("userName", res.userName);
           window.location.replace("/");
         } else {
           alert("로그인 실패");
