@@ -1,21 +1,26 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import SimpleModal from "../../modal/SimpleModal";
 import styles from '../Profile.module.css';
 
 export default function PreLaunchedProjectList(){
-    const location = useLocation();
-    const alarms = location.state.alarms;
-    const intersLength = location.state.intersLength;
+    const [alarms, setAlarms] = useState([]);
     const [cnt, setCnt] = useState(0);
 
-    //좋아요 버튼
+    useEffect(() => {
+        axios.get("/prelaunchedlist")
+        .then(res => setAlarms(res.data))
+        .catch(err => console.log(err));
+    }, [cnt]);
+
+    //알림신청 버튼
     const [buttonDisable , setButtonDisable] = useState(false);
-    //좋아요 변경 안내 모달
+    //알림신청 변경 안내 모달
     const [modalVisible, setModalVisible] = useState(false)
     const closeModal = () => { setModalVisible(false) }
 
-    //a.좋아요 해제
+    //a.알림신청 해제
     const handleDeleteLike= (projectNo) => {
       axios.delete('/interest', { 
         data :{
@@ -41,23 +46,23 @@ export default function PreLaunchedProjectList(){
                 <div className={styles.HeaderH1}><h1>관심 프로젝트</h1></div>
                 <div className={styles.HeaderSelect}>
                     <span>
-                        <Link to="/interestlist" replace={true} className={styles.notSelectedA}>좋아한 {intersLength}</Link>
+                        <Link to="/interestlist" replace={true} className={styles.notSelectedA}>좋아한 {alarms.iProjectCnt}</Link>
                     </span>
                     <span className={styles.selectedSpan}>
-                        <Link to="/prelaunchedlist" state={{alarms: alarms, intersLength: intersLength}} replace={true} className={styles.selectedA} style={{color: "black"}}>알림신청 {alarms.length}</Link>
+                        <Link to="/prelaunchedlist" replace={true} className={styles.selectedA} style={{color: "black"}}>알림신청 {alarms.aProject && alarms.aProject.length}</Link>
                     </span>
                 </div>
             </div>
             <div className={styles.selectContent}>
                 {
-                    alarms.length === 0 ?
+                    alarms.aProject && alarms.aProject.length === 0 ?
                 <div className={styles.noContent}>
                     <img src={require('../../../images/profile/empty alarm.png')} alt="no_like_project" />
                     <div>알림신청한 프로젝트가 없습니다.</div>
                 </div> :
                 
                 <div className={styles.Content}>
-                {alarms.map((alarm) => (
+                {alarms.aProject && alarms.aProject.map((alarm) => (
                     <div className={styles.item} key={alarm.projectNo}>
                         <Link to={'/projectdetail/'+Number(alarm.projectNo)}>
                             <img className={styles.itemImage} src={require(`../../../${alarm.projectImage}`)} alt={alarm.projectNo}/>
@@ -82,6 +87,14 @@ export default function PreLaunchedProjectList(){
                 </div>
                 }
             </div>
+            {/*알림신청 취소시 안내 모달*/}
+            {
+                modalVisible && 
+                <SimpleModal visible={modalVisible} closable={true} maskClosable={false} onClose={closeModal}>
+                
+                <div>취소되었습니다.</div>
+                </SimpleModal>
+            }
         </section>
     )
 }

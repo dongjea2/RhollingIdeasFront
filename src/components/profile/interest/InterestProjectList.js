@@ -13,6 +13,7 @@ export default function InterestProjectList(){
         .then(res => setInterests(res.data))
         .catch(err => console.log(err));
     }, [cnt]);
+    console.log(inters);
 
     //좋아요 버튼
     const [buttonDisable , setButtonDisable] = useState(false);
@@ -40,15 +41,15 @@ export default function InterestProjectList(){
 
     }
 
-    //좋아요 누른 리스트
-    const interestList = inters.filter(function (inter){
-        return inter.interestAlarm === "I";
-    });
+    // //좋아요 누른 리스트
+    // const interestList = inters.filter(function (inter){
+    //     return inter.interestAlarm === "I";
+    // });
 
-    //알림신청 리스트
-    const alarmList = inters.filter(function(alarm){
-        return alarm.interestAlarm === "A";
-    })
+    // //알림신청 리스트
+    // const alarmList = inters.filter(function(alarm){
+    //     return alarm.interestAlarm === "A";
+    // })
 
     return(
         <section>
@@ -56,24 +57,24 @@ export default function InterestProjectList(){
                 <div className={styles.HeaderH1}><h1>관심 프로젝트</h1></div>
                 <div className={styles.HeaderSelect}>
                     <span className={styles.selectedSpan}>
-                        <Link to="/interestlist" replace={true} className={styles.selectedA} style={{color: "black"}}>좋아한 {interestList.length}</Link>
+                        <Link to="/interestlist" replace={true} className={styles.selectedA} style={{color: "black"}}>좋아한 {inters.iProject && inters.iProject.length}</Link>
                     </span>
                     <span>
-                        <Link to="/prelaunchedlist" className={styles.notSelectedA} state={{alarms: alarmList, intersLength: interestList.length}} >알림신청 {alarmList.length}</Link>
+                        <Link to="/prelaunchedlist" className={styles.notSelectedA} >알림신청 {inters.aProjectCnt}</Link>
                     </span>
                 </div>
             </div>
             <div className={styles.selectContent}>
                 
                 {
-                    interestList.length === 0 ?
+                    inters.iProject && inters.iProject.length === 0 ?
                 <div className={styles.noContent}>
                     <img src={require('../../../images/profile/empty heart.png')} alt="empty like project" />
                     <div>좋아한 프로젝트가 없습니다.</div>
                 </div> :
                 
                 <div className={styles.Content}>
-                {interestList.map((inter) => (
+                {inters.iProject && inters.iProject.map((inter) => (
                     <div className={styles.item} key={inter.projectNo}>
                         <Link to={'/projectdetail/'+Number(inter.projectNo)}>
                         <img className={styles.itemImage} src={require(`../../../${inter.projectImage}`)} alt={inter.projectNo}/>
@@ -102,7 +103,7 @@ export default function InterestProjectList(){
                 </div>
                 }
             </div>
-            {/*좋아요 수정시 안내 모달*/}
+            {/*좋아요 취소시 안내 모달*/}
             {
                 modalVisible && 
                 <SimpleModal visible={modalVisible} closable={true} maskClosable={false} onClose={closeModal}>
