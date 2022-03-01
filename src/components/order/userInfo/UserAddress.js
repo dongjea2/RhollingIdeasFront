@@ -8,7 +8,7 @@ export default function UserAddress() {
 
   useEffect(() => {
     const addrs = getAddress({ userNo: window.sessionStorage.getItem("userNo") });
-    addrs.then((res) => { setAddrs(res) });
+    addrs.then((res) => { setAddrs(res)});
   }, []);
 
   return (
