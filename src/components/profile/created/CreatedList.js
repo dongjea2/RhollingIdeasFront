@@ -32,8 +32,6 @@ export default function CreatedList(){
     const stopList = created.filter(function (project){
         return project.projectStatus === "중지";
     });
-
-    console.log(created);
     return(
         <section>
             <div className={styles.Header}>

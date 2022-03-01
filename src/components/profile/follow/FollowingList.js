@@ -14,10 +14,8 @@ export default function FollowingList(){
         .then(res => setList(res.data))
         .catch(err => console.log(err));
     }, [cnt]);
-    console.log(list);
 
     const followClick = (follow) => {
-        console.log(follow);
         axios.post('/editfollow',
             {
                 userNo: {userNo:userNo},
@@ -28,7 +26,8 @@ export default function FollowingList(){
             setCnt(cnt + 1);
         })
         .catch(function (error) {
-            console.log(error);
+            alert("로그인이 필요한 서비스입니다.");
+            window.location.replace("/login");
         });
     }
 

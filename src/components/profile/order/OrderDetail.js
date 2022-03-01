@@ -6,7 +6,6 @@ export default function OrderDetail(){
     const location =useLocation();
     const order = location.state.order;
     const project = order.reward.project;
-    console.log(order);
 
     function leftPad(value){ 
         if (value >= 10) { 

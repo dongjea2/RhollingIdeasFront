@@ -15,7 +15,6 @@ export default function FollowerList(){
     }, [cnt]);
 
     const followClick = (follow) => {
-        console.log(follow);
         axios.post('/editfollow',
             {
                 userNo: {userNo:userNo},
@@ -26,7 +25,8 @@ export default function FollowerList(){
             setCnt(cnt + 1);
         })
         .catch(function (error) {
-            console.log(error);
+            alert("로그인이 필요한 서비스입니다.");
+            window.location.replace("/login");
         });
     }
 
