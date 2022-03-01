@@ -20,6 +20,7 @@ export default function DiscoverPage(){
         "ongoing":qs.parse(window.location.search).onGoing,
         "achiveRate":qs.parse(window.location.search).achiveRate,
         "sort":qs.parse(window.location.search).sort,
+        "searchWords":qs.parse(window.location.search).keyword,
         //"keyword":qs.parse(window.location.search).sort
     });
 
@@ -135,6 +136,7 @@ const AchiveBtn= styled.button`
     border: none;
     width: 77.34px;
     height: 34px;
+    &:hover
 `
 const EditorPickBtn= styled.button`
     background: url(${props=> props.picked}) no-repeat;
