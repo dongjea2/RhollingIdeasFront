@@ -2,24 +2,25 @@ import SettingsHeader from "./SettingsHeader";
 import "./SettingsDefault.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Profile from "./Profile";
+import UserName from "./account/UserName";
+import Introduction from "./account/Introduction";
+import Password from "./account/Password";
+import Email from "./account/Email";
+import Phone from "./account/Phone";
+import ProfileImage from "./account/ProfileImage";
+import Withdrawal from "./account/Withdrawal";
 
 export default function AccountSet() {
   const [data, setData] = useState("");
+  const userNo = window.sessionStorage.getItem("userNo");
 
-  // 기능 미구현
-  function handleWithdrawal(e) {
-    e.preventDefault();
-    window.location.replace("/");
-  }
-
-  //유저번호로 계정정보 조회. 토큰으로 로그인시 변경
+  //유저번호로 계정정보 조회
   useEffect(() => {
     axios({
       method: "POST",
       url: "/profile/account",
       data: {
-        userNo: 1, //수정필요
+        userNo: userNo, //수정필요
       },
     })
       .then((res) => setData(res.data))
@@ -30,18 +31,13 @@ export default function AccountSet() {
     <div className="settings-default">
       <SettingsHeader />
       <section className="settings-box">
-        <Profile name={"프로필 사진"} data={data && data.image} />
-        <Profile name={"이름"} data={data.name} />
-        <Profile name={"소개"} data={data.intro} />
-        <Profile name={"이메일"} data={data.email} />
-        <Profile name={"연락처"} data={data.phone} />
-        <Profile name={"비밀번호"} data={""} />
-        <div>
-          <p className="settings_subtitle">회원탈퇴</p>
-          <button className="withdrawal" onClick={handleWithdrawal}>
-            탈퇴
-          </button>
-        </div>
+        <ProfileImage data={data && data.image} />
+        <UserName data={data.name} />
+        <Introduction data={data.intro} />
+        <Email data={data.email} />
+        <Phone data={data.phone} />
+        <Password />
+        <Withdrawal />
       </section>
     </div>
   );
