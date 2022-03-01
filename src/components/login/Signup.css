@@ -36,3 +36,11 @@
   font-size: 50%;
   color: red;
 }
+.signup-footer {
+  height: 35px;
+  margin: 5px;
+  font-size: 7px;
+}
+.signup-footer-login {
+  color: rgb(39, 163, 255);
+}
