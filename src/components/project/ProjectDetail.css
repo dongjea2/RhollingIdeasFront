@@ -25,9 +25,13 @@
   border-radius: 2px;
 }
 .img{
-  width: 700px;
+  width: 500px;
   margin-right: 70px;
 }
+.img>.projectimg>img{
+  width: 500px;
+}
+
 .item-image{
 	width: 100%;
 }
