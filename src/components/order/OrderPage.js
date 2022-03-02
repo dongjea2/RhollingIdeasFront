@@ -1,4 +1,3 @@
-import styles from './OrderPage.module.css';
 import styled from 'styled-components';
 import Reward from './reward/Reward';
 import OrderProject from './orderProject/OrderProject';
@@ -37,7 +36,6 @@ export default function OrderPage(){
     return(
     <div className="orderRap">
         <OrderProject project={item && item.project} />
-
         <Both>
             <Left>
                 <Reward item={item}/>
@@ -58,6 +56,8 @@ export default function OrderPage(){
 //===================================
 //functions
 
+
+//1.  [OrderButton]
 function OrderButton({reward, card, address}){
     const [lodingFinish , setLodingFinish] = useState(true)
     const [buttonDisable, setButtonDisable] = useState(false)
@@ -84,6 +84,7 @@ function OrderButton({reward, card, address}){
             "card" : card
         }
 
+        //a.
         axios.post('/order',JSON.stringify(data), heder)
         .then(res=> setTimeout(() => { setFinishModdalVisible(true); }, 1000))
         .catch(err => alert("결제 실패!"));
@@ -94,19 +95,26 @@ function OrderButton({reward, card, address}){
         setLodingFinish(true);
         setButtonDisable(false); }
 
+    const supportBtnCliked= () => {
+        setLodingFinish(false);
+        setButtonDisable(true);
+        setorderModalOn(true);
+        setTimeout(() => { setModalVisible(true) }, 500);
+    }
+
     return(
         <>
-            <div className={styles.itemRight}>
-                    <button className={styles.paymentButton} 
+                    <SupportButton
                             disabled={buttonDisable} 
-                            onClick={handleClick}> 
+                            onClick={supportBtnCliked}> 
                         {lodingFinish ?  '후원하기!': <Loading/>}
-                    </button>
-            </div>
+                    </SupportButton>
 
-                
 
-        {/*결제 모달*/}
+
+
+        {/*[///////////Modal/////////////]*/}
+        {/*1.결제 모달*/}
         {
             modalVisible && 
             <SimpleModal visible={modalVisible} closable={true} maskClosable={false} onClose={closeModal}>
@@ -121,7 +129,7 @@ function OrderButton({reward, card, address}){
             </SimpleModal>
         }
 
-        {/*결과 모달*/}
+        {/*2.결과 모달*/}
         {
             finishModdalVisible && 
             <SimpleModal visible={finishModdalVisible} closable={false} maskClosable={false} >
@@ -135,13 +143,7 @@ function OrderButton({reward, card, address}){
         </>
     );
 
-    function handleClick(e) {
-        e.preventDefault();
-        setLodingFinish(false);
-        setButtonDisable(true);
-        setorderModalOn(true);
-        setTimeout(() => { setModalVisible(true) }, 500);
-    }
+
 }
 
 //===============================
@@ -226,6 +228,32 @@ const CancleButton= styled.button`
     color: rgb(255, 255, 255);
       &:hover {
     color: black;
+
+`
+
+const  SupportButton= styled.button`
+    font-size: 30px;
+    margin-top: 30px;
+    width: 300px;
+    height: 130px;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    white-space: nowrap;
+    border-radius: 4px;
+    margin-top: 10px;
+    transition-duration: 0.15s;
+    border: 0px;
+    outline: none;
+    font-weight: normal;
+    box-sizing: border-box;
+    background-color: rgb(255, 87, 87);
+    color: rgb(255, 255, 255);
+    &:hover {
+    background-color: gray;
+    }
 
 `
 

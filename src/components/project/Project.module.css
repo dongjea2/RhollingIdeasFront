@@ -102,12 +102,12 @@ button.notLike{
     margin: 0px 0px 10px;
     font-weight: bold;
     display: -webkit-box;
-    overflow: hidden;
     max-height: 58px;
     word-break: keep-all;
     overflow-wrap: break-word;
     margin-bottom: 10px;
     margin-top: 10px;
+    white-space: normal;
 }
 .catelink{
     display: flex;

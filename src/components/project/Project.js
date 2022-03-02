@@ -52,8 +52,8 @@ export default function Project({ project }) {
 
   return (
     <>
-        <Link to={'/projectdetail/'+Number( project && project.projectNo)}>
-          <img src ={require(`../../${ project && project.projectImage}`)} className={styles.itemImage}  alt={project && project.projectNo}/>
+        <Link to={'/projectdetail/'+Number( project.projectNo)}>
+          <img src ={require(`../../${ project.projectImage}`)} className={styles.itemImage}  alt={ project.projectNo}/>
         </Link>
 
         {isLike === true ? 
@@ -62,30 +62,28 @@ export default function Project({ project }) {
           <button className={styles.notLike} onClick={handleAddLike} disabled={buttonDisable}/>
         }
         <div className={styles.info}>
-            <Link to={'/projectdetail/'+Number( project && project.projectNo)}>
-            <span className={styles.title}>{project && project.longTitle}</span> 
+            <Link to={'/projectdetail/'+Number( project.projectNo)}>
+            <span className={styles.title}>{ project.longTitle}</span> 
             </Link>
             <div className={styles.catelink}>
-              <span className={styles.category}> {project && project.category.categoryName} </span>
+              <span className={styles.category}> { project.category.categoryName} </span>
               <span className={styles.category}>|</span>
-              <span className={styles.company}> {project && project.maker.userName} </span>
+              <span className={styles.company}> { project.maker.userName} </span>
             </div>
 
-            <span className={styles.iteminfo}>{project && project.projectBrief}</span>
+            <span className={styles.iteminfo}>{ project.projectBrief}</span>
 
             <div className={styles.priceAndPercent}>
-                      <span className={styles.price}>{project && project.projectChange.sumPrice}원</span>
-                      <span className={styles.percent}>{project && project.achiveRate}%</span>
-                      <span className={styles.leftDay}> <img src={leftDayImg}/> {project && project.remainDayCnt} </span>
+                      <span className={styles.price}>{Number( project.projectChange.sumPrice).toLocaleString('ko-KR')}원</span>
+                      <span className={styles.percent}>{ project.achiveRate}%</span>
+                      <span className={styles.leftDay}> <img src={leftDayImg}/> {project.remainDayCnt>0 ?project.remainDayCnt+"일 남음" :"종료"} </span>
             </div>
          </div>
 
         {/*좋아요 수정시 안내 모달*/}
         {
-            modalVisible && 
-            <SimpleModal visible={modalVisible} closable={true} maskClosable={false} onClose={closeModal}>
-              
-               {isLike === true ?  <Heart/>: <EmptyHeart/> }
+            modalVisible && <SimpleModal visible={modalVisible} closable={true} maskClosable={false} onClose={closeModal}>
+              {isLike === true ?  <Heart/>: <EmptyHeart/> }
             </SimpleModal>
         }
     </>
@@ -110,5 +108,6 @@ const EmptyHeart= styled.button`
  width: 100px;
  height: 100px;
 background: url(${emptyHeartImg}) center center / 100% no-repeat;
+ animation-duration: 0.25s;
 
 `
