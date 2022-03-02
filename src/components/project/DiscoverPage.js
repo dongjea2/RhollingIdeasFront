@@ -15,7 +15,7 @@ export default function DiscoverPage(){
     const [cnt, setCnt] = useState(0);
     const [RDS, setRDS] = useState({
         "limit": 100,
-        "category":qs.parse(window.location.search).category,
+        "category":Number(qs.parse(window.location.search).category),
         "editorPick":Number(qs.parse(window.location.search).editorPick),
         "ongoing":qs.parse(window.location.search).onGoing,
         "achiveRate":qs.parse(window.location.search).achiveRate,
@@ -24,15 +24,16 @@ export default function DiscoverPage(){
         //"keyword":qs.parse(window.location.search).sort
     });
 
-
     useEffect(() => {
-         console.log();
-         console.log(RDS);
+        console.log();
+        console.log(RDS);
         let heder= { headers: {"Content-Type": `application/json`} }
         axios.post('/discover',JSON.stringify(RDS), heder)
              .then(res => setList(res.data))
              .catch(err => alert("서버에러"));
     },[cnt ]);
+
+
 
     const [editor, SetEditor] = useState(EditorPick);
     const handleAddLike= () => {

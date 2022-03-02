@@ -1,112 +1,112 @@
 [
     {
-        "id": 1,
+        "id": 0,
         "category": "전체",
-        "url": "/"
+        "url": "/discover"
+    },
+    {
+        "id": 1,
+        "category": "보드게임 · TRPG",
+        "url": "/discover?category=1"
     },
     {
         "id": 2,
-        "category": "보드게임 · TRPG",
-        "url": "/"
+        "category": "디지털 게임",
+        "url": "/discover?category=2"
     },
     {
         "id": 3,
-        "category": "디지털 게임",
-        "url": "/"
+        "category": "웹툰 · 만화",
+        "url": "/discover?category=3"
     },
     {
         "id": 4,
-        "category": "웹툰 · 만화",
-        "url": "/"
+        "category": "웹툰 리소스",
+        "url": "/discover?category=4"
     },
     {
         "id": 5,
-        "category": "웹툰 리소스",
-        "url": "/"
+        "category": "디자인 문구",
+        "url": "/discover?category=5"
     },
     {
         "id": 6,
-        "category": "디자인 문구",
-        "url": "/"
+        "category": "캐릭터 · 굿즈",
+        "url": "/discover?category=6"
     },
     {
         "id": 7,
-        "category": "캐릭터 · 굿즈",
-        "url": "/"
+        "category": "홈 · 리빙",
+        "url": "/discover?category=7"
     },
     {
         "id": 8,
-        "category": "홈 · 리빙",
-        "url": "/"
+        "category": "테크 · 가전",
+        "url": "/discover?category=8"
     },
     {
         "id": 9,
-        "category": "테크 · 가전",
-        "url": "/"
+        "category": "반려동물",
+        "url": "/discover?category=9"
     },
     {
         "id": 10,
-        "category": "반려동물",
-        "url": "/"
+        "category": "푸드",
+        "url": "/discover?category=10"
     },
     {
-        "id": 11,
-        "category": "푸드",
-        "url": "/"
+        "id":11,
+        "category": "향수 · 뷰티",
+        "url": "/discover?category=11"
     },
     {
         "id": 12,
-        "category": "향수 · 뷰티",
-        "url": "/"
+        "category": "의류",
+        "url": "/discover?category=12"
     },
     {
         "id": 13,
-        "category": "의류",
-        "url": "/"
+        "category": "잡화",
+        "url": "/discover?category=13"
     },
     {
         "id": 14,
-        "category": "잡화",
-        "url": "/"
+        "category": "주얼리",
+        "url": "/discover?category=14"
     },
     {
         "id": 15,
-        "category": "주얼리",
-        "url": "/"
+        "category": "출판",
+        "url": "/discover?category=15"
     },
     {
         "id": 16,
-        "category": "출판",
-        "url": "/"
+        "category": "디자인",
+        "url": "/discover?category=16"
     },
     {
         "id": 17,
-        "category": "디자인",
-        "url": "/"
+        "category": "예술",
+        "url": "/discover?category=17"
     },
     {
-        "id": 18,
-        "category": "예술",
-        "url": "/"
+        "id":18,
+        "category": "사진",
+        "url": "/discover?category=18"
     },
     {
         "id": 19,
-        "category": "사진",
-        "url": "/"
+        "category": "음악",
+        "url": "/discover?category=19"
     },
     {
         "id": 20,
-        "category": "음악",
-        "url": "/"
+        "category": "영화 · 비디오",
+        "url": "/discover?category=20"
     },
     {
         "id": 21,
-        "category": "영화 · 비디오",
-        "url": "/"
-    },
-    {
-        "id": 22,
         "category": "공연",
-        "url": "/"
+        "url": "/discover?category=21"
     }
 ]
