@@ -21,13 +21,14 @@ import FollowerList from "./components/profile/follow/FollowerList";
 import ProjectWrite from "./components/project/ProjectWrite";
 import OrderPage from "./components/order/OrderPage";
 import RewardList from "./components/project/RewardList";
-import Profile from "./components/profile/Profile";
+import Profile from "./components/profile/profile/Profile";
 import Logout from "./components/login/Logout";
 import RequireAuth from "./components/RequireAuth";
 import CreatedList from "./components/profile/created/CreatedList";
 import ProfileOrder from "./components/profile/profile/ProfileOrder";
 import ProfileFollower from "./components/profile/profile/ProfileFollower";
 import ProfileCreated from "./components/profile/profile/ProfileCreated";
+import ProfileFollowing from "./components/profile/profile/ProfileFollowing";
 
 function App() {
   return (
@@ -59,7 +60,7 @@ function App() {
         <Route path="/following/followers" element={<RequireAuth><FollowerList /></RequireAuth>} />
         <Route path="/created" element={<RequireAuth><CreatedList /></RequireAuth>} />
         <Route path="/profile/:userUrl" element={<Profile />} />
-        <Route path="/profile/:userUrl/following" element={<ProfileFollower />} />
+        <Route path="/profile/:userUrl/following" element={<ProfileFollowing />} />
         <Route path="/profile/:userUrl/order" element={<RequireAuth><ProfileOrder /></RequireAuth>} />
         <Route path="/profile/:userUrl/created" element={<ProfileCreated />} />
         <Route path="/profile/:userUrl/follower" element={<ProfileFollower />} />
