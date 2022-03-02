@@ -34,3 +34,43 @@
   width: 50px;
   color: rgb(39, 163, 255);
 }
+.additional-description {
+  font-size: 12px;
+  font-weight: normal;
+}
+.profile-image-container {
+  width: 120px;
+  height: 120px;
+  border-radius: 70%;
+  overflow: hidden;
+  object-fit: cover;
+  border: 1px solid rgb(223, 223, 223);
+}
+.card-input {
+  margin: 0px;
+  padding: 0;
+}
+.cardList input {
+  width: 90%;
+  margin: 10px;
+}
+.hidden-data {
+  display: none;
+}
+.default-data {
+  color: rgb(224, 53, 82);
+}
+.card-buttons-container {
+  margin: 0;
+  display: flex;
+  align-content: space-between;
+}
+.card-button {
+  padding: 0;
+  margin: 5px;
+  background-color: rgb(198, 180, 248);
+}
+.check-default {
+  display: inline-block;
+  width: 50px;
+}

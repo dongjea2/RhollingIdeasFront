@@ -5,6 +5,16 @@
   box-sizing: border-box;
   padding: 0;
 }
+.setting-title {
+  padding: 38px 24px 32px;
+}
+.setting-title h1 {
+  font-size: 36px;
+  line-height: 54px;
+  letter-spacing: -0.035em;
+  font-weight: 200;
+  margin: 0;
+}
 .settings_list {
   display: flex;
   justify-content: flex-start;

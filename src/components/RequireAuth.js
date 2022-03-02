@@ -6,7 +6,9 @@ let userId = window.sessionStorage.getItem("loginedId");
 
   if (!userId) {
     alert("로그인이 필요한 서비스입니다.");
-    return <Navigate to="/" />;
+    //return <Navigate to="/login" />;
+    window.location.replace("/login");
+    return true;
   }
   return children;
 }

@@ -25,6 +25,7 @@ export default function Login() {
     })
       .then((res) => res.json())
       .then((res) => {
+        console.log(res);
         if (res.status === 1) {
           console.log("로그인 성공");
           console.log(res);
@@ -33,8 +34,10 @@ export default function Login() {
           window.sessionStorage.setItem("userUrl", res.userUrl);
           window.sessionStorage.setItem("userName", res.userName);
           window.location.replace("/");
+        } else if (res.status === 2) {
+          alert(res.msg);
         } else {
-          alert("로그인 실패");
+          alert(res.msg);
         }
       });
   }
@@ -51,17 +54,12 @@ export default function Login() {
       <div className="login_box">
         <div className="login_box2">
           <h3>로그인</h3>
-          <div className="sns_login">
-            <button>페이스북 아이디로 로그인</button>
-            <button>네이버 아이디로 로그인</button>
-            <button>카카오톡 아이디로 로그인</button>
-          </div>
-          <hr />
+          <br />
           <form className="email_login">
             <input
               type="text"
               ref={idRef}
-              placeholder="이메일 주소 입력"
+              placeholder="이메일(ID) 입력"
               required
             />
             <input
@@ -72,13 +70,12 @@ export default function Login() {
             />
             <button onClick={handleSubmit}>로그인</button>
           </form>
+          <br />
           <div className="login_text">
-            아직 Rholling ideas 계정이 없으신가요?
-            <Link to={"/signup"}>가입하기</Link>
-          </div>
-          <hr />
-          <div className="login_text">
-            <Link to={""}>혹시 비밀번호를 잊으셨나요?</Link>
+            아직 Rholling Ideas 계정이 없으신가요?
+            <Link to={"/signup"} className="login-signup">
+              가입하기
+            </Link>
           </div>
         </div>
       </div>

@@ -3,15 +3,17 @@ import "./SettingsDefault.css";
 import { useState, useEffect } from "react";
 import { AddressList, getAddress } from "./address/ShowAddress";
 import AddressPopup from "./address/KakaoAddress";
+import AddAddress from "./address/AddAddress";
 
 export default function AddressSet() {
+  const userNo = window.sessionStorage.getItem("userNo");
+
   const [addrs, setAddrs] = useState([]);
   const [addBtnText, setAddBtnText] = useState("+추가");
   const [isAddOpen, setIsAddOpen] = useState(false);
 
   useEffect(() => {
-    //userNo 수정 필요
-    const addrs = getAddress({ userNo: 1 });
+    const addrs = getAddress({ userNo: userNo });
     addrs.then((res) => {
       setAddrs(res);
     });
@@ -27,18 +29,6 @@ export default function AddressSet() {
     }
   }
 
-  function submitAddr(e) {
-    e.preventDefault();
-
-    fetch("/profile/addaddress", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({}), //추가필요
-    });
-  }
-
   return (
     <div className="setting-default">
       <SettingsHeader />
@@ -48,16 +38,7 @@ export default function AddressSet() {
           <button className="add-btn" onClick={addClick}>
             {addBtnText}
           </button>
-          {isAddOpen && (
-            <form onClick={submitAddr}>
-              <input placeholder="이름" />
-              <AddressPopup />
-              <input placeholder="우편번호" />
-              <input placeholder="주소" />
-              <input placeholder="상세주소" />
-              <input placeholder="전화번호" />
-            </form>
-          )}
+          {isAddOpen && <AddAddress />}
         </div>
         <AddressList addrs={addrs} />
       </section>

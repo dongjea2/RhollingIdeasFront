@@ -38,7 +38,7 @@ export default function Signup() {
         .then((res) => {
           console.log(res);
           if (res.status === 0) {
-            alert("이미 존재하는 아이디입니다");
+            alert("이미 존재하는 이메일(ID)입니다");
           } else {
             window.location.replace("/login");
           }
@@ -67,10 +67,10 @@ export default function Signup() {
             placeholder="사용하실 이름을 입력해주세요"
             required
           />
-          이메일 주소
+          이메일(ID)
           <br />
           <input
-            type="text"
+            type="email"
             ref={idRef}
             placeholder="이메일 주소를 입력해주세요"
             required
