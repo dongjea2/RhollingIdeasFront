@@ -23,7 +23,7 @@ export default function Post() {
           postContent: postcon
         }
 
-        //console.log(data);
+        console.log(data);
 
         axios.post("/projectdetail/post",  JSON.stringify(data), {
           headers: {
@@ -36,9 +36,7 @@ export default function Post() {
         
       }
       
-
-      let userid = '1'
-      //window.localStorage.getItem('userid');
+      let userid = window.sessiontorage.getItem('userid');
 
       const [info, setInfo] = useState([]);
       const [plag,setPlag] = useState('');
@@ -53,7 +51,9 @@ export default function Post() {
         <>
             <form>
               입력<input type="text"ref={postconRef} placeholder="커뮤니티 게시글 작성" />
+              
               <div style={{display:'none'}}ref={usernoRef}>{userid}</div> 
+              
               <button onClick={handleSubmit}>작성</button>
             </form>
             <div>
@@ -67,7 +67,6 @@ export default function Post() {
                 </div >
               )}
             </div>
-                <Comments></Comments>
         </> 
         );
 }
