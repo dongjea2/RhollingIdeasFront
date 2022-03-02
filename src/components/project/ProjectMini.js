@@ -6,11 +6,13 @@ import SimpleModal from '../modal/SimpleModal';
 import styles from './ProjectMini.module.css';
 import heartImg from '../../images/mainpage/heart2.png';
 import emptyHeartImg from '../../images/mainpage/heart.png';
+import pickedImg from '../../images/mainpage/picked.png';
 
 export default function ProjectMini({ project }) {
 
   //좋아요 버튼
   const [isLike ,setIsLike ] = useState(project && project.loginedUserProjectInterest);
+  const [isPicked,setIsPicked] = useState(project && project.editorPick);
   const [buttonDisable , setButtonDisable] = useState(false);
 
   //좋아요 변경 안내 모달
@@ -60,7 +62,9 @@ export default function ProjectMini({ project }) {
         :
         <button className={styles.notLike} onClick={handleAddLike} disabled={buttonDisable}/>
     }
-
+    {isPicked === "1" ? 
+        <Picked/> : ""
+        }
     <div className={styles.info}>
 
         <div className={styles.catelink}>
@@ -111,4 +115,14 @@ const EmptyHeart= styled.button`
  height: 100px;
 background: url(${emptyHeartImg}) center center / 100% no-repeat;
 
+`
+
+const Picked= styled.button`
+ position: relative;
+  top:-195px;
+ left: -30px;
+
+ width: 40px;
+ height:30px;
+background: url(${pickedImg}) center center / 100% no-repeat;
 `
