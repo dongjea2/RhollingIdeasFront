@@ -60,7 +60,7 @@ function App() {
         <Route path="/following/followers" element={<RequireAuth><FollowerList /></RequireAuth>} />
         <Route path="/created" element={<RequireAuth><CreatedList /></RequireAuth>} />
         <Route path="/profile/:userUrl" element={<Profile />} />
-        <Route path="/profile/:userUrl/following" element={<FollowingComponent />} />
+        <Route path="/profile/:userUrl/following" element={<ProfileFollower />} />
         <Route path="/profile/:userUrl/order" element={<RequireAuth><ProfileOrder /></RequireAuth>} />
         <Route path="/profile/:userUrl/created" element={<ProfileCreated />} />
         <Route path="/profile/:userUrl/follower" element={<ProfileFollower />} />
