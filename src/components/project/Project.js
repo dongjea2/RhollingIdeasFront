@@ -7,11 +7,13 @@ import styled from 'styled-components';
 import SimpleModal from '../modal/SimpleModal';
 import heartImg from '../../images/mainpage/heart2.png';
 import emptyHeartImg from '../../images/mainpage/heart.png';
+import pickedImg from '../../images/mainpage/picked.png';
 
 export default function Project({ project }) {
 
     //좋아요 버튼
     const [isLike ,setIsLike ] = useState(project && project.loginedUserProjectInterest);
+    const [isPicked,setIsPicked] = useState(project && project.editorPick);
     const [buttonDisable , setButtonDisable] = useState(false);
     //좋아요 변경 안내 모달
     const [modalVisible, setModalVisible] = useState(false)
@@ -61,6 +63,11 @@ export default function Project({ project }) {
           :
           <button className={styles.notLike} onClick={handleAddLike} disabled={buttonDisable}/>
         }
+        {isPicked === "1" ? 
+        <Picked/>
+          :
+          ""
+        }
         <div className={styles.info}>
             <Link to={'/projectdetail/'+Number( project.projectNo)}>
             <span className={styles.title}>{ project.longTitle}</span> 
@@ -109,5 +116,13 @@ const EmptyHeart= styled.button`
  height: 100px;
 background: url(${emptyHeartImg}) center center / 100% no-repeat;
  animation-duration: 0.25s;
+`
+const Picked= styled.button`
+ position: relative;
+  top:-250px;
+ left: -30px;
 
+ width: 40px;
+ height:30px;
+background: url(${pickedImg}) center center / 100% no-repeat;
 `
