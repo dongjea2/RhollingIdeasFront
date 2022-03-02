@@ -40,9 +40,9 @@ export default function OrderDetail(){
                     <span className="rate"> {project.achiveRate}%</span>
                     <span className="payresult">· {order.orderResult}</span>
                 </div>
-                <Link to={"/"} className="message">
+                {/* <Link to={"/"} className="message">
                     창작자에게 문의
-                </Link>
+                </Link> */}
             </div>
         </div>
         <div className="orderinfo-container">

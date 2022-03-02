@@ -21,7 +21,6 @@ export default function FollowerList(){
                 follow: {userNo:follow}
             }
         ).then(function (response) {
-            console.log(response);
             setCnt(cnt + 1);
         })
         .catch(function (error) {
@@ -61,7 +60,7 @@ export default function FollowerList(){
                                 <div className="follow-item-content">
                                     <div className="follow-item-descption">
                                         <div className="follow-user-name">
-                                            <Link to="/">{user.userName}</Link>
+                                            <Link to={"/profile/" + user.userUrl}>{user.userName}</Link>
                                         </div>
                                         <div className="follow-user-intro">
                                             {user.userIntroduction}

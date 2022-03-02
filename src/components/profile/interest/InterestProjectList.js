@@ -13,7 +13,6 @@ export default function InterestProjectList(){
         .then(res => setInterests(res.data))
         .catch(err => console.log(err));
     }, [cnt]);
-    console.log(inters);
 
     //좋아요 버튼
     const [buttonDisable , setButtonDisable] = useState(false);

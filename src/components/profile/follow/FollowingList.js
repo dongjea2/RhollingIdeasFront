@@ -22,7 +22,6 @@ export default function FollowingList(){
                 follow: {userNo:follow}
             }
         ).then(function (response) {
-            console.log(response);
             setCnt(cnt + 1);
         })
         .catch(function (error) {

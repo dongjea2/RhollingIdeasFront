@@ -1,23 +1,20 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import SimpleModal from "../../modal/SimpleModal";
+import { Link, useParams } from "react-router-dom";
 import styles from '../Profile.module.css';
 
 export default function ProfileOrder() {
-    const [isLike ,setIsLike ] = useState(false);
     const [user, setUser] = useState('');
     const [cnt, setCnt] = useState(0);
     const userNo = window.sessionStorage.getItem('userNo');
-    const userUrl = window.sessionStorage.getItem('userUrl');
+    const {userUrl} = useParams();
 
     useEffect(() => {
         axios.get("/profile/order")
         .then(res => setUser(res.data))
         .catch(err => console.log(err));
     }, [cnt]);
-    console.log(user)
-
+    
     //좋아요 버튼
     const [buttonDisable , setButtonDisable] = useState(false);
 
@@ -77,7 +74,7 @@ export default function ProfileOrder() {
                     </span>
                     {user.userNo === Number(userNo) &&
                     <span className="selected-span">
-                        <Link to={"/profile/" + userUrl +"/order"} className={styles.selectedA}>후원한 프로젝트 {user.orders && user.orders.length}</Link>
+                        <Link to={"/profile/" + userUrl +"/order"} className={styles.selectedA}>후원한 프로젝트 {user.orderProjectCnt}</Link>
                     </span>
                     }
                     <span>
@@ -93,38 +90,45 @@ export default function ProfileOrder() {
             </div>
             <div>
                 <div className={styles.orderCnt}>
-                    <span>{user.orders && user.orders.length}</span>개의 프로젝트가 있습니다.
+                    <span>{user.projects && user.projects.length}</span>개의 프로젝트가 있습니다.
                 </div>
-                <div className={styles.Content}>
-                {user.orders && user.orders.map((order) => (
-                    <div className={styles.item} key={order.orderNo}>
-                        <Link to={'/projectdetail/'+Number(order.projectNo)}>
-                        <img className={styles.itemImage} src={require(`../../../${order.projectImage}`)} alt={order.projectNo}/>
-                        </Link>
-
-                        {order.checkLike === true ? 
-                        <button className={styles.like} onClick={(e) => handleDeleteLike(order.projectNo, e)} disabled={buttonDisable}/> 
-                        :
-                        <button className={styles.notLike} onClick={(e) => handleAddLike(order.projectNo, e)} disabled={buttonDisable}/>
-                        }
-                        <div className={styles.info} style={{marginTop:'-25px'}}>
-
-                            <div className={styles.catelink}>
-                                <span className={styles.category}> {order.categoryName} | {order.userName} </span>
-                            </div>
-
+                {
+                    user.projects && user.projects.length === 0 ?
+                    <div className={styles.noContent}>
+                        <img src={require('../../../images/profile/empty present.png')} alt="no_following"/>
+                        <div>후원한 프로젝트가 없습니다.</div>
+                    </div> :
+                    <div className={styles.Content}>
+                    {user.projects && user.projects.map((order) => (
+                        <div className={styles.item} key={order.orderNo}>
                             <Link to={'/projectdetail/'+Number(order.projectNo)}>
-                            <span className={styles.title}>{order.longTitle}</span> 
+                            <img className={styles.itemImage} src={require(`../../../${order.projectImage}`)} alt={order.projectNo}/>
                             </Link>
-                            <span className={styles.brief}>{order.projectBrief}</span>
-                            <div className={styles.priceAndPercent}>
-                                <span className={styles.percent}>{order.achiveRate}%</span>
-                                <span className={styles.sumPrice}>{order.sumPrice.toLocaleString('ko-KR')}원</span>
+
+                            {order.checkLike === true ? 
+                            <button className={styles.like} onClick={(e) => handleDeleteLike(order.projectNo, e)} disabled={buttonDisable}/> 
+                            :
+                            <button className={styles.notLike} onClick={(e) => handleAddLike(order.projectNo, e)} disabled={buttonDisable}/>
+                            }
+                            <div className={styles.info} style={{marginTop:'-25px'}}>
+
+                                <div className={styles.catelink}>
+                                    <span className={styles.category}> {order.categoryName} | {order.makerName} </span>
+                                </div>
+
+                                <Link to={'/projectdetail/'+Number(order.projectNo)}>
+                                <span className={styles.title}>{order.longTitle}</span> 
+                                </Link>
+                                <span className={styles.brief}>{order.projectBrief}</span>
+                                <div className={styles.priceAndPercent}>
+                                    <span className={styles.percent}>{order.achiveRate}%</span>
+                                    <span className={styles.sumPrice}>{order.sumPrice.toLocaleString('ko-KR')}원</span>
+                                </div>
                             </div>
                         </div>
+                    ))}
                     </div>
-                ))}
-                </div>
+                }
             </div>
         </section>
     )
