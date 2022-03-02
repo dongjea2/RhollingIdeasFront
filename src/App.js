@@ -25,7 +25,6 @@ import Profile from "./components/profile/Profile";
 import Logout from "./components/login/Logout";
 import RequireAuth from "./components/RequireAuth";
 import CreatedList from "./components/profile/created/CreatedList";
-import FollowingComponent from "./components/profile/follow/FollowingComponent";
 import ProfileOrder from "./components/profile/profile/ProfileOrder";
 import ProfileFollower from "./components/profile/profile/ProfileFollower";
 import ProfileCreated from "./components/profile/profile/ProfileCreated";
