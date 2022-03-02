@@ -2,12 +2,10 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import './Advertise.css'
+import styled from 'styled-components';
+import Heart from '../../../../images/mainpage/heart2.png'
 
-
-import items from '../../../../api/mock/projectMock.json';
-
-export default function Advertise() {
+export default function Advertise({projectList}) {
 
 
     const settings = {
@@ -24,9 +22,12 @@ export default function Advertise() {
     return (
       <div>
         <Slider {...settings}>
-            <Ad item={items[1]}/>          
-            <Ad item={items[2]}/>          
-            <Ad item={items[3]}/>          
+           {projectList && projectList.map( project => 
+            <div key={project.projectNo}>
+              <Ad project={project}/>
+            </div>
+            )}
+
         </Slider>
       </div>
     );
@@ -35,15 +36,39 @@ export default function Advertise() {
 
 
 
-function Ad({item}){
-    const {  id ,imgUrl, category,maker, title, ahciveRate , brief} = item;
+function Ad({project}){
   return(
-            <div className="slickDiv"> 
-                <img className ='slickImg'src={imgUrl}/> 
-                <div className="textArea">
-                  <div className="titles">{title}</div>
-                  <div className="adBrief">{brief}</div>
-                </div>
-            </div>
+          <AdDiv>
+            <AddImg src={ require(`../../../../${project && project.projectImage}`) }/>
+            <Adtext>
+                  <Title>
+                    {project && project.longTitle}
+                  </Title>
+            </Adtext>
+          </AdDiv>
   );
 }
+
+const AdDiv = styled.div`
+  display: flex;
+  flex-direction: row ;
+`
+const Adtext= styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-left: 60px;
+    font-size: 30px;
+`
+const AddImg= styled.img`
+    width: 400px;
+    height: 250px;
+`
+
+const Title= styled.div`
+    font-size: 40px;
+    margin-bottom: 10px;
+`
+const Brief = styled.div`
+    font-size: 35px;
+    margin-left: 10px;
+`

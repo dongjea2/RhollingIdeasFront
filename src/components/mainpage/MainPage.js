@@ -20,7 +20,7 @@ export default function MainPage(){
 
     return(
         <>
-        <Advertise/>
+        <Advertise projectList={list && list.advertise}/>
         <AttentionProjects projectList={list && list.attention}/>
         <MiddleAdvertise/>
         <PopularProjects  projectList={list && list.attention}/>
