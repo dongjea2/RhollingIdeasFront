@@ -1,4 +1,5 @@
-import styles from './Reward.module.css';
+import styled from "styled-components";
+
 
 export default function Reward({item}){
 
@@ -9,12 +10,30 @@ export default function Reward({item}){
 
     return(
         <>
-        <div className={styles.title}> <h3>선물정보</h3> </div>
-        <div className={styles.boxForm}>
-            <div className={styles.boxItem}>선물구성 : {rewardName} {itemName} </div>
-            <div className={styles.boxItem}>선물금액 : {rewardPrice}원</div>
-            <div className={styles.boxItem}>예상 전달일 : {deliverDate}</div>
-        </div>
+        <Title> <h3>선물정보</h3> </Title>
+        <Box>
+            <Item>선물구성 : {rewardName} {itemName} </Item>
+            <Item>선물금액 : {Number(rewardPrice).toLocaleString("ko-KR")}원</Item>
+            <Item>예상 전달일 : {deliverDate}</Item>
+        </Box>
         </>
     );
 }
+
+
+const Title = styled.div`
+    margin-top: 20px;
+    margin-bottom: 10px;
+`
+const Box= styled.div`
+    border: 1px solid darkgrey;
+    border-radius: 4px;
+    width: 730px;
+    margin-top: 5px;
+
+`
+const Item= styled.div`
+    margin-left: 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+`
