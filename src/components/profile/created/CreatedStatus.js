@@ -34,8 +34,8 @@ export default function CreatedStatus({ list }) {
                                 {project.longTitle}
                             </Link>
                         </div>
-                        <div className={styles.shortTitle}>
-                            {project.shortTitle}
+                        <div className={styles.projectBrief}>
+                            {project.projectBrief}
                         </div>
                     </div>
                 {
