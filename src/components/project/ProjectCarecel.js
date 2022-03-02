@@ -7,7 +7,7 @@ import styles from './ProjectMini.module.css';
 import heartImg from '../../images/mainpage/heart2.png';
 import emptyHeartImg from '../../images/mainpage/heart.png';
 
-export default function ProjectMini({ project }) {
+export default function ProjectCarecel({ project }) {
 
   //좋아요 버튼
   const [isLike ,setIsLike ] = useState(project && project.loginedUserProjectInterest);
@@ -56,9 +56,9 @@ export default function ProjectMini({ project }) {
     </Link>
 
     {isLike === true ? 
-        <button className={styles.like} onClick={handleDeleteLike} disabled={buttonDisable}/> 
+        <HeartBtn onClick={handleDeleteLike} disabled={buttonDisable}/> 
         :
-        <button className={styles.notLike} onClick={handleAddLike} disabled={buttonDisable}/>
+        <EmptyHeartBtn onClick={handleAddLike} disabled={buttonDisable}/>
     }
 
     <div className={styles.info}>
@@ -111,4 +111,22 @@ const EmptyHeart= styled.button`
  height: 100px;
 background: url(${emptyHeartImg}) center center / 100% no-repeat;
 
+`
+
+const EmptyHeartBtn= styled.button`
+    position: relative;
+    top: -259px;
+    left: 313px;
+    width: 30px;
+    height: 30px;
+    background: url(${emptyHeartImg}) center center / 100% no-repeat;
+
+    `
+const HeartBtn= styled.button`
+    position: relative;
+    top: -259px;
+    left: 313px;
+    width: 30px;
+    height: 30px;
+    background: url(${heartImg}) center center / 100% no-repeat; 
 `

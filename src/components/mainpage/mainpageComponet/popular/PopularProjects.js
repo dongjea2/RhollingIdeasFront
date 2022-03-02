@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import styles from './PopularProjects.module.css'
 import ProjectMini from '../../../project/ProjectMini';
 import moment from "moment";
+import ProjectCarecel from "../../../project/ProjectCarecel";
 
 
 export default function PopularProjects({projectList}) {
@@ -36,7 +37,7 @@ export default function PopularProjects({projectList}) {
 
     {projectList && projectList.map((project) => (
     <div className={styles.item} key={project.projectNo}>
-        <ProjectMini project={project}/>
+        <ProjectCarecel project={project}/>
     </div>
     ))}
 

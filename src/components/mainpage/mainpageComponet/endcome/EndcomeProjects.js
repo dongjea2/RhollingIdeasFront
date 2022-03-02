@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from './EndcomeProjects.module.css'
 import ProjectMini from '../../../project/ProjectMini';
+import ProjectCarecel from "../../../project/ProjectCarecel";
 
 
 export default function EndcomeProjects({projectList}) {
@@ -30,7 +31,7 @@ export default function EndcomeProjects({projectList}) {
 
     {projectList && projectList.map((project) => (
     <div className={styles.item} key={project.projectNo}>
-        <ProjectMini project={project}/>
+        <ProjectCarecel project={project}/>
     </div>
     ))}
 
