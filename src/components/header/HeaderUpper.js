@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function HeaderUpper() {
   let userName = window.sessionStorage.getItem("userName");
+  let userUrl = window.sessionStorage.getItem("userUrl");
   return (
     <div className="header-upper">
       <Link to={"/"} id="logo">
@@ -62,7 +63,7 @@ export default function HeaderUpper() {
                   <span>{userName}</span>
                 </span>
                 <div className="dropdown-content" id="myDropdown">
-                  <Link to="/profile/1">프로필</Link>
+                  <Link to={"/profile/" + userUrl}>프로필</Link>
                   <hr />
                   <Link to="/orderlist">후원현황</Link>
                   <Link to="/interestlist">관심 프로젝트</Link>
