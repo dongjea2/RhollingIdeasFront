@@ -1,21 +1,24 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 export default function AddAddress() {
   const userNo = window.sessionStorage.getItem("userNo");
-  const [check, setCheck] = useState("0");
 
-  const nameRef = useRef();
-  const addrNoRef = useRef();
-  const addrRef = useRef();
-  const addrDetailRef = useRef();
-  const phoneRef = useRef();
+  const [inputs, setInputs] = useState({
+    name: "",
+    zipcode: "",
+    addr: "",
+    addrDetail: "",
+    phone: "",
+  });
 
-  function clickCheck() {
-    if (check === "0") {
-      setCheck("1");
-    } else {
-      setCheck("0");
-    }
+  const { name, zipcode, addr, addrDetail, phone } = inputs;
+
+  function onChange(e) {
+    const { value, name } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value,
+    });
   }
 
   function handleSubmit(e) {
@@ -30,12 +33,12 @@ export default function AddAddress() {
         user: {
           userNo: userNo,
         },
-        receiverName: nameRef.current.value,
-        receiverZipcode: addrNoRef.current.value,
-        receiverAddress: addrRef.current.value,
-        receiverAddressDetailed: addrDetailRef.current.value,
-        receiverPhone: phoneRef.current.value,
-        defaultAddress: check,
+        receiverName: name,
+        receiverZipcode: zipcode,
+        receiverAddress: addr,
+        receiverAddressDetailed: addrDetail,
+        receiverPhone: phone,
+        defaultAddress: "0",
       }),
     });
     window.location.replace("/profile/addressset");
@@ -43,13 +46,26 @@ export default function AddAddress() {
 
   return (
     <form>
-      <input placeholder="이름" ref={nameRef} />
-      <input placeholder="우편번호" ref={addrNoRef} />
-      <input placeholder="주소" ref={addrRef} />
-      <input placeholder="상세주소" ref={addrDetailRef} />
-      <input placeholder="전화번호" ref={phoneRef} />
-      <span className="additional-description">기본배송지 등록</span>
-      <input type="checkbox" onClick={clickCheck} className="inline-style" />
+      <input name="name" placeholder="이름" value={name} onChange={onChange} />
+      <input
+        name="zipcode"
+        placeholder="우편번호"
+        value={zipcode}
+        onChange={onChange}
+      />
+      <input name="addr" placeholder="주소" value={addr} onChange={onChange} />
+      <input
+        name="addrDetail"
+        placeholder="상세주소"
+        value={addrDetail}
+        onChange={onChange}
+      />
+      <input
+        name="phone"
+        placeholder="전화번호"
+        value={phone}
+        onChange={onChange}
+      />
       <button onClick={handleSubmit}>등록</button>
     </form>
   );

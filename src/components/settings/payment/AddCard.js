@@ -2,28 +2,26 @@ import { useState, useRef } from "react";
 
 export function AddCard() {
   const userNo = window.sessionStorage.getItem("userNo");
-  const [check, setCheck] = useState("0");
 
-  const cardRef = useRef();
-  const expireDtRef = useRef();
-  const birthDtRef = useRef();
-  const pwdRef = useRef();
+  const [inputs, setInputs] = useState({
+    cardNum: "",
+    expireDt: new Date(),
+    birthDt: "",
+    pwd: "",
+  });
 
-  function clickCheck() {
-    if (check === "0") {
-      setCheck("1");
-    } else {
-      setCheck("0");
-    }
+  const { cardNum, expireDt, birthDt, pwd } = inputs;
+
+  function onChange(e) {
+    const { value, name } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value,
+    });
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-
-    const cardNum = cardRef.current.value;
-    const expireDt = expireDtRef.current.value;
-    const birthDt = birthDtRef.current.value;
-    const pwd = pwdRef.current.value;
 
     fetch("/profile/addpayment", {
       method: "POST",
@@ -38,7 +36,7 @@ export function AddCard() {
         cardValidDate: expireDt,
         cardPwd: pwd,
         cardOwnerBirth: birthDt,
-        defaultCard: check,
+        defaultCard: "0",
       }),
     });
     window.location.replace("/profile/paymentset");
@@ -46,12 +44,31 @@ export function AddCard() {
 
   return (
     <form>
-      <input placeholder="카드번호" ref={cardRef} />
-      <input placeholder="비밀번호" ref={pwdRef} />
-      <input type="date" placeholder="유효기간" ref={expireDtRef} />
-      <input placeholder="생년월일" ref={birthDtRef} />
-      <span className="additional-description">기본결제수단 등록</span>
-      <input type="checkbox" onClick={clickCheck} className="inline-style" />
+      <input
+        name="cardNum"
+        placeholder="카드번호"
+        value={cardNum}
+        onChange={onChange}
+      />
+      <input
+        name="pwd"
+        placeholder="비밀번호"
+        value={pwd}
+        onChange={onChange}
+      />
+      <input
+        name="expireDt"
+        type="date"
+        placeholder="유효기간"
+        value={expireDt}
+        onChange={onChange}
+      />
+      <input
+        name="birthDt"
+        placeholder="생년월일"
+        value={birthDt}
+        onChange={onChange}
+      />
       <button onClick={handleSubmit} className="add-btn">
         등록
       </button>

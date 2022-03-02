@@ -2,7 +2,6 @@ import SettingsHeader from "./SettingsHeader";
 import "./SettingsDefault.css";
 import { useState, useEffect } from "react";
 import { AddressList, getAddress } from "./address/ShowAddress";
-import AddressPopup from "./address/KakaoAddress";
 import AddAddress from "./address/AddAddress";
 
 export default function AddressSet() {

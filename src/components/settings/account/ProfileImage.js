@@ -40,10 +40,10 @@ function ChangeProfileImage({ status, data }) {
     );
   } else {
     return (
-      <form>
-        <input type="text" ref={inputRef} />
-        <button onClick={handleSubmit}>저장</button>
-      </form>
+      <div>
+        <h1>파일 올리기 미구현</h1>
+        <div>어렵네요ㅜㅜ</div>
+      </div>
     );
   }
 }

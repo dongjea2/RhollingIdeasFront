@@ -1,24 +1,25 @@
-import { useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
 function ChangeUserName({ status, data }) {
-  //여기 수정
-  const inputRef = useRef(data);
   const userNo = window.sessionStorage.getItem("userNo");
+  const [input, setInput] = useState("");
+
+  function onChange(e) {
+    setInput(e.target.value);
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
-    const inputValue = inputRef.current.value;
 
     //빈문자열 update 방지
-    if (inputValue.trim() !== "") {
-      //소개는 제외
+    if (input.trim() !== "") {
       fetch("/profile/account", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          userName: inputValue, //userName - 공통부분아님
+          userName: input,
           userNo: userNo,
         }),
       })
@@ -41,7 +42,7 @@ function ChangeUserName({ status, data }) {
   } else {
     return (
       <form>
-        <input type="text" ref={inputRef} />
+        <input type="text" value={input} onChange={onChange} />
         <button onClick={handleSubmit}>저장</button>
       </form>
     );

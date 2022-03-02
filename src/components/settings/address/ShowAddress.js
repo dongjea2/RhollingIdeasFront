@@ -6,11 +6,23 @@ function Address({ addr }) {
   const [isUpdate, setIsUpdate] = useState(false);
   const [updateBtn, setUpdateBtn] = useState("수정");
 
-  const nameRef = useRef();
-  const addrNoRef = useRef();
-  const addrRef = useRef();
-  const addrDetailRef = useRef();
-  const phoneRef = useRef();
+  const [inputs, setInputs] = useState({
+    name: addr.name,
+    zipcode: addr.zipcode,
+    address: addr.address,
+    addrDetail: addr.addressDetail,
+    phone: addr.phone,
+  });
+
+  const { name, zipcode, address, addrDetail, phone } = inputs;
+
+  function onChange(e) {
+    const { value, name } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value,
+    });
+  }
 
   function clickUpdate(e) {
     e.preventDefault();
@@ -36,11 +48,11 @@ function Address({ addr }) {
           userNo: userNo,
         },
         addressNo: addr.addressNo,
-        receiverName: nameRef.current.value,
-        receiverZipcode: addrNoRef.current.value,
-        receiverAddress: addrRef.current.value,
-        receiverAddressDetailed: addrDetailRef.current.value,
-        receiverPhone: phoneRef.current.value,
+        receiverName: name,
+        receiverZipcode: zipcode,
+        receiverAddress: address,
+        receiverAddressDetailed: addrDetail,
+        receiverPhone: phone,
         defaultAddress: addr.isDefault,
       }),
     });
@@ -61,23 +73,62 @@ function Address({ addr }) {
     window.location.replace("/profile/addressset");
   }
 
+  function handleDefault(e) {
+    e.preventDefault();
+    fetch("/profile/addressdefault", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        addressNo: addr.addressNo,
+        user: {
+          userNo: userNo,
+        },
+      }),
+    });
+    window.location.replace("/profile/addressset");
+  }
+
   return (
     <div className="address">
       {isUpdate ? (
         <form>
-          <input placeholder="이름" ref={nameRef} className="card-input" />
           <input
+            name="name"
+            placeholder="이름"
+            className="card-input"
+            value={name}
+            onChange={onChange}
+          />
+          <input
+            name="zipcode"
             placeholder="우편번호"
-            ref={addrNoRef}
             className="card-input"
+            value={zipcode}
+            onChange={onChange}
           />
-          <input placeholder="주소" ref={addrRef} className="card-input" />
           <input
-            placeholder="상세주소"
-            ref={addrDetailRef}
+            name="address"
+            placeholder="주소"
             className="card-input"
+            value={address}
+            onChange={onChange}
           />
-          <input placeholder="전화번호" ref={phoneRef} className="card-input" />
+          <input
+            name="addrDetail"
+            placeholder="상세주소"
+            className="card-input"
+            value={addrDetail}
+            onChange={onChange}
+          />
+          <input
+            name="phone"
+            placeholder="전화번호"
+            className="card-input"
+            value={phone}
+            onChange={onChange}
+          />
           <button onClick={handleSubmit} className="add-btn">
             수정
           </button>
@@ -95,7 +146,9 @@ function Address({ addr }) {
         </>
       )}
       <div className="card-buttons-container">
-        <button className="card-button">기본결제수단 등록</button>
+        <button className="card-button" onClick={handleDefault}>
+          기본배송지 등록
+        </button>
         <button className="card-button" onClick={clickUpdate}>
           {updateBtn}
         </button>

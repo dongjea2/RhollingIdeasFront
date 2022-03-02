@@ -4,19 +4,25 @@ function Card({ card }) {
   const userNo = window.sessionStorage.getItem("userNo");
   const [isUpdate, setIsUpdate] = useState(false);
   const [updateBtn, setUpdateBtn] = useState("수정");
+  const [inputs, setInputs] = useState({
+    cardNum: card.cardNum,
+    expireDt: card.validDate,
+    birthDt: card.ownerBirth,
+    pwd: "",
+  });
 
-  const cardRef = useRef();
-  const expireDtRef = useRef();
-  const birthDtRef = useRef();
-  const pwdRef = useRef();
+  const { cardNum, expireDt, birthDt, pwd } = inputs;
+
+  function onChange(e) {
+    const { value, name } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value,
+    });
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
-
-    const cardNum = cardRef.current.value;
-    const expireDt = expireDtRef.current.value;
-    const birthDt = birthDtRef.current.value;
-    const pwd = pwdRef.current.value;
 
     fetch("/profile/payment", {
       method: "PUT",
@@ -63,22 +69,55 @@ function Card({ card }) {
     window.location.replace("/profile/paymentset");
   }
 
+  function handleDefault(e) {
+    e.preventDefault();
+    fetch("/profile/paymentdefault", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        cardNo: card.cardNo,
+        user: {
+          userNo: userNo,
+        },
+      }),
+    });
+    window.location.replace("/profile/paymentset");
+  }
+
   return (
     <div className="card">
       {isUpdate ? (
         <form>
-          <input placeholder="카드번호" ref={cardRef} className="card-input" />
-          <input placeholder="비밀번호" ref={pwdRef} className="card-input" />
           <input
-            type="date"
-            placeholder="유효기간"
-            ref={expireDtRef}
+            name="cardNum"
+            placeholder="카드번호"
             className="card-input"
+            value={cardNum}
+            onChange={onChange}
           />
           <input
-            placeholder="생년월일"
-            ref={birthDtRef}
+            name="pwd"
+            placeholder="비밀번호"
             className="card-input"
+            value={pwd}
+            onChange={onChange}
+          />
+          <input
+            name="expireDt"
+            type="date"
+            placeholder="유효기간"
+            className="card-input"
+            value={expireDt}
+            onChange={onChange}
+          />
+          <input
+            name="birthDt"
+            placeholder="생년월일"
+            className="card-input"
+            value={birthDt}
+            onChange={onChange}
           />
           <button onClick={handleSubmit} className="add-btn">
             수정
@@ -96,7 +135,9 @@ function Card({ card }) {
         </>
       )}
       <div className="card-buttons-container">
-        <button className="card-button">기본결제수단 등록</button>
+        <button className="card-button" onClick={handleDefault}>
+          기본결제수단 등록
+        </button>
         <button className="card-button" onClick={clickUpdate}>
           {updateBtn}
         </button>
