@@ -80,17 +80,20 @@
     margin: 16px 0px;
     text-align: left;
 }
-th{
+.orderinfo>table>thead>tr>th{
 	width: 132px;
     vertical-align: top;
     padding: 4px 0px 4px 16px;
+}
+.orderinfo>table>thead>tr>td{
+   font-size: 14px;
 }
 .item{
 	padding-left: 16px;
 	list-style-type: disc;
 }
 .item>li{
-    margin: 0 4px;
+    margin: 8px 0 0 4px;
     list-style-type: disc;
 }
 
