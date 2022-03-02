@@ -36,7 +36,7 @@ export default function Post() {
         
       }
       
-      let userid = window.sessiontorage.getItem('userid');
+
 
       const [info, setInfo] = useState([]);
       const [plag,setPlag] = useState('');
@@ -52,7 +52,7 @@ export default function Post() {
             <form>
               입력<input type="text"ref={postconRef} placeholder="커뮤니티 게시글 작성" />
               
-              <div style={{display:'none'}}ref={usernoRef}>{userid}</div> 
+              <div style={{display:'none'}}ref={usernoRef}>{window.sessionStorage.getItem("userNo")}</div> 
               
               <button onClick={handleSubmit}>작성</button>
             </form>
@@ -60,8 +60,7 @@ export default function Post() {
              프로젝트 {prodNo}의 커뮤니티
              {info.map((post)=>
              <div className='postdetail' key={post.postNo}>
-                <div style={{display:'none'}}>게시글번호{post.prodNo}json데이터 테스트입니다
-                </div>
+                
                 <div>유저이름:{post.maker.userName}</div>
                 <div>게시글내용:{post.postContent}</div>
                 </div >

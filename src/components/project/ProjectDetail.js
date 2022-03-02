@@ -89,10 +89,10 @@ export default function ProjectDetail() {
           <div className="content">
             
             <div className="postcon">
-              <div onClick={conView}>게시글내용 div</div>
+              <div onClick={conView}></div>
               <button onClick={postView}> 커뮤니티 내용</button>
               <button onClick={conView}> 게시글 내용</button>
-              {postShow ? <Postlook /> : <Info />}
+              {postShow ? <Postlook /> : <div>{info.projectContent}</div>}
             </div>
     
 
