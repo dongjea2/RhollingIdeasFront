@@ -50,15 +50,6 @@ export default function Post() {
 
         return ( 
         <>
-        <h3>프로젝트 {prodNo}의 커뮤니티</h3>
-            <form className='postinput'>
-            {window.sessionStorage.getItem("userName")} 
-            <div style={{display:'none'}}ref={usernoRef}>{window.sessionStorage.getItem("userNo")}</div> 
-              <input className='postinput_text' type="text"ref={postconRef} placeholder="커뮤니티 게시글 작성" />
-              <button onClick={handleSubmit}>작성</button>
-            </form>
-            <div>
-
             <form>
               <Flex>
 
