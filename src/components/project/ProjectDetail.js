@@ -6,6 +6,7 @@ import Rewardlist from './RewardList'
 import axios from 'axios';
 
 import './ProjectDetail.css'
+import styled from 'styled-components';
 
 
 export default function ProjectDetail() {
@@ -67,7 +68,7 @@ export default function ProjectDetail() {
             </div>
             <div className="duedate">
               남은시간<br />
-              <h1>{info && info.endDate.substring(0,10)}</h1>
+              <Price>{info.remainDayCnt > 0 ?  info.remainDayCnt+"일 남음": "프로젝트 종료"}</Price>
             </div>
             <div className="supportcnt">
               후원자수<br />
@@ -98,14 +99,14 @@ export default function ProjectDetail() {
 
             <div className="reward">
             {info && info.reward.map((reward)=>
-             <div className='rewardlist' key={reward.rewardNo}>
              <Link to={`/order/${reward.rewardNo}`}>
+               <RewardBox key={reward.rewardNo}>
                 <div style={{display:'none'}}>선물번호{reward.rewardNo}</div>
                 <div>선물금액:{reward.rewardPrice}</div>
                 <div>선물이름:{reward.rewardName}</div>
                 <div>선물재고:{reward.rewardNum}</div>
+               </RewardBox>
             </Link>
-            </div>
             )}
             </div>
 
@@ -119,3 +120,26 @@ export default function ProjectDetail() {
 
   );
 }
+
+const Price = styled.div`
+font-size: 35px;
+margin-bottom: 10px;
+font-weight: 600;
+`
+
+
+const RewardBox= styled.div`
+
+font-size:18px;
+font-weight: 600;
+	border-radius: 5px;
+  border: 1px solid gray;
+  padding: 30px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+    
+    transition-duration: 0.15s;
+    &:hover{
+      background-color: rgb(255,87,87);
+    }
+`

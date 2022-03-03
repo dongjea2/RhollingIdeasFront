@@ -64,9 +64,7 @@ export default function Project({ project }) {
           <button className={styles.notLike} onClick={handleAddLike} disabled={buttonDisable}/>
         }
         {isPicked === "1" ? 
-        <Picked/>
-          :
-          ""
+        <Picked/> : ""
         }
         <div className={styles.info}>
             <Link to={'/projectdetail/'+Number( project.projectNo)}>
