@@ -48,30 +48,19 @@ export default function Post() {
         .catch(err => console.log(err));
        }, [plag]);
 
-        return ( 
+      return( 
         <>
-        <h3>프로젝트 {prodNo}의 커뮤니티</h3>
-            <form className='postinput'>
-            {window.sessionStorage.getItem("userName")} 
-            <div style={{display:'none'}}ref={usernoRef}>{window.sessionStorage.getItem("userNo")}</div> 
-              <input className='postinput_text' type="text"ref={postconRef} placeholder="커뮤니티 게시글 작성" />
-              <button onClick={handleSubmit}>작성</button>
-            </form>
-            <div>
-
+        <h3>프로젝트의 커뮤니티</h3>
             <form>
               <Flex>
-
               <PostInput ref={postconRef} placeholder="댓글을 입력하세요" />
               <div style={{display:'none'}}ref={usernoRef}>{window.sessionStorage.getItem("userNo")}</div> 
               <AddButton onClick={handleSubmit}>작성</AddButton>
               </Flex>
             </form>
             <div>
-             프로젝트 커뮤니티
              {info.map((post)=>
              <PostBox key={post.postNo}>
-
                <PostOwner> {post.maker.userName} </PostOwner>
                 <PostContent>{post.postContent}</PostContent>
              </PostBox>
@@ -80,6 +69,7 @@ export default function Post() {
         </> 
         );
 }
+
 
 const Flex= styled.div`
 display:flex;
