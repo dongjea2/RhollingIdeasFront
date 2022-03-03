@@ -53,7 +53,7 @@ function App() {
 
         {/* 프로필 메뉴 링크 */}
         <Route path="/orderlist" element={<RequireAuth><OrderList /></RequireAuth>} />
-        <Route path="/orderlist/:paymentNo" element={<RequireAuth><OrderDetail /></RequireAuth>} />
+        <Route path="/orderlist/:orderNo" element={<RequireAuth><OrderDetail /></RequireAuth>} />
         <Route path="/interestlist" element={<RequireAuth><InterestProjectList /></RequireAuth>} />
         <Route path="/prelaunchedlist" element={<RequireAuth><PreLaunchedProjectList /></RequireAuth>} />
         <Route path="/following" element={<RequireAuth><FollowingList /></RequireAuth>} />
