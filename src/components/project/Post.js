@@ -50,7 +50,6 @@ export default function Post() {
 
       return( 
         <>
-        <h3>프로젝트의 커뮤니티</h3>
             <form>
               <Flex>
               <PostInput ref={postconRef} placeholder="댓글을 입력하세요" />
