@@ -50,7 +50,6 @@ export default function Post() {
 
         return ( 
         <>
-<<<<<<< HEAD
         <h3>프로젝트 {prodNo}의 커뮤니티</h3>
             <form className='postinput'>
             {window.sessionStorage.getItem("userName")} 
@@ -59,8 +58,7 @@ export default function Post() {
               <button onClick={handleSubmit}>작성</button>
             </form>
             <div>
-             
-=======
+
             <form>
               <Flex>
 
@@ -71,7 +69,6 @@ export default function Post() {
             </form>
             <div>
              프로젝트 커뮤니티
->>>>>>> 3110113d4ced3d2a86cc4528a21ed38869d5e01d
              {info.map((post)=>
              <PostBox key={post.postNo}>
 
