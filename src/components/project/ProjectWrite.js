@@ -31,25 +31,44 @@ export default function ProjectWrite(){
 	const deliverSelectRef = useRef(null);
 
 
-    const [showModal, setShowModal] = useState(false);
+    const [reward, setReward] = useState({
+        rewardPrice: '',
+        rewardName: '',
+        deliverDate: '',
+        rewardNum: '',
+        itemName: '',
+    });
+
+    
+    
+    const onChangeReward = (e) =>{
+        setModalVisible(false);
+        e.preventDefault();
+
+        setReward({
+            rewardPrice: rewardPriceRef.current.value,
+            rewardName: rewardNameRef.current.value,
+            deliverDate: deliverDateRef.current.value,
+            rewardNum: rewardNumRef.current.value,
+            itemName: itemNameRef.current.value
+        });
+        }
+        
+    
 
     //모달 visible
     const [modalVisible, setModalVisible] = useState(false);    
 
-    const openMadal = ()=>{
+    const openModal = (e)=>{
+        e.preventDefault();
         setModalVisible(true);
     };
 
-    const closeMadal = ()=>{
+    const closeModal = (e)=>{
+        e.preventDefault();
         setModalVisible(false);
     };
 
-
-
-    
-    const closeModal = () => {
-        setModalVisible(false) 
-    };
 
     const [info, setInfo] = useState([]);
     const [plag,setPlag] = useState('');
@@ -84,43 +103,32 @@ export default function ProjectWrite(){
            let projectcontent = projectcontentRef.current.value;
            let projecturl = projecturlRef.current.value;
 
-           let rewardPrice = rewardPriceRef.current.value;
-           let rewardName = rewardNameRef.current.value;
-           let deliverDate = deliverDateRef.current.value;
-           let rewardNum = rewardNumRef.current.value;
-           let itemName = itemNameRef.current.value;
-
             //reward, category, project 다 보내야함
         let postdata = {
                 maker : {userNo: 1},
                 category: {categoryNo: category},
                 longTitle: longtitle,
                 projectBrief: projectbrief,
-                // projectImage: projectimage,
+                projectImage: 'files/project_image/8.png',
                 targetPrice: targetprice,
                 shortTitle: shorttitle,            
                 projectContent: projectcontent,
                 startDate: startdate,
                 endDate: enddate,
                 projectUrl: projecturl,
-                reward: {rewardName: rewardName},
-                reward: {rewardPrice: rewardPrice},
-                reward: {deliverDate: deliverDate},
-                reward: {rewardNum: rewardNum},
-                reward: {itemName: itemName},
+                reward: {rewardName: reward.rewardName},
+                reward: {rewardPrice: reward.rewardPrice},
+                reward: {deliverDate: reward.deliverDate},
+                reward: {rewardNum: reward.rewardNum},
+                reward: {itemName: reward.itemName},
         }
 
-        let formData = new FormData();
-        let files = e.target.img.files;
-        formData.append("file", files[0]);
+     
 
-        formData.append("data", JSON.stringify(postdata));
-
-        axios.post("/projectwrite", formData , {
+        axios.post("/projectwrite", postdata , {
           headers: {
-            "Content-Type": `multipart/form-data`,
+            "Content-Type": `application/json`,
           },
-          data: formData
         }).then((res) => {
           console.log(res);
           setPlag(plag + 1);
@@ -135,8 +143,8 @@ export default function ProjectWrite(){
 
     return(
         <form onSubmit={(e) => onSubmit(e)}>
+            <H3Con>프로젝트 올리기</H3Con>
             <select className="categoryref" ref={categoryRef} onClick={onChange}>
-                {/* 카테고리 name으로 선택하는데 프로젝트 작성시 카테고리no로 저장함 */}
                 {info.map((category)=>
                 <option key={category.categoryNo} value={category.categoryNo}>
                     {category.categoryName}  
@@ -149,22 +157,18 @@ export default function ProjectWrite(){
             <div style={{display:'none'}}>userNo</div>
             {/* <input type="text"> {text}</input> */}
             <div>{text}</div>
-            <label>프로젝트 제목을 설정하는 부분입니다</label>
-            <input type="text" ref={longtitleRef} placeholder="longtitle"/>
-            <label>프로젝트 어쩌구를 설정하는 부분입니다</label>
-            <input type="text" ref={projectbriefRef} placeholder="projectbrief"/>
-            <input type="file" accept="image/*" name="img"/>
-            <div>projectimage</div>
-            <input type="number" ref={targetpriceRef} placeholder="targetprice"/>
-            <input type="text" ref={shorttitleRef} placeholder="shorttitle" />
-            <input type="text" ref={projectcontentRef} placeholder="projectcontent"/>
-            <input type="text" ref={projecturlRef} placeholder="projecturl"/>
-            <input type="date" ref={startdateRef}/>
-            <input type="date" ref={enddateRef}/>
+            <BoxContent type="text" ref={longtitleRef} placeholder="프로젝트 제목을 입력해주세요"/>
+            <BoxContent type="text" ref={shorttitleRef} placeholder="짧은 제목을 입력해주세요" />
+            <BoxContent type="text" ref={projectbriefRef} placeholder="프로젝트 요약 부분을 입력해주세요"/>
+            <BoxContent type="number" ref={targetpriceRef} placeholder="목표금액을 입력해주세요"/>
+            <BoxContent type="text" ref={projectcontentRef} placeholder="프로젝트 상세 내용을 입력해주세요"/>
+            <BoxContent type="text" ref={projecturlRef} placeholder="프로젝트 페이지 주소를 입력해주세요"/>
+            <BoxContent type="date" ref={startdateRef}/>
+            <BoxContent type="date" ref={enddateRef}/>
 
 
             <div>
-                <ModalBtn onClick={openMadal}>
+                <ModalBtn onClick={openModal}>
                     선물 추가부분
                 </ModalBtn>                    
 
@@ -174,13 +178,13 @@ export default function ProjectWrite(){
                 closable={true}
                 maskClosable={false}
                 onClose={closeModal}>
-                    <input type="text" ref={rewardNameRef} placeholder="선물이름"/>
-                    <input type="text" ref={rewardPriceRef} placeholder="선물금액"/>
-                    <input type="text" ref={rewardNumRef} placeholder="선물한정수량"/>
-                    <input type="text" ref={itemNameRef} placeholder="아이템 이름"/>
-                    <input type="number" ref={deliverSelectRef} placeholder="예상전달일"/>
-                    <button >확인</button>
-                <ModalBtn onClick={closeMadal}>취소</ModalBtn>
+                    <BoxContent type="text" ref={rewardNameRef} placeholder="선물이름"/>
+                    <BoxContent type="text" ref={rewardPriceRef} placeholder="선물금액"/>
+                    <BoxContent type="text" ref={rewardNumRef} placeholder="선물한정수량"/>
+                    <BoxContent type="text" ref={itemNameRef} placeholder="아이템 이름"/>
+                    <BoxContent type="number" ref={deliverDateRef} placeholder="예상전달일"/>
+                    <ModalBt onClick={onChangeReward}>확인</ModalBt>
+                <ModalBtn onClick={closeModal}>취소</ModalBtn>
                 </SimpleModal>
                 }
             </div>
@@ -190,12 +194,39 @@ export default function ProjectWrite(){
         
     );
 }
+const ModalBt = styled.button`
+    font-size: 23px;
+    margin-top: 30px;
+    min-width: 50px;
+    width: auto;
+    height: 50px;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    white-space: nowrap;
+    border-radius: 4px;
+    margin: 0px;
+    border: 0px;
+    margin-left:20px;
+    outline: none;
+    font-weight: normal;
+    box-sizing: border-box;
+    background-color: gray;
+    color: rgb(255, 255, 255);
+
+  &:hover {
+    background-color: rgb(245, 77, 67);
+    color: black;
+
+`
 
 
 const ModalBtn = styled.button`
     font-size: 23px;
     margin-top: 30px;
-    min-width: 120px;
+    min-width: 50px;
     width: auto;
     height: 50px;
     display: inline-flex;
@@ -218,4 +249,15 @@ const ModalBtn = styled.button`
     background-color: rgb(245, 77, 67);
     color: black;
 
+`
+const BoxContent = styled.input`
+    border: 1px solid darkgrey;
+    border-radius: 4px;
+    max-width: 530px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+`
+
+const H3Con = styled.h3`
+text-align: center;
 `
