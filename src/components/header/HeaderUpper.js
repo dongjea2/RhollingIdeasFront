@@ -17,7 +17,7 @@ export default function HeaderUpper() {
           
           {userName === null ? (
             <li className="login-container">
-              <a href="login">
+              <a href="/login">
                 <span className="user-li login">
                   <img
                     src={require("../../images/mainpage/user_default.png")}
