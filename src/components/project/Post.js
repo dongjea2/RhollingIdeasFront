@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, {Component, useEffect, useRef, useState} from 'react';
 import { useParams } from 'react-router-dom';
+import styled from 'styled-components';
 import Comments from './Comment';
 import './Post.css'
 
@@ -49,6 +50,7 @@ export default function Post() {
 
         return ( 
         <>
+<<<<<<< HEAD
         <h3>프로젝트 {prodNo}의 커뮤니티</h3>
             <form className='postinput'>
             {window.sessionStorage.getItem("userName")} 
@@ -58,15 +60,85 @@ export default function Post() {
             </form>
             <div>
              
+=======
+            <form>
+              <Flex>
+
+              <PostInput ref={postconRef} placeholder="댓글을 입력하세요" />
+              <div style={{display:'none'}}ref={usernoRef}>{window.sessionStorage.getItem("userNo")}</div> 
+              <AddButton onClick={handleSubmit}>작성</AddButton>
+              </Flex>
+            </form>
+            <div>
+             프로젝트 커뮤니티
+>>>>>>> 3110113d4ced3d2a86cc4528a21ed38869d5e01d
              {info.map((post)=>
-             <div className='postdetail' key={post.postNo}>
-                
-                <div>유저이름:{post.maker.userName}</div>
-                <div>게시글내용:{post.postContent}</div>
-                </div >
+             <PostBox key={post.postNo}>
+
+               <PostOwner> {post.maker.userName} </PostOwner>
+                <PostContent>{post.postContent}</PostContent>
+             </PostBox>
               )}
             </div>
         </> 
         );
 }
 
+const Flex= styled.div`
+display:flex;
+margin-bottom:70px;
+margin-top:50px;
+`
+
+const PostBox = styled.div`
+    border: 1px solid darkgrey;
+    border-radius: 4px;
+    max-width: 530px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+`
+const PostOwner= styled.div`
+    font-size: 15px;
+    height:25px;
+    color:white;
+    background-color: rgb(255,87,87);
+    margin-bottom: 18px;
+`
+
+const PostContent = styled.div`
+    margin-top: 5px;
+    margin-bottom: 8px;
+    margin-left: 3px;
+    font-size: 19px;
+    font-weight: 600;
+`
+const PostInput= styled.input`
+    border-radius: 4px;
+    width: 530px;
+    height: 80px;
+    font-size: 20px;
+`
+
+const AddButton= styled.button`
+    font-size: 20px;
+    min-width: 120px;
+    width: auto;
+    height: 80px;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    white-space: nowrap;
+    border-radius: 5px;
+    border: 0px;
+    outline: none;
+    font-weight: normal;
+    box-sizing: border-box;
+    background-color: rgb(255,87,87);
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+
+  &:hover {
+    color: black;
+`
