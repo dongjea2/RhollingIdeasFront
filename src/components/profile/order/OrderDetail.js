@@ -19,19 +19,18 @@ export default function OrderDetail(){
         const day = leftPad(source.getDate()); 
         return [year, month, day].join(delimiter); 
     }
-
     return (
         <section>
         <div className="project-container">
             <div className="project-img">
-                <a href={"/projectdetail/" + order.orderNo}>
+                <a href={"/projectdetail/" + order.reward.project.projectNo}>
                     <img src={require(`../../../${project.projectImage}`)} alt="projectImg" />
                 </a>
             </div>
             <div className="project-text">
                 <div className="cate-maker">{project.category.categoryName} | {project.maker.userName}</div>
                 <div className="longtitle">
-                    <a href={"/projectdetail/" + order.orderNo}>
+                    <a href={"/projectdetail/" + order.reward.project.projectNo}>
                         {project.longTitle}
                     </a>
                 </div>
